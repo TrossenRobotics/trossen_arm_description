@@ -1,5 +1,8 @@
 <?xml version="1.0" ?>
 <robot name="wxai">
+  <material name="trossen_black">
+    <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
+  </material>
   <link name="base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00014175 -0.00005228 0.03175177"/>
@@ -11,9 +14,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/base_link.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -33,9 +34,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_1.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -62,9 +61,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_2.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -91,9 +88,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_3.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -120,9 +115,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_4.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -149,9 +142,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_5.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -178,9 +169,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/link_6.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -207,9 +196,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/carriage_right.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -236,9 +223,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/carriage_left.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -265,9 +250,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_left.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -293,9 +276,7 @@
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_right.stl"/>
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1"/>
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
