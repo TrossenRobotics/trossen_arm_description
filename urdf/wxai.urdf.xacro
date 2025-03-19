@@ -17,6 +17,10 @@
   <xacro:property name="variant"                    value="$(arg variant)"/>
   <xacro:property name="arm_side"                   value="$(arg arm_side)"/>
 
+  <material name="trossen_black">
+    <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
+  </material>
+
   <xacro:if value="$(arg use_world_frame)">
     <link name="world"/>
     <joint name="fixed" type="fixed">
@@ -48,9 +52,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/base_link.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -83,9 +85,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_1.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -132,9 +132,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_2.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -181,9 +179,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_3.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -230,9 +226,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_4.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -279,9 +273,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_5.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -328,9 +320,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/link_6.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -377,9 +367,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/carriage_right.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -426,9 +414,7 @@
       <geometry>
         <mesh filename="${mesh_directory}/carriage_left.stl" />
       </geometry>
-      <material name="">
-        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material>
+      <material name="trossen_black"/>
     </visual>
     <collision>
       <origin
@@ -477,9 +463,7 @@
         <geometry>
           <mesh filename="${mesh_directory}/camera_mount_d405.stl" />
         </geometry>
-        <material name="">
-          <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -535,9 +519,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/handle_left.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -579,9 +561,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/leader_finger_left_index.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -623,9 +603,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/leader_finger_left_thumb.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -671,9 +649,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/handle_right.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -715,9 +691,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/leader_finger_right_thumb.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -759,9 +733,7 @@
           <geometry>
             <mesh filename="${mesh_directory}/leader_finger_right_index.stl" />
           </geometry>
-          <material name="">
-            <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-          </material>
+          <material name="trossen_black"/>
         </visual>
         <collision>
           <origin
@@ -809,9 +781,7 @@
         <geometry>
           <mesh filename="${mesh_directory}/gripper_left.stl" />
         </geometry>
-        <material name="">
-          <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -853,9 +823,7 @@
         <geometry>
           <mesh filename="${mesh_directory}/gripper_right.stl" />
         </geometry>
-        <material name="">
-          <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
