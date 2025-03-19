@@ -164,7 +164,7 @@ def generate_launch_description():
                 'urdf',
                 LaunchConfiguration('robot_model'),
                 ]), '.urdf.xacro ',
-            'arm_variant:=', LaunchConfiguration('arm_variant'), ' ',
+            'variant:=', LaunchConfiguration('arm_variant'), ' ',
             'arm_side:=', LaunchConfiguration('arm_side'), ' ',
             ])
         )
