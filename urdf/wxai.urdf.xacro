@@ -203,7 +203,7 @@
     <child link="link_3" />
     <axis xyz="0 -1 0" />
     <limit
-      lower="-${pi}"
+      lower="0.0"
       upper="${3 * pi / 4}"
       effort="27.0"
       velocity="${pi}" />
