@@ -48,7 +48,7 @@
     <parent link="base_link"/>
     <child link="link_1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.141592653589793"/>
+    <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.375"/>
   </joint>
   <link name="link_2">
     <inertial>
@@ -75,7 +75,7 @@
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="0 1 0"/>
-    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.141592653589793"/>
+    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
   </joint>
   <link name="link_3">
     <inertial>
@@ -102,7 +102,7 @@
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.141592653589793"/>
+    <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.375"/>
   </joint>
   <link name="link_4">
     <inertial>
@@ -129,7 +129,7 @@
     <parent link="link_3"/>
     <child link="link_4"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="3.141592653589793"/>
+    <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
   <link name="link_5">
     <inertial>
@@ -156,7 +156,7 @@
     <parent link="link_4"/>
     <child link="link_5"/>
     <axis xyz="0 0 -1"/>
-    <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="3.141592653589793"/>
+    <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
   <link name="link_6">
     <inertial>
@@ -183,7 +183,7 @@
     <parent link="link_5"/>
     <child link="link_6"/>
     <axis xyz="1 0 0"/>
-    <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="3.141592653589793"/>
+    <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="7.0"/>
   </joint>
   <link name="carriage_right">
     <inertial>
