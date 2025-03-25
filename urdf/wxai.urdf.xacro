@@ -108,7 +108,7 @@
       lower="${-radians(180 - 5)}"
       upper="${radians(180 - 5)}"
       effort="27.0"
-      velocity="${pi}" />
+      velocity="3.375" />
   </joint>
 
   <link name="link_2">
@@ -155,7 +155,7 @@
       lower="0.0"
       upper="${pi}"
       effort="27.0"
-      velocity="${pi}" />
+      velocity="3.375" />
   </joint>
 
   <link name="link_3">
@@ -202,7 +202,7 @@
       lower="0.0"
       upper="${3 * pi / 4}"
       effort="27.0"
-      velocity="${pi}" />
+      velocity="3.375" />
   </joint>
 
   <link name="link_4">
@@ -249,7 +249,7 @@
       lower="-${pi / 2.0}"
       upper="${pi / 2.0}"
       effort="7.0"
-      velocity="${pi}" />
+      velocity="7.0" />
   </joint>
 
   <link name="link_5">
@@ -296,7 +296,7 @@
       lower="-${pi / 2.0}"
       upper="${pi / 2.0}"
       effort="7.0"
-      velocity="${pi}" />
+      velocity="7.0" />
   </joint>
 
   <link name="link_6">
@@ -343,7 +343,7 @@
       lower="-${pi}"
       upper="${pi}"
       effort="7.0"
-      velocity="${pi}" />
+      velocity="7.0" />
   </joint>
 
   <link name="carriage_right">
