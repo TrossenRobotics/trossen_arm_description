@@ -486,7 +486,7 @@
 
     <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
 
-    <xacro:sensor_d405 parent="camera_mount_d405">
+    <xacro:sensor_d405 parent="camera_mount_d405" use_nominal_extrinsics="true">
       <origin
         xyz="0.02927207801 0 0.03824951197"
         rpy="0 ${radians(20)} 0" />

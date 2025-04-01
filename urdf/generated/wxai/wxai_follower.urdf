@@ -298,6 +298,54 @@
       <inertia ixx="0.00002117" ixy="0.0" ixz="0.0" iyy="0.000013758" iyz="0.0" izz="0.000013758"/>
     </inertial>
   </link>
+  <joint name="camera_depth_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_depth_frame"/>
+  </joint>
+  <link name="camera_depth_frame"/>
+  <joint name="camera_depth_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_depth_frame"/>
+    <child link="camera_depth_optical_frame"/>
+  </joint>
+  <link name="camera_depth_optical_frame"/>
+  <joint name="camera_infra1_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra1_frame"/>
+  </joint>
+  <link name="camera_infra1_frame"/>
+  <joint name="camera_infra1_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_infra1_frame"/>
+    <child link="camera_infra1_optical_frame"/>
+  </joint>
+  <link name="camera_infra1_optical_frame"/>
+  <joint name="camera_infra2_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 -0.018 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_infra2_frame"/>
+  </joint>
+  <link name="camera_infra2_frame"/>
+  <joint name="camera_infra2_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_infra2_frame"/>
+    <child link="camera_infra2_optical_frame"/>
+  </joint>
+  <link name="camera_infra2_optical_frame"/>
+  <joint name="camera_color_joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0 0.0 0"/>
+    <parent link="camera_link"/>
+    <child link="camera_color_frame"/>
+  </joint>
+  <link name="camera_color_frame"/>
+  <joint name="camera_color_optical_joint" type="fixed">
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+    <parent link="camera_color_frame"/>
+    <child link="camera_color_optical_frame"/>
+  </joint>
+  <link name="camera_color_optical_frame"/>
   <link name="gripper_left">
     <inertial>
       <origin rpy="0 0 0" xyz="0.01893993 -0.00901223 -0.00215453"/>
