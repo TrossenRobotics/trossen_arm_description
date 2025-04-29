@@ -206,7 +206,7 @@
     </collision>
   </link>
   <joint name="right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0745 -0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
     <parent link="link_6"/>
     <child link="carriage_right"/>
     <axis xyz="0 -1 0"/>
@@ -233,7 +233,7 @@
     </collision>
   </link>
   <joint name="left_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0745 0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 0.023 0"/>
     <parent link="link_6"/>
     <child link="carriage_left"/>
     <axis xyz="0 1 0"/>
@@ -292,7 +292,7 @@
     <axis xyz="0 0 0"/>
   </joint>
   <joint name="ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.142 0 0"/>
+    <origin rpy="0 0 0" xyz="0.154 0 0"/>
     <parent link="link_6"/>
     <child link="ee_gripper_link"/>
     <axis xyz="1 0 0"/>

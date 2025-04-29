@@ -381,7 +381,7 @@
 
   <joint name="right_carriage_joint" type="prismatic">
     <origin
-      xyz="0.0745 -0.023 0"
+      xyz="0.0865 -0.023 0"
       rpy="0 0 0" />
     <parent link="link_6" />
     <child link="carriage_right" />
@@ -428,7 +428,7 @@
 
   <joint name="left_carriage_joint" type="prismatic">
     <origin
-      xyz="0.0745 0.023 0"
+      xyz="0.0865 0.023 0"
       rpy="0 0 0" />
     <parent link="link_6" />
     <child link="carriage_left" />
@@ -477,7 +477,7 @@
 
     <joint name="camera_mount_joint" type="fixed">
       <origin
-        xyz="0 0 0"
+        xyz="0.012 0 0"
         rpy="0 0 0" />
       <parent link="link_6" />
       <child link="camera_mount_d405" />
@@ -533,7 +533,7 @@
 
       <joint name="handle_joint" type="fixed">
         <origin
-          xyz="0 0 0"
+          xyz="0.012 0 0"
           rpy="0 0 0" />
         <parent link="link_6" />
         <child link="handle" />
@@ -663,7 +663,7 @@
 
       <joint name="handle_joint" type="fixed">
         <origin
-          xyz="0 0 0"
+          xyz="0.012 0 0"
           rpy="0 0 0" />
         <parent link="link_6" />
         <child link="handle" />
@@ -846,7 +846,7 @@
 
     <joint name="ee_gripper" type="fixed">
       <origin
-        xyz="0.142 0 0"
+        xyz="0.154 0 0"
         rpy="0 0 0" />
       <parent link="link_6" />
       <child link="ee_gripper_link" />
