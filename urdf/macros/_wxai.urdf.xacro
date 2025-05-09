@@ -8,7 +8,7 @@
     value="6"
     scope="global"/>
 
-  <xacro:macro name="wxai" params="variant arm_side use_world_frame base_link_frame">
+  <xacro:macro name="wxai" params="variant arm_side use_world_frame base_link_frame prefix:=''">
 
     <material name="trossen_black">
       <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
@@ -18,7 +18,7 @@
     <xacro:property name="variant"                    value="$(arg variant)"/>
     <xacro:property name="arm_side"                   value="$(arg arm_side)"/>
 
-    <link name="base_link">
+    <link name="${prefix}base_link">
       <inertial>
         <origin
           xyz="-0.00014175 -0.00005228 0.03175177"
@@ -51,7 +51,7 @@
       </collision>
     </link>
 
-    <link name="link_1">
+    <link name="${prefix}link_1">
       <inertial>
         <origin
           xyz="-0.00011075 0.00171176 0.02044592"
@@ -98,7 +98,7 @@
         velocity="3.375" />
     </joint>
 
-    <link name="link_2">
+    <link name="${prefix}link_2">
       <inertial>
         <origin
           xyz="-0.13121451 -0.00292583 0.00021345"
@@ -145,7 +145,7 @@
         velocity="3.375" />
     </joint>
 
-    <link name="link_3">
+    <link name="${prefix}link_3">
       <inertial>
         <origin
           xyz="0.18083602 -0.00094090 0.05554937"
@@ -192,7 +192,7 @@
         velocity="3.375" />
     </joint>
 
-    <link name="link_4">
+    <link name="${prefix}link_4">
       <inertial>
         <origin
           xyz="0.05797842 0.00027145 0.05884447"
@@ -239,7 +239,7 @@
         velocity="7.0" />
     </joint>
 
-    <link name="link_5">
+    <link name="${prefix}link_5">
       <inertial>
         <origin
           xyz="0.00412447 -0.00001138 -0.04283184"
@@ -286,7 +286,7 @@
         velocity="7.0" />
     </joint>
 
-    <link name="link_6">
+    <link name="${prefix}link_6">
       <inertial>
         <origin
           xyz="0.04572768 -0.00000726 0.00001402"
@@ -333,7 +333,7 @@
         velocity="7.0" />
     </joint>
 
-    <link name="carriage_right">
+    <link name="${prefix}carriage_right">
       <inertial>
         <origin
           xyz="-0.00889602 0.00403514 0.00457901"
@@ -380,7 +380,7 @@
         velocity="0.0875" />
     </joint>
 
-    <link name="carriage_left">
+    <link name="${prefix}carriage_left">
       <inertial>
         <origin
           xyz="-0.00889602 -0.00403515 -0.00457908"
@@ -429,7 +429,7 @@
 
     <xacro:if value="${variant == 'follower'}">
 
-      <link name="camera_mount_d405">
+      <link name="${prefix}camera_mount_d405">
         <inertial>
           <origin
             xyz="0.03023383 0.00679835 0.05006687"
@@ -485,7 +485,7 @@
 
       <xacro:if value="${arm_side == 'left'}">
 
-        <link name="handle">
+        <link name="${prefix}handle">
           <inertial>
             <origin
               xyz="0.02058209 -0.00684633 -0.07527822"
@@ -527,7 +527,7 @@
           <axis xyz="0 0 0" />
         </joint>
 
-        <link name="leader_finger_left_index">
+        <link name="${prefix}leader_finger_left_index">
           <inertial>
             <origin
               xyz="0.00463071 0.00281421 -0.02178863"
@@ -569,7 +569,7 @@
           <axis xyz="0 0 0" />
         </joint>
 
-        <link name="leader_finger_left_thumb">
+        <link name="${prefix}leader_finger_left_thumb">
           <inertial>
             <origin
               xyz="-0.00130654 -0.00425887 -0.02751970"
@@ -615,7 +615,7 @@
 
       <xacro:if value="${arm_side == 'right'}">
 
-        <link name="handle">
+        <link name="${prefix}handle">
           <inertial>
             <origin
               xyz="0.02058188 0.00684352 -0.07528491"
@@ -657,7 +657,7 @@
           <axis xyz="0 0 0" />
         </joint>
 
-        <link name="leader_finger_right_thumb">
+        <link name="${prefix}leader_finger_right_thumb">
           <inertial>
             <origin
               xyz="-0.00130777 0.00425890 -0.02752884"
@@ -699,7 +699,7 @@
           <axis xyz="0 0 0" />
         </joint>
 
-        <link name="leader_finger_right_index">
+        <link name="${prefix}leader_finger_right_index">
           <inertial>
             <origin
               xyz="0.00463187 -0.00281567 -0.02179219"
@@ -747,7 +747,7 @@
 
     <xacro:if value="${variant in ('base', 'follower')}">
 
-      <link name="gripper_left">
+      <link name="${prefix}gripper_left">
         <inertial>
           <origin
             xyz="0.01893993 -0.00901223 -0.00215453"
@@ -789,7 +789,7 @@
         <axis xyz="0 0 0" />
       </joint>
 
-      <link name="gripper_right">
+      <link name="${prefix}gripper_right">
         <inertial>
           <origin
             xyz="0.01893989 0.00901216 -0.00215461"
@@ -840,7 +840,7 @@
         <axis xyz="1 0 0" />
       </joint>
 
-      <link name="ee_gripper_link">
+      <link name="${prefix}ee_gripper_link">
         <inertial>
           <mass value="0.001"/>
           <inertia
