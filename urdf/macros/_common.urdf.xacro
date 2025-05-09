@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="common" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:macro name="trossen_black">
+    <material name="trossen_black">
+      <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
+    </material>
+  </xacro:macro>  <!-- trossen_black -->
+
+</robot>
