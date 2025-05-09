@@ -10,10 +10,6 @@
 
   <xacro:macro name="wxai" params="variant arm_side use_world_frame base_link_frame prefix:=''">
 
-    <material name="trossen_black">
-      <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
-    </material>
-
     <xacro:property name="mesh_directory"             value="package://trossen_arm_description/meshes/${robot_model}"/>
     <xacro:property name="variant"                    value="$(arg variant)"/>
     <xacro:property name="arm_side"                   value="$(arg arm_side)"/>
@@ -84,12 +80,12 @@
       </collision>
     </link>
 
-    <joint name="joint_0" type="revolute">
+    <joint name="${prefix}joint_0" type="revolute">
       <origin
         xyz="0 0 0.05725"
         rpy="0 0 0" />
-      <parent link="base_link" />
-      <child link="link_1" />
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}link_1" />
       <axis xyz="0 0 1" />
       <limit
         lower="${-radians(180 - 5)}"
@@ -131,12 +127,12 @@
       </collision>
     </link>
 
-    <joint name="joint_1" type="revolute">
+    <joint name="${prefix}joint_1" type="revolute">
       <origin
         xyz="0.02 0 0.04625"
         rpy="0 0 0" />
-      <parent link="link_1" />
-      <child link="link_2" />
+      <parent link="${prefix}link_1" />
+      <child link="${prefix}link_2" />
       <axis xyz="0 1 0" />
       <limit
         lower="0.0"
@@ -178,12 +174,12 @@
       </collision>
     </link>
 
-    <joint name="joint_2" type="revolute">
+    <joint name="${prefix}joint_2" type="revolute">
       <origin
         xyz="-0.264 0 0"
         rpy="0 0 0" />
-      <parent link="link_2" />
-      <child link="link_3" />
+      <parent link="${prefix}link_2" />
+      <child link="${prefix}link_3" />
       <axis xyz="0 -1 0" />
       <limit
         lower="0.0"
@@ -225,12 +221,12 @@
       </collision>
     </link>
 
-    <joint name="joint_3" type="revolute">
+    <joint name="${prefix}joint_3" type="revolute">
       <origin
         xyz="0.245 0 0.06"
         rpy="0 0 0" />
-      <parent link="link_3" />
-      <child link="link_4" />
+      <parent link="${prefix}link_3" />
+      <child link="${prefix}link_4" />
       <axis xyz="0 -1 0" />
       <limit
         lower="-${pi / 2.0}"
@@ -272,12 +268,12 @@
       </collision>
     </link>
 
-    <joint name="joint_4" type="revolute">
+    <joint name="${prefix}joint_4" type="revolute">
       <origin
         xyz="0.06775 0 0.0455"
         rpy="0 0 0" />
-      <parent link="link_4" />
-      <child link="link_5" />
+      <parent link="${prefix}link_4" />
+      <child link="${prefix}link_5" />
       <axis xyz="0 0 -1" />
       <limit
         lower="-${pi / 2.0}"
@@ -319,12 +315,12 @@
       </collision>
     </link>
 
-    <joint name="joint_5" type="revolute">
+    <joint name="${prefix}joint_5" type="revolute">
       <origin
         xyz="0.02895 0 -0.0455"
         rpy="0 0 0" />
-      <parent link="link_5" />
-      <child link="link_6" />
+      <parent link="${prefix}link_5" />
+      <child link="${prefix}link_6" />
       <axis xyz="1 0 0" />
       <limit
         lower="-${pi}"
@@ -366,12 +362,12 @@
       </collision>
     </link>
 
-    <joint name="right_carriage_joint" type="prismatic">
+    <joint name="${prefix}right_carriage_joint" type="prismatic">
       <origin
         xyz="0.0865 -0.023 0"
         rpy="0 0 0" />
-      <parent link="link_6" />
-      <child link="carriage_right" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}carriage_right" />
       <axis xyz="0 -1 0" />
       <limit
         lower="0.0"
@@ -413,12 +409,12 @@
       </collision>
     </link>
 
-    <joint name="left_carriage_joint" type="prismatic">
+    <joint name="${prefix}left_carriage_joint" type="prismatic">
       <origin
         xyz="0.0865 0.023 0"
         rpy="0 0 0" />
-      <parent link="link_6" />
-      <child link="carriage_left" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}carriage_left" />
       <axis xyz="0 1 0" />
       <limit
         lower="0.0"
@@ -462,12 +458,12 @@
         </collision>
       </link>
 
-      <joint name="camera_mount_joint" type="fixed">
+      <joint name="${prefix}camera_mount_joint" type="fixed">
         <origin
           xyz="0.012 0 0"
           rpy="0 0 0" />
-        <parent link="link_6" />
-        <child link="camera_mount_d405" />
+        <parent link="${prefix}link_6" />
+        <child link="${prefix}camera_mount_d405" />
         <axis xyz="0 0 0" />
       </joint>
 
@@ -518,12 +514,12 @@
           </collision>
         </link>
 
-        <joint name="handle_joint" type="fixed">
+        <joint name="${prefix}handle_joint" type="fixed">
           <origin
             xyz="0.012 0 0"
             rpy="0 0 0" />
-          <parent link="link_6" />
-          <child link="handle" />
+          <parent link="${prefix}link_6" />
+          <child link="${prefix}handle" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -560,12 +556,12 @@
           </collision>
         </link>
 
-        <joint name="left_index_joint" type="fixed">
+        <joint name="${prefix}left_index_joint" type="fixed">
           <origin
             xyz="0 0 0"
             rpy="0 0 0" />
-          <parent link="carriage_left" />
-          <child link="leader_finger_left_index" />
+          <parent link="${prefix}carriage_left" />
+          <child link="${prefix}leader_finger_left_index" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -602,12 +598,12 @@
           </collision>
         </link>
 
-        <joint name="left_thumb_joint" type="fixed">
+        <joint name="${prefix}left_thumb_joint" type="fixed">
           <origin
             xyz="0 0 0"
             rpy="0 0 0" />
-          <parent link="carriage_right" />
-          <child link="leader_finger_left_thumb" />
+          <parent link="${prefix}carriage_right" />
+          <child link="${prefix}leader_finger_left_thumb" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -648,12 +644,12 @@
           </collision>
         </link>
 
-        <joint name="handle_joint" type="fixed">
+        <joint name="${prefix}handle_joint" type="fixed">
           <origin
             xyz="0.012 0 0"
             rpy="0 0 0" />
-          <parent link="link_6" />
-          <child link="handle" />
+          <parent link="${prefix}link_6" />
+          <child link="${prefix}handle" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -690,12 +686,12 @@
           </collision>
         </link>
 
-        <joint name="right_thumb_joint" type="fixed">
+        <joint name="${prefix}right_thumb_joint" type="fixed">
           <origin
             xyz="0 0 0"
             rpy="0 0 0" />
-          <parent link="carriage_left" />
-          <child link="leader_finger_right_thumb" />
+          <parent link="${prefix}carriage_left" />
+          <child link="${prefix}leader_finger_right_thumb" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -732,12 +728,12 @@
           </collision>
         </link>
 
-        <joint name="right_index_joint" type="fixed">
+        <joint name="${prefix}right_index_joint" type="fixed">
           <origin
             xyz="0 0 0"
             rpy="0 0 0" />
-          <parent link="carriage_right" />
-          <child link="leader_finger_right_index" />
+          <parent link="${prefix}carriage_right" />
+          <child link="${prefix}leader_finger_right_index" />
           <axis xyz="0 0 0" />
         </joint>
 
@@ -780,12 +776,12 @@
         </collision>
       </link>
 
-      <joint name="left_gripper_joint" type="fixed">
+      <joint name="${prefix}left_gripper_joint" type="fixed">
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <parent link="carriage_left" />
-        <child link="gripper_left" />
+        <parent link="${prefix}carriage_left" />
+        <child link="${prefix}gripper_left" />
         <axis xyz="0 0 0" />
       </joint>
 
@@ -822,21 +818,21 @@
         </collision>
       </link>
 
-      <joint name="right_gripper_joint" type="fixed">
+      <joint name="${prefix}right_gripper_joint" type="fixed">
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <parent link="carriage_right" />
-        <child link="gripper_right" />
+        <parent link="${prefix}carriage_right" />
+        <child link="${prefix}gripper_right" />
         <axis xyz="0 0 0" />
       </joint>
 
-      <joint name="ee_gripper" type="fixed">
+      <joint name="${prefix}ee_gripper" type="fixed">
         <origin
           xyz="0.154 0 0"
           rpy="0 0 0" />
-        <parent link="link_6" />
-        <child link="ee_gripper_link" />
+        <parent link="${prefix}link_6" />
+        <child link="${prefix}ee_gripper_link" />
         <axis xyz="1 0 0" />
       </joint>
 

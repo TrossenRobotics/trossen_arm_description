@@ -17,6 +17,9 @@
   </xacro:if> <!-- use_world_frame -->
 
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_common.urdf.xacro" />
+
+  <xacro:trossen_black/>
 
   <xacro:wxai
     arm_side="$(arg arm_side)"
