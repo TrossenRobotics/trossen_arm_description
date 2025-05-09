@@ -8,7 +8,7 @@
     value="6"
     scope="local"/>
 
-  <xacro:macro name="wxai" params="variant arm_side base_link_frame prefix:=''">
+  <xacro:macro name="wxai" params="variant arm_side:='' prefix:=''">
 
     <xacro:property name="mesh_directory"             value="package://trossen_arm_description/meshes/${robot_model}"/>
 

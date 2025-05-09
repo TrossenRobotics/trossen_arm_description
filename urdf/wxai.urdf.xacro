@@ -23,7 +23,6 @@
 
   <xacro:wxai
     arm_side="$(arg arm_side)"
-    base_link_frame="$(arg base_link_frame)"
     variant="$(arg variant)"/>
 
 </robot>
