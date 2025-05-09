@@ -23,7 +23,6 @@
 
   <xacro:wxai
     arm_side="$(arg arm_side)"
-    use_world_frame="$(arg use_world_frame)"
     base_link_frame="$(arg base_link_frame)"
     variant="$(arg variant)"/>
 

@@ -3,16 +3,14 @@
 
   <xacro:property name="robot_model"
     value="wxai"
-    scope="global"/>
+    scope="local"/>
   <xacro:property name="dof"
     value="6"
-    scope="global"/>
+    scope="local"/>
 
-  <xacro:macro name="wxai" params="variant arm_side use_world_frame base_link_frame prefix:=''">
+  <xacro:macro name="wxai" params="variant arm_side base_link_frame prefix:=''">
 
     <xacro:property name="mesh_directory"             value="package://trossen_arm_description/meshes/${robot_model}"/>
-    <xacro:property name="variant"                    value="$(arg variant)"/>
-    <xacro:property name="arm_side"                   value="$(arg arm_side)"/>
 
     <link name="${prefix}base_link">
       <inertial>
