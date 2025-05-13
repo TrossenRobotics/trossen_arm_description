@@ -10,7 +10,7 @@
 
   <xacro:macro name="wxai" params="variant arm_side:='' prefix:=''">
 
-    <xacro:property name="mesh_directory"             value="package://trossen_arm_description/meshes/${robot_model}"/>
+    <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
     <link name="${prefix}base_link">
       <inertial>
@@ -467,7 +467,10 @@
 
       <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
 
-      <xacro:sensor_d405 parent="camera_mount_d405" use_nominal_extrinsics="true">
+      <xacro:sensor_d405
+        name="${prefix}camera"
+        parent="${prefix}camera_mount_d405"
+        use_nominal_extrinsics="true">
         <origin
           xyz="0.02927207801 0 0.03824951197"
           rpy="0 ${radians(20)} 0" />
@@ -834,18 +837,7 @@
         <axis xyz="1 0 0" />
       </joint>
 
-      <link name="${prefix}ee_gripper_link">
-        <inertial>
-          <mass value="0.001"/>
-          <inertia
-            ixx="0.0001"
-            iyy="0.0001"
-            izz="0.0001"
-            ixy="0"
-            ixz="0"
-            iyz="0"/>
-        </inertial>
-      </link>
+      <link name="${prefix}ee_gripper_link" />
 
     </xacro:if> <!-- variant in ('base', 'follower') -->
 
