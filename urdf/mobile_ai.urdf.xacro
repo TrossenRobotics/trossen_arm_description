@@ -16,10 +16,10 @@
     <link name="caster_swivel_${name}">
       <inertial>
         <origin
-          xyz="-0.00642926440937244 -0.00999999999999998 -0.0232437647650167"
+          xyz="-0.00642926 0 -0.02324376"
           rpy="0 0 0" />
         <mass
-          value="0.0318006084570262" />
+          value="0.10000000" />
         <inertia
           ixx="3.29304410034736E-05"
           ixy="-1.39762576137236E-21"
@@ -67,10 +67,10 @@
       name="caster_wheel_${name}">
       <inertial>
         <origin
-          xyz="0 -0.01 0"
+          xyz="0 0 0"
           rpy="0 0 0" />
         <mass
-          value="0.0898231658107286" />
+          value="0.53500000" />
         <inertia
           ixx="3.50667612783944E-05"
           ixy="5.20590616718454E-38"
@@ -121,10 +121,10 @@
   <link name="base_link">
     <inertial>
       <origin
-        xyz="0.0169055503524013 0.00164199144474026 0.23651080871802"
+        xyz="0.01556204 0.00159774 0.22495608"
         rpy="1.57079632679 0 0" />
       <mass
-        value="45.1929991042861" />
+        value="80" />
       <inertia
         ixx="0.800607899578097"
         ixy="-0.000448278451746243"
@@ -163,6 +163,17 @@
     <child link="base_link"/>
   </joint>
 
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
+
+  <xacro:sensor_d405
+    name="camera_low"
+    parent="base_link"
+    use_nominal_extrinsics="true">
+    <origin
+      xyz="0.209805 0 1.031778"
+      rpy="0 ${radians(37)} 0" />
+  </xacro:sensor_d405>
+
   <joint
     name="left_wheel"
     type="continuous">
@@ -186,7 +197,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <mass
-        value="0.981755254019503" />
+        value="3.00000000" />
       <inertia
         ixx="0.00165792997375718"
         ixy="4.41844662675169E-36"
