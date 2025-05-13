@@ -166,7 +166,7 @@
   <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
 
   <xacro:sensor_d405
-    name="camera_low"
+    name="cam_high"
     parent="base_link"
     use_nominal_extrinsics="true">
     <origin

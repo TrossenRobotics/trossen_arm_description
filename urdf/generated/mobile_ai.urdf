@@ -28,18 +28,18 @@
     <parent link="base_footprint"/>
     <child link="base_link"/>
   </joint>
-  <joint name="camera_low_joint" type="fixed">
+  <joint name="cam_high_joint" type="fixed">
     <origin rpy="0 0.6457718232379019 0" xyz="0.209805 0 1.031778"/>
     <parent link="base_link"/>
-    <child link="camera_low_bottom_screw_frame"/>
+    <child link="cam_high_bottom_screw_frame"/>
   </joint>
-  <link name="camera_low_bottom_screw_frame"/>
-  <joint name="camera_low_link_joint" type="fixed">
+  <link name="cam_high_bottom_screw_frame"/>
+  <joint name="cam_high_link_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.01085 0.009 0.021"/>
-    <parent link="camera_low_bottom_screw_frame"/>
-    <child link="camera_low_link"/>
+    <parent link="cam_high_bottom_screw_frame"/>
+    <child link="cam_high_link"/>
   </joint>
-  <link name="camera_low_link">
+  <link name="cam_high_link">
     <visual>
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
       <geometry>
@@ -61,54 +61,54 @@
       <inertia ixx="0.00002117" ixy="0.0" ixz="0.0" iyy="0.000013758" iyz="0.0" izz="0.000013758"/>
     </inertial>
   </link>
-  <joint name="camera_low_depth_joint" type="fixed">
+  <joint name="cam_high_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="camera_low_link"/>
-    <child link="camera_low_depth_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_depth_frame"/>
   </joint>
-  <link name="camera_low_depth_frame"/>
-  <joint name="camera_low_depth_optical_joint" type="fixed">
+  <link name="cam_high_depth_frame"/>
+  <joint name="cam_high_depth_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="camera_low_depth_frame"/>
-    <child link="camera_low_depth_optical_frame"/>
+    <parent link="cam_high_depth_frame"/>
+    <child link="cam_high_depth_optical_frame"/>
   </joint>
-  <link name="camera_low_depth_optical_frame"/>
-  <joint name="camera_low_infra1_joint" type="fixed">
+  <link name="cam_high_depth_optical_frame"/>
+  <joint name="cam_high_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="camera_low_link"/>
-    <child link="camera_low_infra1_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_infra1_frame"/>
   </joint>
-  <link name="camera_low_infra1_frame"/>
-  <joint name="camera_low_infra1_optical_joint" type="fixed">
+  <link name="cam_high_infra1_frame"/>
+  <joint name="cam_high_infra1_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="camera_low_infra1_frame"/>
-    <child link="camera_low_infra1_optical_frame"/>
+    <parent link="cam_high_infra1_frame"/>
+    <child link="cam_high_infra1_optical_frame"/>
   </joint>
-  <link name="camera_low_infra1_optical_frame"/>
-  <joint name="camera_low_infra2_joint" type="fixed">
+  <link name="cam_high_infra1_optical_frame"/>
+  <joint name="cam_high_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
-    <parent link="camera_low_link"/>
-    <child link="camera_low_infra2_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_infra2_frame"/>
   </joint>
-  <link name="camera_low_infra2_frame"/>
-  <joint name="camera_low_infra2_optical_joint" type="fixed">
+  <link name="cam_high_infra2_frame"/>
+  <joint name="cam_high_infra2_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="camera_low_infra2_frame"/>
-    <child link="camera_low_infra2_optical_frame"/>
+    <parent link="cam_high_infra2_frame"/>
+    <child link="cam_high_infra2_optical_frame"/>
   </joint>
-  <link name="camera_low_infra2_optical_frame"/>
-  <joint name="camera_low_color_joint" type="fixed">
+  <link name="cam_high_infra2_optical_frame"/>
+  <joint name="cam_high_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="camera_low_link"/>
-    <child link="camera_low_color_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_color_frame"/>
   </joint>
-  <link name="camera_low_color_frame"/>
-  <joint name="camera_low_color_optical_joint" type="fixed">
+  <link name="cam_high_color_frame"/>
+  <joint name="cam_high_color_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="camera_low_color_frame"/>
-    <child link="camera_low_color_optical_frame"/>
+    <parent link="cam_high_color_frame"/>
+    <child link="cam_high_color_optical_frame"/>
   </joint>
-  <link name="camera_low_color_optical_frame"/>
+  <link name="cam_high_color_optical_frame"/>
   <joint name="left_wheel" type="continuous">
     <origin rpy="0 0 0" xyz="0 0.192 -0.1259 "/>
     <parent link="base_link"/>
