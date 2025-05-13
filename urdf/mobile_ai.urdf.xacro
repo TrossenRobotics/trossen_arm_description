@@ -9,6 +9,7 @@
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.urdf.xacro" />
 
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/mobile_ai"/>
+
   <xacro:trossen_black/>
 
   <xacro:macro name="caster_wheel" params="name parent *origin">
@@ -140,11 +141,6 @@
         <mesh
           filename="${mesh_directory}/base_link.dae" />
       </geometry>
-      <!-- <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-      </material> -->
     </visual>
     <collision>
       <origin
