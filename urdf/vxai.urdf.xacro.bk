@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="vxai">
+  <link
+    name="base_link_right">
+    <inertial>
+      <origin
+        xyz="-2.199e-05 -0.03351643 6.205e-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.8716501" />
+      <inertia
+        ixx="0.00209272"
+        ixy="-3.41e-06"
+        ixz="-1e-08"
+        iyy="0.00299206"
+        iyz="-6.8e-07"
+        izz="0.00207913" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/base_link_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/base_link_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="link_1_right">
+    <inertial>
+      <origin
+        xyz="0.00275058 -0.0574464 -7.47e-05"
+        rpy="0 0 0" />
+      <mass
+        value="1.2811416" />
+      <inertia
+        ixx="0.00180008"
+        ixy="1.517e-05"
+        ixz="4.8e-07"
+        iyy="0.00124234"
+        iyz="-5.23e-06"
+        izz="0.00154695" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_1_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_1_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_0"
+    type="revolute">
+    <origin
+      xyz="0 -0.068 0"
+      rpy="0 0 0" />
+    <parent
+      link="base_link_right" />
+    <child
+      link="link_1_right" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_2_universal">
+    <inertial>
+      <origin
+        xyz="4.155e-05 4.77e-06 -0.09223936"
+        rpy="0 0 0" />
+      <mass
+        value="1.5816851" />
+      <inertia
+        ixx="0.0030354"
+        ixy="9.4e-07"
+        ixz="7e-08"
+        iyy="0.00325708"
+        iyz="5.8e-07"
+        izz="0.00202764" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_2_universal.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_2_universal.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_1"
+    type="revolute">
+    <origin
+      xyz="0 -0.064 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_1_right" />
+    <child
+      link="link_2_universal" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_3_right">
+    <inertial>
+      <origin
+        xyz="0.01469489 -0.00233198 -0.13174594"
+        rpy="0 0 0" />
+      <mass
+        value="1.5152289" />
+      <inertia
+        ixx="0.00491722"
+        ixy="1.966e-05"
+        ixz="0.00061652"
+        iyy="0.00521379"
+        iyz="-8.813e-05"
+        izz="0.00131018" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_3_right.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_3_right.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_2"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.1284"
+      rpy="0 0 0" />
+    <parent
+      link="link_2_universal" />
+    <child
+      link="link_3_right" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_4_universal">
+    <inertial>
+      <origin
+        xyz="-0.01788633 0.00011005 -0.0729305"
+        rpy="0 0 0" />
+      <mass
+        value="0.59839689" />
+      <inertia
+        ixx="0.00082356"
+        ixy="1.3e-07"
+        ixz="-8.634e-05"
+        iyy="0.00069719"
+        iyz="9.3e-07"
+        izz="0.00052102" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_4_universal.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_4_universal.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_3"
+    type="revolute">
+    <origin
+      xyz="0.02 0 -0.159"
+      rpy="0 0 0" />
+    <parent
+      link="link_3_right" />
+    <child
+      link="link_4_universal" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_5_universal">
+    <inertial>
+      <origin
+        xyz="-0.00011067 0.00225112 -0.04045079"
+        rpy="0 0 0" />
+      <mass
+        value="0.60644692" />
+      <inertia
+        ixx="0.0009455"
+        ixy="3.75e-06"
+        ixz="-7.89e-06"
+        iyy="0.00054664"
+        iyz="-2.14e-06"
+        izz="0.000661" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_5_universal.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_5_universal.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_4"
+    type="revolute">
+    <origin
+      xyz="-0.02 0 -0.1065"
+      rpy="0 0 0" />
+    <parent
+      link="link_4_universal" />
+    <child
+      link="link_5_universal" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_6_universal">
+    <inertial>
+      <origin
+        xyz="-0.00058762 0.0005807 1.797e-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.38858221" />
+      <inertia
+        ixx="0.00018958"
+        ixy="-5e-07"
+        ixz="1e-08"
+        iyy="0.00026787"
+        iyz="8e-08"
+        izz="0.00031658" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_6_universal.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_6_universal.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_5"
+    type="revolute">
+    <origin
+      xyz="0 0 -0.113"
+      rpy="0 0 0" />
+    <parent
+      link="link_5_universal" />
+    <child
+      link="link_6_universal" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="link_7_universal">
+    <inertial>
+      <origin
+        xyz="-0.01847211 -6.97e-06 -0.08476049"
+        rpy="0 0 0" />
+      <mass
+        value="0.57903811" />
+      <inertia
+        ixx="0.00135277"
+        ixy="-6e-08"
+        ixz="-9.912e-05"
+        iyy="0.00077371"
+        iyz="4.9e-07"
+        izz="0.00085992" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_7_universal.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/link_7_universal.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="joint_6"
+    type="revolute">
+    <origin
+      xyz="0.021 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="link_6_universal" />
+    <child
+      link="link_7_universal" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_carriage">
+    <inertial>
+      <origin
+        xyz="0.00457901 0.00403514 0.00889602"
+        rpy="0 0 0" />
+      <mass
+        value="0.05036313" />
+      <inertia
+        ixx="1.378e-05"
+        ixy="-1.72e-06"
+        ixz="-1.04e-06"
+        iyy="5.91e-06"
+        iyz="-1.65e-06"
+        izz="1.736e-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/right_carriage.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/right_carriage.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_carriage_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.021 -0.022974 -0.1305"
+      rpy="0 0 0" />
+    <parent
+      link="link_7_universal" />
+    <child
+      link="right_carriage" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="right_finger">
+    <inertial>
+      <origin
+        xyz="-0.00215452 0.00901223 -0.01893989"
+        rpy="0 0 0" />
+      <mass
+        value="0.03090786" />
+      <inertia
+        ixx="1.184e-05"
+        ixy="2e-07"
+        ixz="-2.9e-07"
+        iyy="1.487e-05"
+        iyz="3.21e-06"
+        izz="7.69e-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/right_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/right_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_finger_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="right_carriage" />
+    <child
+      link="right_finger" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="left_carriage">
+    <inertial>
+      <origin
+        xyz="-0.00457908 -0.00403515 0.00889602"
+        rpy="0 0 0" />
+      <mass
+        value="0.05036313" />
+      <inertia
+        ixx="1.378e-05"
+        ixy="-1.72e-06"
+        ixz="1.04e-06"
+        iyy="5.91e-06"
+        iyz="1.65e-06"
+        izz="1.736e-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/left_carriage.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/left_carriage.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_carriage_joint"
+    type="prismatic">
+    <origin
+      xyz="-0.021 0.022974 -0.1305"
+      rpy="0 0 0" />
+    <parent
+      link="link_7_universal" />
+    <child
+      link="left_carriage" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.14"
+      upper="3.14"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="left_finger">
+    <inertial>
+      <origin
+        xyz="-0.00215462 -0.00901217 -0.01893993"
+        rpy="0 0 0" />
+      <mass
+        value="0.03090787" />
+      <inertia
+        ixx="1.184e-05"
+        ixy="-2e-07"
+        ixz="-2.9e-07"
+        iyy="1.487e-05"
+        iyz="-3.21e-06"
+        izz="7.69e-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/left_finger.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://trossen_arm_description/meshes/vxai/left_finger.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_finger_joint"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="left_carriage" />
+    <child
+      link="left_finger" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
