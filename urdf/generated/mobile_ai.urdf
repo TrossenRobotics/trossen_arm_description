@@ -114,7 +114,7 @@
     <parent link="base_link"/>
     <child link="left_wheel_link"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" velocity="0"/>
+    <limit effort="4" velocity="12.566370614359172"/>
   </joint>
   <link name="left_wheel_link">
     <inertial>
@@ -143,7 +143,7 @@
     <parent link="base_link"/>
     <child link="right_wheel_link"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" velocity="0"/>
+    <limit effort="4" velocity="12.566370614359172"/>
   </joint>
   <link name="right_wheel_link">
     <inertial>
@@ -194,6 +194,7 @@
     <parent link="base_link"/>
     <child link="caster_swivel_front_left"/>
     <axis xyz="0 0 1"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_wheel_front_left">
     <inertial>
@@ -222,6 +223,7 @@
     <parent link="caster_swivel_front_left"/>
     <child link="caster_wheel_front_left"/>
     <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_swivel_front_right">
     <inertial>
@@ -250,6 +252,7 @@
     <parent link="base_link"/>
     <child link="caster_swivel_front_right"/>
     <axis xyz="0 0 1"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_wheel_front_right">
     <inertial>
@@ -278,6 +281,7 @@
     <parent link="caster_swivel_front_right"/>
     <child link="caster_wheel_front_right"/>
     <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_swivel_rear_left">
     <inertial>
@@ -306,6 +310,7 @@
     <parent link="base_link"/>
     <child link="caster_swivel_rear_left"/>
     <axis xyz="0 0 1"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_wheel_rear_left">
     <inertial>
@@ -334,6 +339,7 @@
     <parent link="caster_swivel_rear_left"/>
     <child link="caster_wheel_rear_left"/>
     <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_swivel_rear_right">
     <inertial>
@@ -362,6 +368,7 @@
     <parent link="base_link"/>
     <child link="caster_swivel_rear_right"/>
     <axis xyz="0 0 1"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <link name="caster_wheel_rear_right">
     <inertial>
@@ -390,6 +397,7 @@
     <parent link="caster_swivel_rear_right"/>
     <child link="caster_wheel_rear_right"/>
     <axis xyz="0 1 0"/>
+    <limit effort="0" velocity="3.141592653589793"/>
   </joint>
   <joint name="follower_left/mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.331 0.3 0.831"/>
