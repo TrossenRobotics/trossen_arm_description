@@ -36,11 +36,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/base_link_right.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.75294 0.75294 0.75294 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -77,11 +73,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_1_right.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -136,11 +128,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_2.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -195,11 +183,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_3_right.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -254,11 +238,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_4.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -313,11 +293,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_5.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -372,11 +348,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_6.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -431,11 +403,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/link_7.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -488,11 +456,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/right_carriage.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -545,11 +509,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/right_follower_finger.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -597,11 +557,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/left_carriage.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
@@ -654,11 +610,7 @@
           <mesh
             filename="package://trossen_arm_description/meshes/vxai/left_follower_finger.stl" />
         </geometry>
-        <material
-          name="">
-          <color
-            rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
-        </material>
+        <material name="trossen_black"/>
       </visual>
       <collision>
         <origin
