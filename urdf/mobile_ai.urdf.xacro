@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="mobile_ai" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="robot_model"
+    value="mobile_ai"
+    scope="global"/>
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_common.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.urdf.xacro" />
+
+  <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/mobile_ai"/>
+
+  <xacro:trossen_black/>
+
+  <xacro:macro name="caster_wheel" params="name parent *origin">
+    <link name="caster_swivel_${name}">
+      <inertial>
+        <origin
+          xyz="-0.00642926 0 -0.02324376"
+          rpy="0 0 0" />
+        <mass value="0.10000000" />
+        <inertia
+          ixx="3.29304410034736E-05"
+          ixy="-1.39762576137236E-21"
+          ixz="7.8716764062508E-06"
+          iyy="3.55223730522351E-05"
+          iyz="-3.5017225502273E-21"
+          izz="2.57879736183465E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/caster_swivel.stl" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/caster_swivel.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="caster_swivel_joint_${name}" type="continuous">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent}" />
+      <child link="caster_swivel_${name}" />
+      <axis xyz="0 0 1" />
+      <limit
+        effort="0"
+        velocity="${pi}" />
+    </joint>
+
+    <link
+      name="caster_wheel_${name}">
+      <inertial>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <mass value="0.53500000" />
+        <inertia
+          ixx="3.50667612783944E-05"
+          ixy="5.20590616718454E-38"
+          ixz="7.13705176187339E-53"
+          iyy="6.42430517058348E-05"
+          iyz="1.20456076700477E-37"
+          izz="3.50667612783944E-05" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/caster_wheel.stl" />
+        </geometry>
+        <material
+          name="">
+          <color
+            rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/caster_wheel.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="caster_wheel_joint_${name}" type="continuous">
+      <origin
+        xyz="-0.0345 0 -0.066"
+        rpy="0 0 0" />
+      <parent link="caster_swivel_${name}" />
+      <child link="caster_wheel_${name}" />
+      <axis xyz="0 1 0" />
+      <limit
+        effort="0"
+        velocity="${pi}" />
+    </joint>
+  </xacro:macro>  <!-- caster_wheel -->
+
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="0.01556204 0.00159774 0.22495608"
+        rpy="1.57079632679 0 0" />
+      <mass value="80" />
+      <inertia
+        ixx="0.800607899578097"
+        ixy="-0.000448278451746243"
+        ixz="-1.46448934897976E-05"
+        iyy="0.631097301133464"
+        iyz="-1.76432150020805E-05"
+        izz="0.560183616098452" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.57079632679 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/base_link.dae" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="-1.57079632679 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/base_link.dae" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_footprint"/>
+
+  <joint
+    name="base_footprint_joint"
+    type="fixed">
+    <origin xyz="0 0 0.211" rpy="0 0 0"/>
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
+
+  <xacro:sensor_d405
+    name="cam_high"
+    parent="base_link"
+    use_nominal_extrinsics="true">
+    <origin
+      xyz="0.209805 0 1.031778"
+      rpy="0 ${radians(37)} 0" />
+  </xacro:sensor_d405>
+
+  <joint
+    name="left_wheel"
+    type="continuous">
+    <origin
+      xyz="0 0.192 -0.1259 "
+      rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="left_wheel_link" />
+    <axis xyz="0 1 0" />
+    <limit
+      effort="4"
+      velocity="${4 * pi}" />
+  </joint>
+
+  <link name="left_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="3.00000000" />
+      <inertia
+        ixx="0.00165792997375718"
+        ixy="4.41844662675169E-36"
+        ixz="2.2697691956304E-36"
+        iyy="0.00291162000439156"
+        iyz="-7.2280144832367E-21"
+        izz="0.00165792997375718" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="right_wheel"
+    type="continuous">
+    <origin
+      xyz="0 -0.192 -0.1259"
+      rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="right_wheel_link" />
+    <axis xyz="0 1 0" />
+    <limit
+      effort="4"
+      velocity="${4 * pi}" />
+  </joint>
+
+  <link name="right_wheel_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="0.981755254019503" />
+      <inertia
+        ixx="0.00165792997375718"
+        ixy="4.41844662675169E-36"
+        ixz="2.2697691956304E-36"
+        iyy="0.00291162000439156"
+        iyz="-7.22801448323669E-21"
+        izz="0.00165792997375718" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/wheel.stl" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/wheel.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <xacro:caster_wheel name="front_left" parent="base_link">
+    <origin
+      xyz="0.168 0.17 -0.107"
+      rpy="0 0 0" />
+  </xacro:caster_wheel>
+
+  <xacro:caster_wheel name="front_right" parent="base_link">
+    <origin
+      xyz="0.16843 -0.17 -0.107"
+      rpy="0 0 0" />
+  </xacro:caster_wheel>
+
+  <xacro:caster_wheel name="rear_left" parent="base_link">
+    <origin
+      xyz="-0.16783 0.17 -0.107"
+      rpy="0 0 0" />
+  </xacro:caster_wheel>
+
+  <xacro:caster_wheel name="rear_right" parent="base_link">
+    <origin
+      xyz="-0.168 -0.17 -0.107"
+      rpy="0 0 0" />
+  </xacro:caster_wheel>
+
+  <joint
+    name="follower_left/mount_joint"
+    type="fixed">
+    <origin
+      xyz="0.331 0.3 0.831"
+      rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="follower_left/base_link" />
+  </joint>
+
+  <xacro:wxai
+    variant="follower"
+    prefix="follower_left/"/>
+
+  <joint
+    name="follower_right/mount_joint"
+    type="fixed">
+    <origin
+      xyz="0.331 -0.3 0.831"
+      rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="follower_right/base_link" />
+  </joint>
+
+  <xacro:wxai
+    variant="follower"
+    prefix="follower_right/"/>
+
+</robot>
