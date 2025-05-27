@@ -800,7 +800,7 @@
     <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_left/ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.154 0 0"/>
+    <origin rpy="0 0 0" xyz="0.156062 0 0"/>
     <parent link="follower_left/link_6"/>
     <child link="follower_left/ee_gripper_link"/>
     <axis xyz="1 0 0"/>
@@ -1207,7 +1207,7 @@
     <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_right/ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.154 0 0"/>
+    <origin rpy="0 0 0" xyz="0.156062 0 0"/>
     <parent link="follower_right/link_6"/>
     <child link="follower_right/ee_gripper_link"/>
     <axis xyz="1 0 0"/>
