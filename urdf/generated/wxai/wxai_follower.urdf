@@ -399,7 +399,7 @@
     <axis xyz="0 0 0"/>
   </joint>
   <joint name="ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.154 0 0"/>
+    <origin rpy="0 0 0" xyz="0.156062 0 0"/>
     <parent link="link_6"/>
     <child link="ee_gripper_link"/>
     <axis xyz="1 0 0"/>

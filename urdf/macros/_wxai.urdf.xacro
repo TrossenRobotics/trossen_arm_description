@@ -830,7 +830,7 @@
 
       <joint name="${prefix}ee_gripper" type="fixed">
         <origin
-          xyz="0.154 0 0"
+          xyz="0.156062 0 0"
           rpy="0 0 0" />
         <parent link="${prefix}link_6" />
         <child link="${prefix}ee_gripper_link" />
