@@ -159,17 +159,30 @@
     </link>
 
     <joint name="${prefix}joint_0" type="revolute">
-      <origin
-        xyz="0 -0.068 0"
-        rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}link_1" />
-      <axis xyz="0 -1 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="0"
+          lower="${-pi / 2}"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit
+          effort="0"
+          lower="${-pi}"
+          upper="${pi / 2}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <!-- link 2 universal -->
@@ -207,17 +220,29 @@
     </link>
 
     <joint name="${prefix}joint_1" type="revolute">
-      <origin
-        xyz="0 -0.064 0"
-        rpy="0 0 0" />
       <parent link="${prefix}link_1" />
       <child link="${prefix}link_2" />
       <axis xyz="1 0 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="0"
+          lower="${-pi}"
+          upper="0.0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="0"
+          lower="0.0"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <!-- link 3 right -->
@@ -303,9 +328,9 @@
       <axis xyz="0 0 -1" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_4">
@@ -347,12 +372,22 @@
         rpy="0 0 0" />
       <parent link="${prefix}link_3" />
       <child link="${prefix}link_4" />
-      <axis xyz="0 -1 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <xacro:if value="${arm_side == 'right'}">
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="0"
+          lower="0.0"
+          upper="${3 * pi / 4}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <axis xyz="0 1 0" />
+        <limit
+          effort="0"
+          lower="${-3 * pi / 4}"
+          upper="0.0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <link name="${prefix}link_5">
@@ -397,9 +432,9 @@
       <axis xyz="0 0 -1" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_6">
@@ -444,9 +479,9 @@
       <axis xyz="0 1 0" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 4}"
+        upper="${pi / 4}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_7">
@@ -491,9 +526,9 @@
       <axis xyz="1 0 0" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}carriage_right">
@@ -539,8 +574,8 @@
       <limit
         effort="0"
         lower="0.0"
-        upper="0.44"
-        velocity="1.0" />
+        upper="0.04"
+        velocity="0.25" />
     </joint>
 
     <link name="${prefix}gripper_right">
@@ -628,8 +663,8 @@
       <limit
         effort="0"
         lower="0.0"
-        upper="0.44"
-        velocity="1.0" />
+        upper="0.04"
+        velocity="0.25" />
     </joint>
 
     <link name="${prefix}gripper_left">
