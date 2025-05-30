@@ -49,18 +49,18 @@
         </collision>
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
-        <!-- <inertial>
+        <inertial>
           <origin
-            xyz="-2.199e-05 -0.03351643 6.205e-05"
+            xyz="-0.00002199 0.03351643 -0.00006205"
             rpy="0 0 0" />
           <mass
-            value="1.8716501" />
+            value="1.87165014" />
           <inertia
             ixx="0.00209272"
-            ixy="-3.41e-06"
-            ixz="-1e-08"
+            ixy="0.00000341"
+            ixz="0.00000001"
             iyy="0.00299206"
-            iyz="-6.8e-07"
+            iyz="-0.00000068"
             izz="0.00207913" />
         </inertial>
         <visual>
@@ -81,7 +81,7 @@
             <mesh
               filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl" />
           </geometry>
-        </collision> -->
+        </collision>
       </xacro:if>  <!-- arm_side == left -->
     </link>
 
@@ -124,17 +124,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.00275058 -0.0574464 -7.47e-05"
+            xyz="0.00275057 0.05743620 -0.00006878"
             rpy="0 0 0" />
           <mass
-            value="1.2811416" />
+            value="1.28114157" />
           <inertia
-            ixx="0.00180008"
-            ixy="1.517e-05"
-            ixz="4.8e-07"
-            iyy="0.00124234"
-            iyz="-5.23e-06"
-            izz="0.00154695" />
+            ixx="0.00179991"
+            ixy="-0.00001416"
+            ixz="-0.00000010"
+            iyy="0.00124087"
+            iyz="0.00000433"
+            izz="0.00154826" />
         </inertial>
         <visual>
           <origin
@@ -260,17 +260,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.01469489 -0.00233198 -0.13174594"
+            xyz="0.01468991 0.00233199 -0.13173731"
             rpy="0 0 0" />
           <mass
-            value="1.5152289" />
+            value="1.51522891" />
           <inertia
-            ixx="0.00491722"
-            ixy="1.966e-05"
-            ixz="0.00061652"
-            iyy="0.00521379"
-            iyz="-8.813e-05"
-            izz="0.00131018" />
+            ixx="0.00491799"
+            ixy="-0.00001908"
+            ixz="0.00061539"
+            iyy="0.00521300"
+            iyz="0.00008711"
+            izz="0.00130863" />
         </inertial>
         <visual>
           <origin
