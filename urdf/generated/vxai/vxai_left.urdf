@@ -12,42 +12,42 @@
   </material>
   <link name="base_link">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00002199 -0.03351643 0.00006205"/>
+      <origin rpy="0 0 0" xyz="-0.00002199 0.03351643 -0.00006205"/>
       <mass value="1.87165014"/>
-      <inertia ixx="0.00209272" ixy="-0.00000341" ixz="-0.00000001" iyy="0.00299206" iyz="-0.00000068" izz="0.00207913"/>
+      <inertia ixx="0.00209272" ixy="0.00000341" ixz="0.00000001" iyy="0.00299206" iyz="-0.00000068" izz="0.00207913"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/base_link_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/base_link_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl"/>
       </geometry>
     </collision>
     <!-- arm_side == left -->
   </link>
   <link name="link_1">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.00275058 -0.05744640 -0.00007470"/>
+      <origin rpy="0 0 0" xyz="0.00275057 0.05743620 -0.00006878"/>
       <mass value="1.28114157"/>
-      <inertia ixx="0.00180008" ixy="0.00001517" ixz="0.00000048" iyy="0.00124234" iyz="-0.00000523" izz="0.00154695"/>
+      <inertia ixx="0.00179991" ixy="-0.00001416" ixz="-0.00000010" iyy="0.00124087" iyz="0.00000433" izz="0.00154826"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/link_1_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/link_1_left.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/link_1_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/link_1_left.stl"/>
       </geometry>
     </collision>
     <!-- arm_side == left -->
@@ -55,9 +55,9 @@
   <joint name="joint_0" type="revolute">
     <parent link="base_link"/>
     <child link="link_1"/>
-    <origin rpy="0 0 0" xyz="0 -0.068 0"/>
-    <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="-1.5707963267948966" upper="3.141592653589793" velocity="6.283185307179586"/>
+    <origin rpy="0 0 0" xyz="0 0.068 0"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="-3.141592653589793" upper="1.5707963267948966" velocity="6.283185307179586"/>
     <!-- arm_side == left -->
   </joint>
   <!-- link 2 universal -->
@@ -85,28 +85,28 @@
     <parent link="link_1"/>
     <child link="link_2"/>
     <axis xyz="1 0 0"/>
-    <origin rpy="0 0 0" xyz="0 -0.064 0"/>
-    <limit effort="0" lower="-3.141592653589793" upper="0" velocity="6.283185307179586"/>
+    <origin rpy="0 0 0" xyz="0 0.064 0"/>
+    <limit effort="0" lower="0" upper="3.141592653589793" velocity="6.283185307179586"/>
     <!-- arm_side == left -->
   </joint>
   <!-- link 3 right -->
   <link name="link_3">
     <inertial>
-      <origin rpy="0 0 0" xyz="0.01469489 -0.00233198 -0.13174594"/>
+      <origin rpy="0 0 0" xyz="0.01468991 0.00233199 -0.13173731"/>
       <mass value="1.51522891"/>
-      <inertia ixx="0.00491722" ixy="0.00001966" ixz="0.00061652" iyy="0.00521379" iyz="-0.00008813" izz="0.00131018"/>
+      <inertia ixx="0.00491799" ixy="-0.00001908" ixz="0.00061539" iyy="0.00521300" iyz="0.00008711" izz="0.00130863"/>
     </inertial>
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/link_3_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/link_3_left.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/vxai/link_3_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/vxai/link_3_left.stl"/>
       </geometry>
     </collision>
     <!-- arm_side == left -->
@@ -142,8 +142,8 @@
     <origin rpy="0 0 0" xyz="0.02 0 -0.159"/>
     <parent link="link_3"/>
     <child link="link_4"/>
-    <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="0" upper="2.356194490192345" velocity="6.283185307179586"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="0" lower="-2.356194490192345" upper="0" velocity="6.283185307179586"/>
     <!-- arm_side == left -->
   </joint>
   <link name="link_5">

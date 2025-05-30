@@ -230,7 +230,7 @@
         <limit
           effort="0"
           lower="${-pi}"
-          upper="0.0"
+          upper="0"
           velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
@@ -239,7 +239,7 @@
           rpy="0 0 0" />
         <limit
           effort="0"
-          lower="0.0"
+          lower="0"
           upper="${pi}"
           velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == left -->
@@ -376,7 +376,7 @@
         <axis xyz="0 -1 0" />
         <limit
           effort="0"
-          lower="0.0"
+          lower="0"
           upper="${3 * pi / 4}"
           velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == right -->
@@ -385,7 +385,7 @@
         <limit
           effort="0"
           lower="${-3 * pi / 4}"
-          upper="0.0"
+          upper="0"
           velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == left -->
     </joint>
@@ -573,7 +573,7 @@
       <axis xyz="0 -1 0" />
       <limit
         effort="0"
-        lower="0.0"
+        lower="0"
         upper="0.04"
         velocity="0.25" />
     </joint>
@@ -662,7 +662,7 @@
       <axis xyz="0 1 0" />
       <limit
         effort="0"
-        lower="0.0"
+        lower="0"
         upper="0.04"
         velocity="0.25" />
     </joint>
