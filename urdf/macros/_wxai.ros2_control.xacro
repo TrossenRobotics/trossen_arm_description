@@ -20,29 +20,27 @@
 
     <ros2_control name="TrossenArmHardwareInterface" type="system">
 
-      <xacro:if value="$(arg use_fake_hardware)">
-        <hardware>
+      <hardware>
+        <xacro:if value="${use_fake_hardware}">
           <plugin>fake_components/GenericSystem</plugin>
-        </hardware>
-      </xacro:if>  <!-- use_fake_hardware -->
+        </xacro:if>  <!-- use_fake_hardware -->
 
-      <xacro:unless value="$(arg use_fake_hardware)">
-        <hardware>
+        <xacro:unless value="${use_fake_hardware}">
           <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
           <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
           <param name="ip_address">${ip_address}</param>
           <param name="update_period">0.1</param>
-        </hardware>
-      </xacro:unless>  <!-- use_fake_hardware -->
+        </xacro:unless>  <!-- use_fake_hardware -->
+      </hardware>
 
-      <xacro:ros2_control_joint name="joint_0"/>
-      <xacro:ros2_control_joint name="joint_1"/>
-      <xacro:ros2_control_joint name="joint_2"/>
-      <xacro:ros2_control_joint name="joint_3"/>
-      <xacro:ros2_control_joint name="joint_4"/>
-      <xacro:ros2_control_joint name="joint_5"/>
-      <xacro:ros2_control_joint name="joint_gl"/>
-      <xacro:ros2_control_joint name="joint_gr"/>
+      <xacro:ros2_control_joint name="${prefix}joint_0"/>
+      <xacro:ros2_control_joint name="${prefix}joint_1"/>
+      <xacro:ros2_control_joint name="${prefix}joint_2"/>
+      <xacro:ros2_control_joint name="${prefix}joint_3"/>
+      <xacro:ros2_control_joint name="${prefix}joint_4"/>
+      <xacro:ros2_control_joint name="${prefix}joint_5"/>
+      <xacro:ros2_control_joint name="${prefix}gripper_left"/>
+      <xacro:ros2_control_joint name="${prefix}gripper_right"/>
     </ros2_control>
 
   </xacro:macro>
