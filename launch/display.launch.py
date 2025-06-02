@@ -96,7 +96,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             'robot_model',
-            default_value='vxai',
+            default_value='wxai',
             choices=(
                 'wxai',
                 'vxai',
