@@ -189,7 +189,7 @@
     <link name="${prefix}link_2">
       <inertial>
         <origin
-            xyz="0.00004155 0.00000477 -0.09223936"
+          xyz="0.00004155 0.00000477 -0.09223936"
           rpy="0 0 0" />
         <mass value="1.58168513" />
         <inertia
