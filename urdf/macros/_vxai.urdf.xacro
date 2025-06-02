@@ -16,16 +16,16 @@
       <xacro:if value="${arm_side == 'right'}">
         <inertial>
           <origin
-            xyz="-2.199e-05 -0.03351643 6.205e-05"
+            xyz="-0.00002199 -0.03351643 0.00006205"
             rpy="0 0 0" />
           <mass
-            value="1.8716501" />
+            value="1.87165014" />
           <inertia
             ixx="0.00209272"
-            ixy="-3.41e-06"
-            ixz="-1e-08"
+            ixy="-0.00000341"
+            ixz="-0.00000001"
             iyy="0.00299206"
-            iyz="-6.8e-07"
+            iyz="-0.00000068"
             izz="0.00207913" />
         </inertial>
         <visual>
@@ -49,18 +49,18 @@
         </collision>
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
-        <!-- <inertial>
+        <inertial>
           <origin
-            xyz="-2.199e-05 -0.03351643 6.205e-05"
+            xyz="-0.00002199 0.03351643 -0.00006205"
             rpy="0 0 0" />
           <mass
-            value="1.8716501" />
+            value="1.87165014" />
           <inertia
             ixx="0.00209272"
-            ixy="-3.41e-06"
-            ixz="-1e-08"
+            ixy="0.00000341"
+            ixz="0.00000001"
             iyy="0.00299206"
-            iyz="-6.8e-07"
+            iyz="-0.00000068"
             izz="0.00207913" />
         </inertial>
         <visual>
@@ -81,7 +81,7 @@
             <mesh
               filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl" />
           </geometry>
-        </collision> -->
+        </collision>
       </xacro:if>  <!-- arm_side == left -->
     </link>
 
@@ -89,16 +89,16 @@
       <xacro:if value="${arm_side == 'right'}">
         <inertial>
           <origin
-            xyz="0.00275058 -0.0574464 -7.47e-05"
+            xyz="0.00275058 -0.05744640 -0.00007470"
             rpy="0 0 0" />
           <mass
-            value="1.2811416" />
+            value="1.28114157" />
           <inertia
             ixx="0.00180008"
-            ixy="1.517e-05"
-            ixz="4.8e-07"
+            ixy="0.00001517"
+            ixz="0.00000048"
             iyy="0.00124234"
-            iyz="-5.23e-06"
+            iyz="-0.00000523"
             izz="0.00154695" />
         </inertial>
         <visual>
@@ -124,17 +124,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.00275058 -0.0574464 -7.47e-05"
+            xyz="0.00275057 0.05743620 -0.00006878"
             rpy="0 0 0" />
           <mass
-            value="1.2811416" />
+            value="1.28114157" />
           <inertia
-            ixx="0.00180008"
-            ixy="1.517e-05"
-            ixz="4.8e-07"
-            iyy="0.00124234"
-            iyz="-5.23e-06"
-            izz="0.00154695" />
+            ixx="0.00179991"
+            ixy="-0.00001416"
+            ixz="-0.00000010"
+            iyy="0.00124087"
+            iyz="0.00000433"
+            izz="0.00154826" />
         </inertial>
         <visual>
           <origin
@@ -159,32 +159,45 @@
     </link>
 
     <joint name="${prefix}joint_0" type="revolute">
-      <origin
-        xyz="0 -0.068 0"
-        rpy="0 0 0" />
       <parent link="${prefix}base_link" />
       <child link="${prefix}link_1" />
-      <axis xyz="0 -1 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="0"
+          lower="${-pi / 2}"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit
+          effort="0"
+          lower="${-pi}"
+          upper="${pi / 2}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <!-- link 2 universal -->
     <link name="${prefix}link_2">
       <inertial>
         <origin
-          xyz="4.155e-05 4.77e-06 -0.09223936"
+          xyz="0.00004155 0.00000477 -0.09223936"
           rpy="0 0 0" />
-        <mass value="1.5816851" />
+        <mass value="1.58168513" />
         <inertia
-          ixx="0.0030354"
-          ixy="9.4e-07"
-          ixz="7e-08"
+          ixx="0.00303540"
+          ixy="0.00000094"
+          ixz="0.00000007"
           iyy="0.00325708"
-          iyz="5.8e-07"
+          iyz="0.00000058"
           izz="0.00202764" />
       </inertial>
       <visual>
@@ -207,17 +220,29 @@
     </link>
 
     <joint name="${prefix}joint_1" type="revolute">
-      <origin
-        xyz="0 -0.064 0"
-        rpy="0 0 0" />
       <parent link="${prefix}link_1" />
       <child link="${prefix}link_2" />
-      <axis xyz="-1 0 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <axis xyz="1 0 0" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="0"
+          lower="${-pi}"
+          upper="0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="0"
+          lower="0"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <!-- link 3 right -->
@@ -228,13 +253,13 @@
             xyz="0.01469489 -0.00233198 -0.13174594"
             rpy="0 0 0" />
           <mass
-            value="1.5152289" />
+            value="1.51522891" />
           <inertia
             ixx="0.00491722"
-            ixy="1.966e-05"
+            ixy="0.00001966"
             ixz="0.00061652"
             iyy="0.00521379"
-            iyz="-8.813e-05"
+            iyz="-0.00008813"
             izz="0.00131018" />
         </inertial>
         <visual>
@@ -260,17 +285,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.01469489 -0.00233198 -0.13174594"
+            xyz="0.01468991 0.00233199 -0.13173731"
             rpy="0 0 0" />
           <mass
-            value="1.5152289" />
+            value="1.51522891" />
           <inertia
-            ixx="0.00491722"
-            ixy="1.966e-05"
-            ixz="0.00061652"
-            iyy="0.00521379"
-            iyz="-8.813e-05"
-            izz="0.00131018" />
+            ixx="0.00491799"
+            ixy="-0.00001908"
+            ixz="0.00061539"
+            iyy="0.00521300"
+            iyz="0.00008711"
+            izz="0.00130863" />
         </inertial>
         <visual>
           <origin
@@ -303,23 +328,23 @@
       <axis xyz="0 0 -1" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_4">
       <inertial>
         <origin
-          xyz="-0.01788633 0.00011005 -0.0729305"
+          xyz="-0.01788633 0.00011005 -0.07293050"
           rpy="0 0 0" />
         <mass value="0.59839689" />
         <inertia
           ixx="0.00082356"
-          ixy="1.3e-07"
-          ixz="-8.634e-05"
+          ixy="0.00000013"
+          ixz="-0.00008634"
           iyy="0.00069719"
-          iyz="9.3e-07"
+          iyz="0.00000093"
           izz="0.00052102" />
       </inertial>
       <visual>
@@ -347,12 +372,22 @@
         rpy="0 0 0" />
       <parent link="${prefix}link_3" />
       <child link="${prefix}link_4" />
-      <axis xyz="0 -1 0" />
-      <limit
-        effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+      <xacro:if value="${arm_side == 'right'}">
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="0"
+          lower="0"
+          upper="${3 * pi / 4}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <axis xyz="0 1 0" />
+        <limit
+          effort="0"
+          lower="${-3 * pi / 4}"
+          upper="0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
     </joint>
 
     <link name="${prefix}link_5">
@@ -362,12 +397,12 @@
           rpy="0 0 0" />
         <mass value="0.60644692" />
         <inertia
-          ixx="0.0009455"
-          ixy="3.75e-06"
-          ixz="-7.89e-06"
+          ixx="0.00094550"
+          ixy="0.00000375"
+          ixz="-0.00000789"
           iyy="0.00054664"
-          iyz="-2.14e-06"
-          izz="0.000661" />
+          iyz="-0.00000214"
+          izz="0.00066100" />
       </inertial>
       <visual>
         <origin
@@ -397,23 +432,23 @@
       <axis xyz="0 0 -1" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_6">
       <inertial>
         <origin
-          xyz="-0.00058762 0.0005807 1.797e-05"
+          xyz="-0.00058762 0.00058070 0.00001797"
           rpy="0 0 0" />
         <mass value="0.38858221" />
         <inertia
           ixx="0.00018958"
-          ixy="-5e-07"
-          ixz="1e-08"
+          ixy="-0.00000050"
+          ixz="0.00000001"
           iyy="0.00026787"
-          iyz="8e-08"
+          iyz="0.00000008"
           izz="0.00031658" />
       </inertial>
       <visual>
@@ -444,23 +479,23 @@
       <axis xyz="0 1 0" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 4}"
+        upper="${pi / 4}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_7">
       <inertial>
         <origin
-          xyz="-0.01847211 -6.97e-06 -0.08476049"
+          xyz="-0.01847211 -0.00000697 -0.08476049"
           rpy="0 0 0" />
         <mass value="0.57903811" />
         <inertia
           ixx="0.00135277"
-          ixy="-6e-08"
-          ixz="-9.912e-05"
+          ixy="-0.00000006"
+          ixz="-0.00009912"
           iyy="0.00077371"
-          iyz="4.9e-07"
+          iyz="0.00000049"
           izz="0.00085992" />
       </inertial>
       <visual>
@@ -491,9 +526,9 @@
       <axis xyz="1 0 0" />
       <limit
         effort="0"
-        lower="-3.14159265358979"
-        upper="3.14159265358979"
-        velocity="3.14" />
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}carriage_right">
@@ -503,12 +538,12 @@
           rpy="0 0 0" />
         <mass value="0.05036313" />
         <inertia
-          ixx="1.378e-05"
-          ixy="-1.72e-06"
-          ixz="-1.04e-06"
-          iyy="5.91e-06"
-          iyz="-1.65e-06"
-          izz="1.736e-05" />
+          ixx="0.00001378"
+          ixy="-0.00000172"
+          ixz="-0.00000104"
+          iyy="0.00000591"
+          iyz="-0.00000165"
+          izz="0.00001736" />
       </inertial>
       <visual>
         <origin
@@ -538,9 +573,9 @@
       <axis xyz="0 -1 0" />
       <limit
         effort="0"
-        lower="0.0"
-        upper="0.44"
-        velocity="1.0" />
+        lower="0"
+        upper="0.04"
+        velocity="0.25" />
     </joint>
 
     <link name="${prefix}gripper_right">
@@ -550,12 +585,12 @@
           rpy="0 0 0" />
         <mass value="0.03090786" />
         <inertia
-          ixx="1.184e-05"
-          ixy="2e-07"
-          ixz="-2.9e-07"
-          iyy="1.487e-05"
-          iyz="3.21e-06"
-          izz="7.69e-06" />
+          ixx="0.00001184"
+          ixy="0.00000020"
+          ixz="-0.00000029"
+          iyy="0.00001487"
+          iyz="0.00000321"
+          izz="0.00000769" />
       </inertial>
       <visual>
         <origin
@@ -592,12 +627,12 @@
           rpy="0 0 0" />
         <mass value="0.05036313" />
         <inertia
-          ixx="1.378e-05"
-          ixy="-1.72e-06"
-          ixz="1.04e-06"
-          iyy="5.91e-06"
-          iyz="1.65e-06"
-          izz="1.736e-05" />
+          ixx="0.00001378"
+          ixy="-0.00000172"
+          ixz="0.00000104"
+          iyy="0.00000591"
+          iyz="0.00000165"
+          izz="0.00001736" />
       </inertial>
       <visual>
         <origin
@@ -627,9 +662,9 @@
       <axis xyz="0 1 0" />
       <limit
         effort="0"
-        lower="0.0"
-        upper="0.44"
-        velocity="1.0" />
+        lower="0"
+        upper="0.04"
+        velocity="0.25" />
     </joint>
 
     <link name="${prefix}gripper_left">
@@ -639,12 +674,12 @@
           rpy="0 0 0" />
         <mass value="0.03090787" />
         <inertia
-          ixx="1.184e-05"
-          ixy="-2e-07"
-          ixz="-2.9e-07"
-          iyy="1.487e-05"
-          iyz="-3.21e-06"
-          izz="7.69e-06" />
+          ixx="0.00001184"
+          ixy="-0.00000020"
+          ixz="-0.00000029"
+          iyy="0.00001487"
+          iyz="-0.00000321"
+          izz="0.00000769" />
       </inertial>
       <visual>
         <origin
