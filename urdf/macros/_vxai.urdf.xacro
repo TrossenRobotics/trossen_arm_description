@@ -570,6 +570,7 @@
         rpy="0 0 0" />
       <parent link="${prefix}link_7" />
       <child link="${prefix}carriage_right" />
+      <mimic joint="${prefix}left_carriage_joint" />
       <axis xyz="0 -1 0" />
       <limit
         effort="0"
