@@ -209,6 +209,7 @@
     <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
     <parent link="link_6"/>
     <child link="carriage_right"/>
+    <mimic joint="left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
