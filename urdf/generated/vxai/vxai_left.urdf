@@ -236,6 +236,7 @@
     <origin rpy="0 0 0" xyz="-0.021 -0.022974 -0.1305"/>
     <parent link="link_7"/>
     <child link="carriage_right"/>
+    <mimic joint="left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="0" lower="0" upper="0.04" velocity="0.25"/>
   </joint>
@@ -324,10 +325,5 @@
     <child link="ee_gripper_link"/>
     <axis xyz="1 0 0"/>
   </joint>
-  <link name="ee_gripper_link">
-    <inertial>
-      <mass value="0.001"/>
-      <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
-    </inertial>
-  </link>
+  <link name="ee_gripper_link"/>
 </robot>
