@@ -463,7 +463,6 @@
           rpy="0 0 0" />
         <parent link="${prefix}link_6" />
         <child link="${prefix}camera_mount_d405" />
-        <axis xyz="0 0 0" />
       </joint>
 
       <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
@@ -522,7 +521,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}link_6" />
           <child link="${prefix}handle" />
-          <axis xyz="0 0 0" />
         </joint>
 
         <link name="${prefix}leader_finger_left_index">
@@ -564,7 +562,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}carriage_left" />
           <child link="${prefix}leader_finger_left_index" />
-          <axis xyz="0 0 0" />
         </joint>
 
         <link name="${prefix}leader_finger_left_thumb">
@@ -606,7 +603,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}carriage_right" />
           <child link="${prefix}leader_finger_left_thumb" />
-          <axis xyz="0 0 0" />
         </joint>
 
       </xacro:if> <!-- arm_side == 'left' -->
@@ -652,7 +648,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}link_6" />
           <child link="${prefix}handle" />
-          <axis xyz="0 0 0" />
         </joint>
 
         <link name="${prefix}leader_finger_right_thumb">
@@ -694,7 +689,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}carriage_left" />
           <child link="${prefix}leader_finger_right_thumb" />
-          <axis xyz="0 0 0" />
         </joint>
 
         <link name="${prefix}leader_finger_right_index">
@@ -736,7 +730,6 @@
             rpy="0 0 0" />
           <parent link="${prefix}carriage_right" />
           <child link="${prefix}leader_finger_right_index" />
-          <axis xyz="0 0 0" />
         </joint>
 
       </xacro:if> <!-- leader_polarity == 'right' -->
@@ -784,7 +777,6 @@
           rpy="0 0 0" />
         <parent link="${prefix}carriage_left" />
         <child link="${prefix}gripper_left" />
-        <axis xyz="0 0 0" />
       </joint>
 
       <link name="${prefix}gripper_right">
@@ -826,7 +818,6 @@
           rpy="0 0 0" />
         <parent link="${prefix}carriage_right" />
         <child link="${prefix}gripper_right" />
-        <axis xyz="0 0 0" />
       </joint>
 
       <joint name="${prefix}ee_gripper" type="fixed">
@@ -835,7 +826,6 @@
           rpy="0 0 0" />
         <parent link="${prefix}link_6" />
         <child link="${prefix}ee_gripper_link" />
-        <axis xyz="1 0 0" />
       </joint>
 
       <link name="${prefix}ee_gripper_link" />

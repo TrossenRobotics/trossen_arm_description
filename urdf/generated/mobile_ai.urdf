@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <robot name="mobile_ai">
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
@@ -610,6 +610,7 @@
     <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
     <parent link="follower_left/link_6"/>
     <child link="follower_left/carriage_right"/>
+    <mimic joint="follower_left/left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
@@ -664,7 +665,6 @@
     <origin rpy="0 0 0" xyz="0.012 0 0"/>
     <parent link="follower_left/link_6"/>
     <child link="follower_left/camera_mount_d405"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_left/camera_joint" type="fixed">
     <origin rpy="0 0.3490658503988659 0" xyz="0.02927207801 0 0.03824951197"/>
@@ -771,7 +771,6 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="follower_left/carriage_left"/>
     <child link="follower_left/gripper_left"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <link name="follower_left/gripper_right">
     <inertial>
@@ -797,13 +796,11 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="follower_left/carriage_right"/>
     <child link="follower_left/gripper_right"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_left/ee_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="0.156062 0 0"/>
     <parent link="follower_left/link_6"/>
     <child link="follower_left/ee_gripper_link"/>
-    <axis xyz="1 0 0"/>
   </joint>
   <link name="follower_left/ee_gripper_link"/>
   <joint name="follower_right/mount_joint" type="fixed">
@@ -1017,6 +1014,7 @@
     <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
     <parent link="follower_right/link_6"/>
     <child link="follower_right/carriage_right"/>
+    <mimic joint="follower_right/left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
@@ -1071,7 +1069,6 @@
     <origin rpy="0 0 0" xyz="0.012 0 0"/>
     <parent link="follower_right/link_6"/>
     <child link="follower_right/camera_mount_d405"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_right/camera_joint" type="fixed">
     <origin rpy="0 0.3490658503988659 0" xyz="0.02927207801 0 0.03824951197"/>
@@ -1178,7 +1175,6 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="follower_right/carriage_left"/>
     <child link="follower_right/gripper_left"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <link name="follower_right/gripper_right">
     <inertial>
@@ -1204,13 +1200,11 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="follower_right/carriage_right"/>
     <child link="follower_right/gripper_right"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <joint name="follower_right/ee_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="0.156062 0 0"/>
     <parent link="follower_right/link_6"/>
     <child link="follower_right/ee_gripper_link"/>
-    <axis xyz="1 0 0"/>
   </joint>
   <link name="follower_right/ee_gripper_link"/>
 </robot>
