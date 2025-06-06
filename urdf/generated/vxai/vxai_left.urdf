@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <robot name="vxai">
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
@@ -264,7 +264,6 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="carriage_right"/>
     <child link="gripper_right"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <link name="carriage_left">
     <inertial>
@@ -317,13 +316,11 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="carriage_left"/>
     <child link="gripper_left"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <joint name="ee_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="-0.021 0 -0.200062"/>
     <parent link="link_7"/>
     <child link="ee_gripper_link"/>
-    <axis xyz="1 0 0"/>
   </joint>
   <link name="ee_gripper_link"/>
 </robot>
