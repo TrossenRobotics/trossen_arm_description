@@ -618,7 +618,6 @@
         rpy="0 0 0" />
       <parent link="${prefix}carriage_right" />
       <child link="${prefix}gripper_right" />
-      <axis xyz="0 0 0" />
     </joint>
 
     <link name="${prefix}carriage_left">
@@ -707,7 +706,6 @@
         rpy="0 0 0" />
       <parent link="${prefix}carriage_left" />
       <child link="${prefix}gripper_left" />
-      <axis xyz="0 0 0" />
     </joint>
 
     <joint name="${prefix}ee_gripper" type="fixed">
@@ -716,7 +714,6 @@
         rpy="0 0 0" />
       <parent link="${prefix}link_7" />
       <child link="${prefix}ee_gripper_link" />
-      <axis xyz="1 0 0" />
     </joint>
 
     <link name="${prefix}ee_gripper_link" />
