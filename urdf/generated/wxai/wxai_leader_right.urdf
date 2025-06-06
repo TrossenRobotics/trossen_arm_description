@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+<?xml version="1.0"?>
 <robot name="wxai">
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
@@ -264,7 +264,6 @@
     <origin rpy="0 0 0" xyz="0.012 0 0"/>
     <parent link="link_6"/>
     <child link="handle"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <link name="leader_finger_right_thumb">
     <inertial>
@@ -290,7 +289,6 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="carriage_left"/>
     <child link="leader_finger_right_thumb"/>
-    <axis xyz="0 0 0"/>
   </joint>
   <link name="leader_finger_right_index">
     <inertial>
@@ -316,6 +314,5 @@
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="carriage_right"/>
     <child link="leader_finger_right_index"/>
-    <axis xyz="0 0 0"/>
   </joint>
 </robot>
