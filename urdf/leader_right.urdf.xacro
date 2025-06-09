@@ -82,17 +82,14 @@
     <origin
       xyz="0 -0.05325 0"
       rpy="0 0 0" />
-    <parent
-      link="base_link" />
-    <child
-      link="link_1" />
-    <axis
-      xyz="0 -1 0" />
+    <parent link="base_link" />
+    <child link="link_1" />
+    <axis xyz="0 -1 0" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi / 2}"
+      upper="${pi}"
+      velocity="${2 * pi}" />
   </joint>
   <link name="link_2">
     <!-- <inertial>
@@ -137,17 +134,14 @@
     <origin
       xyz="0 -0.0365 0"
       rpy="0 0 0" />
-    <parent
-      link="link_1" />
-    <child
-      link="link_2" />
-    <axis
-      xyz="1 0 0" />
+    <parent link="link_1" />
+    <child link="link_2" />
+    <axis xyz="1 0 0" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi}"
+      upper="0"
+      velocity="${2 * pi}" />
   </joint>
   <link name="link_3">
     <!-- <inertial>
@@ -192,17 +186,14 @@
     <origin
       xyz="0 0 -0.0979"
       rpy="0 0 0" />
-    <parent
-      link="link_2" />
-    <child
-      link="link_3" />
-    <axis
-      xyz="0 0 -1" />
+    <parent link="link_2" />
+    <child link="link_3" />
+    <axis xyz="0 0 -1" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi / 2}"
+      upper="${pi / 2}"
+      velocity="${2 * pi}" />
   </joint>
   <link name="link_4">
     <!-- <inertial>
@@ -247,17 +238,14 @@
     <origin
       xyz="0.02 0 -0.2019"
       rpy="0 0 0" />
-    <parent
-      link="link_3" />
-    <child
-      link="link_4" />
-    <axis
-      xyz="0 1 0" />
+    <parent link="link_3" />
+    <child link="link_4" />
+    <axis xyz="0 -1 0" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="0"
+      upper="${3 * pi / 4}"
+      velocity="${2 * pi}" />
   </joint>
   <link name="link_5">
     <!-- <inertial>
@@ -302,17 +290,14 @@
     <origin
       xyz="-0.02 0 -0.1185"
       rpy="0 0 0" />
-    <parent
-      link="link_4" />
-    <child
-      link="link_5" />
-    <axis
-      xyz="0 0 -1" />
+    <parent link="link_4" />
+    <child link="link_5" />
+    <axis xyz="0 0 -1" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi / 2}"
+      upper="${pi / 2}"
+      velocity="${2 * pi}" />
   </joint>
   <link name="link_6">
     <!-- <inertial>
@@ -357,17 +342,14 @@
     <origin
       xyz="0 0 -0.101"
       rpy="0 0 0" />
-    <parent
-      link="link_5" />
-    <child
-      link="link_6" />
-    <axis
-      xyz="0 1 0" />
+    <parent link="link_5" />
+    <child link="link_6" />
+    <axis xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi / 4}"
+      upper="${pi / 4}"
+      velocity="${2 * pi}" />
   </joint>
   <link name="end_link">
     <!-- <inertial>
@@ -412,16 +394,13 @@
     <origin
       xyz="-0.034 0 0"
       rpy="0 0 0" />
-    <parent
-      link="link_6" />
-    <child
-      link="end_link" />
-    <axis
-      xyz="-1 0 0" />
+    <parent link="link_6" />
+    <child link="end_link" />
+    <axis xyz="1 0 0" />
     <limit
-      lower="0"
-      upper="0"
       effort="0"
-      velocity="0" />
+      lower="${-pi / 2}"
+      upper="${pi / 2}"
+      velocity="${2 * pi}" />
   </joint>
 </robot>
