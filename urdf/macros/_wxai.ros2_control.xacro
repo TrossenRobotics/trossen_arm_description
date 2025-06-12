@@ -39,8 +39,8 @@
       <xacro:ros2_control_joint name="${prefix}joint_3"/>
       <xacro:ros2_control_joint name="${prefix}joint_4"/>
       <xacro:ros2_control_joint name="${prefix}joint_5"/>
-      <xacro:ros2_control_joint name="${prefix}gripper_left"/>
-      <xacro:ros2_control_joint name="${prefix}gripper_right"/>
+      <xacro:ros2_control_joint name="${prefix}left_gripper_joint"/>
+      <xacro:ros2_control_joint name="${prefix}right_gripper_joint"/>
     </ros2_control>
 
   </xacro:macro>
