@@ -8,14 +8,14 @@
     value="6"
     scope="local"/>
 
-  <xacro:macro name="wxai" params="variant arm_side:='' prefix:='' use_fake_hardware:=false">
+  <xacro:macro name="wxai" params="variant arm_side:='' prefix:='' ros2_control_hardware_type:='real'">
 
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
     <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.ros2_control.xacro"/>
 
     <xacro:wxai_ros2_control
-      use_fake_hardware="${use_fake_hardware}"
+      ros2_control_hardware_type="${ros2_control_hardware_type}"
       prefix="${prefix}"
       ip_address="192.168.1.2"/>  <!-- TODO(lukeschmitt-tr): pass this -->
 

@@ -16,21 +16,22 @@
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="wxai_ros2_control" params="prefix ip_address use_fake_hardware">
+  <xacro:macro name="wxai_ros2_control" params="prefix ip_address ros2_control_hardware_type">
 
     <ros2_control name="TrossenArmHardwareInterface" type="system">
 
       <hardware>
-        <xacro:if value="${use_fake_hardware}">
+        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
           <plugin>fake_components/GenericSystem</plugin>
-        </xacro:if>  <!-- use_fake_hardware -->
+          <!-- <plugin>mock_components/GenericSystem</plugin> -->
+        </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
 
-        <xacro:unless value="${use_fake_hardware}">
+        <xacro:unless value="${ros2_control_hardware_type == 'real'}">
           <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
           <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
           <param name="ip_address">${ip_address}</param>
           <param name="update_period">0.1</param>
-        </xacro:unless>  <!-- use_fake_hardware -->
+        </xacro:unless>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>
 
       <xacro:ros2_control_joint name="${prefix}joint_0"/>
