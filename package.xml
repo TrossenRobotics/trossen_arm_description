@@ -6,8 +6,9 @@
   <description>URDF Description package for Trossen Arms</description>
 
   <author email="trsupport@trossenrobotics.com">Luke Schmitt</author>
-  <license>BSD-3-Clause</license>
   <maintainer email="trsupport@trossenrobotics.com">Luke Schmitt</maintainer>
+
+  <license>BSD-3-Clause</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
@@ -17,6 +18,9 @@
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>rviz2</exec_depend>
   <exec_depend>xacro</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
