@@ -20,13 +20,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/base_link.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/base_link.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -34,8 +32,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/base_link.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/base_link.stl" />
       </geometry>
     </collision>
   </link>
@@ -59,13 +56,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_1.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_1.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -73,8 +68,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_1.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_1.stl" />
       </geometry>
     </collision>
   </link>
@@ -111,13 +105,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_2.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_2.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -125,8 +117,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_2.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_2.stl" />
       </geometry>
     </collision>
   </link>
@@ -163,13 +154,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_3.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_3.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -177,8 +166,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_3.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_3.stl" />
       </geometry>
     </collision>
   </link>
@@ -215,13 +203,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_4.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_4.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -229,8 +215,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_4.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_4.stl" />
       </geometry>
     </collision>
   </link>
@@ -240,7 +225,6 @@
       rpy="0 0 0" />
     <parent link="link_3" />
     <child link="link_4" />
-    <!-- <axis xyz="0 1 0" /> -->
     <axis xyz="0 -1 0" />
     <limit
       effort="0"
@@ -268,13 +252,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_5.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_5.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -282,8 +264,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_5.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_5.stl" />
       </geometry>
     </collision>
   </link>
@@ -320,13 +301,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_6.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_6.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -334,8 +313,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/link_6.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_6.stl" />
       </geometry>
     </collision>
   </link>
@@ -347,12 +325,61 @@
     <child link="link_6" />
     <axis xyz="0 1 0" />
     <limit
+      lower="0"
+      upper="0"
       effort="0"
-      lower="${-pi / 4}"
-      upper="${pi / 4}"
-      velocity="${2 * pi}" />
+      velocity="0" />
   </joint>
-  <link name="end_link">
+  <link name="link_7">
+    <inertial>
+      <origin
+        xyz="-0.04169427 0.00058029 -0.06323582"
+        rpy="0 0 0" />
+      <mass
+        value="0.23686287" />
+      <inertia
+        ixx="0.00019957"
+        ixy="-2.03e-06"
+        ixz="0.00016948"
+        iyy="0.00053905"
+        iyz="1.92e-06"
+        izz="0.0003876" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_7.stl" />
+      </geometry>
+      <material
+        name="">
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_7.stl" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="joint_6" type="revolute">
+    <origin
+      xyz="-0.034 0 0"
+      rpy="0 0 0" />
+    <parent link="link_6" />
+    <child link="link_7" />
+    <axis xyz="-1 0 0" />
+    <limit
+      lower="${-pi / 2}"
+      upper="${pi / 2}"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link name="link_8">
     <inertial>
       <origin
         xyz="-0.01502064 0.00191435 0.00656522"
@@ -372,13 +399,11 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/end_link.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_8.stl" />
       </geometry>
       <material
         name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+        <color rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
       </material>
     </visual>
     <collision>
@@ -386,23 +411,21 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://trossen_arm_description/meshes/leader_right/end_link.stl" />
+        <mesh filename="package://trossen_arm_description/meshes/leader_right/link_8.stl" />
       </geometry>
     </collision>
   </link>
-  <joint name="joint_6" type="revolute">
+  <joint name="joint_7" type="revolute">
     <origin
-      xyz="-0.034 0 0"
+      xyz="-0.02847106 0.01930000 -0.07900135"
       rpy="0 0 0" />
-    <parent link="link_6" />
-    <child link="end_link" />
-    <axis xyz="-1 0 0" />
-    <!-- <axis xyz="1 0 0" /> -->
+    <parent link="link_7" />
+    <child link="link_8" />
+    <axis xyz="0 1 0" />
     <limit
-      effort="0"
       lower="${-pi / 2}"
       upper="${pi / 2}"
-      velocity="${2 * pi}" />
+      effort="0"
+      velocity="0" />
   </joint>
 </robot>
