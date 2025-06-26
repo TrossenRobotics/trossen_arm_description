@@ -128,8 +128,8 @@
     <origin rpy="0 0 0" xyz="0.02 0 -0.1938"/>
     <parent link="link_3"/>
     <child link="link_4"/>
-    <axis xyz="0 -1 0"/>
-    <limit effort="7.0" lower="0" upper="2.356194490192345" velocity="6.283185307179586"/>
+    <axis xyz="0 1 0"/>
+    <limit effort="7.0" lower="-2.356194490192345" upper="0" velocity="6.283185307179586"/>
   </joint>
   <link name="link_5">
     <inertial>
@@ -209,7 +209,7 @@
     <origin rpy="0 0 0" xyz="-0.034 0 0"/>
     <parent link="link_6"/>
     <child link="link_7"/>
-    <axis xyz="1 0 0"/>
+    <axis xyz="-1 0 0"/>
     <limit effort="3.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
   </joint>
   <link name="link_8">
@@ -240,7 +240,7 @@
     <limit effort="3.0" lower="-0.5235987755982988" upper="0" velocity="6.283185307179586"/>
   </joint>
   <joint name="ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.021 0 -0.200062"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="link_8"/>
     <child link="ee_gripper_link"/>
   </joint>

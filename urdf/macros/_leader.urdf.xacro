@@ -373,19 +373,19 @@
       <parent link="${prefix}link_3" />
       <child link="${prefix}link_4" />
       <xacro:if value="${arm_side == 'right'}">
-        <axis xyz="0 -1 0" />
-        <limit
-          effort="7.0"
-          lower="0"
-          upper="${3 * pi / 4}"
-          velocity="${2 * pi}" />
-      </xacro:if>  <!-- arm_side == right -->
-      <xacro:if value="${arm_side == 'left'}">
         <axis xyz="0 1 0" />
         <limit
           effort="7.0"
           lower="${-3 * pi / 4}"
           upper="0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="7.0"
+          lower="0"
+          upper="${3 * pi / 4}"
           velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == left -->
     </joint>
@@ -523,7 +523,7 @@
         rpy="0 0 0" />
       <parent link="${prefix}link_6" />
       <child link="${prefix}link_7" />
-      <axis xyz="1 0 0" />
+      <axis xyz="-1 0 0" />
       <limit
         effort="3.0"
         lower="${-pi / 2}"
@@ -593,7 +593,7 @@
 
     <joint name="${prefix}ee_gripper" type="fixed">
       <origin
-        xyz="-0.021 0 -0.200062"
+        xyz="0 0 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_8" />
       <child link="${prefix}ee_gripper_link" />
