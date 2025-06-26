@@ -3,16 +3,16 @@
   <link name="base_link">
     <inertial>
       <origin
-        xyz="5.199e-05 -0.03429087 5.295e-05"
+        xyz="0.00005199 -0.03429087 0.00005295"
         rpy="0 0 0" />
       <mass
         value="0.37290125" />
       <inertia
         ixx="0.00034804"
-        ixy="-3.9e-07"
-        ixz="-3e-08"
+        ixy="-0.00000039"
+        ixz="-0.00000003"
         iyy="0.00014057"
-        iyz="-8e-07"
+        iyz="-0.00000080"
         izz="0.00034074" />
     </inertial>
     <visual>
@@ -39,16 +39,16 @@
   <link name="link_1">
     <inertial>
       <origin
-        xyz="0.00331378 -0.03460068 -4.285e-05"
+        xyz="0.00331378 -0.03460068 -0.00004285"
         rpy="0 0 0" />
       <mass
-        value="0.4523603" />
+        value="0.45236030" />
       <inertia
-        ixx="0.0001893"
-        ixy="3.6e-06"
-        ixz="-3.3e-07"
+        ixx="0.00018930"
+        ixy="0.00000360"
+        ixz="-0.00000033"
         iyy="0.00043171"
-        iyz="0.0"
+        iyz="0.00000000"
         izz="0.00045089" />
     </inertial>
     <visual>
@@ -81,23 +81,23 @@
     <axis xyz="0 -1 0" />
     <limit
       effort="0"
-      lower="${-pi / 2}"
-      upper="${pi}"
-      velocity="${2 * pi}" />
+      lower="-1.5707963267948966"
+      upper="3.141592653589793"
+      velocity="6.283185307179586" />
   </joint>
   <link name="link_2">
     <inertial>
       <origin
-        xyz="-5.27e-06 1.239e-05 -0.08091014"
+        xyz="-0.00000527 0.00001239 -0.08091014"
         rpy="0 0 0" />
       <mass
         value="0.33783172" />
       <inertia
         ixx="0.00031788"
-        ixy="4e-08"
-        ixz="-4.9e-07"
+        ixy="0.00000004"
+        ixz="-0.00000049"
         iyy="0.00034942"
-        iyz="-4.5e-07"
+        iyz="-0.00000045"
         izz="0.00016037" />
     </inertial>
     <visual>
@@ -130,23 +130,23 @@
     <axis xyz="1 0 0" />
     <limit
       effort="0"
-      lower="${-pi}"
+      lower="-3.141592653589793"
       upper="0"
-      velocity="${2 * pi}" />
+      velocity="6.283185307179586" />
   </joint>
   <link name="link_3">
     <inertial>
       <origin
-        xyz="0.01706827 0.00212153 -0.1667902"
+        xyz="0.01706827 0.00212153 -0.16679020"
         rpy="0 0 0" />
       <mass
         value="0.46940642" />
       <inertia
         ixx="0.00182642"
-        ixy="-3.41e-06"
+        ixy="-0.00000341"
         ixz="0.00015666"
         iyy="0.00165644"
-        iyz="2.673e-05"
+        iyz="0.00002673"
         izz="0.00039819" />
     </inertial>
     <visual>
@@ -179,24 +179,24 @@
     <axis xyz="0 0 -1" />
     <limit
       effort="0"
-      lower="${-pi / 2}"
-      upper="${pi / 2}"
-      velocity="${2 * pi}" />
+      lower="-1.5707963267948966"
+      upper="1.5707963267948966"
+      velocity="6.283185307179586" />
   </joint>
   <link name="link_4">
     <inertial>
       <origin
-        xyz="-0.01912502 2.771e-05 -0.0899419"
+        xyz="-0.01912502 0.00002771 -0.08994190"
         rpy="0 0 0" />
       <mass
         value="0.19153172" />
       <inertia
         ixx="0.00019027"
-        ixy="-1e-07"
-        ixz="-1.489e-05"
+        ixy="-0.00000010"
+        ixz="-0.00001489"
         iyy="0.00015938"
-        iyz="-4.7e-07"
-        izz="8.565e-05" />
+        iyz="-0.00000047"
+        izz="0.00008565" />
     </inertial>
     <visual>
       <origin
@@ -229,8 +229,8 @@
     <limit
       effort="0"
       lower="0"
-      upper="${3 * pi / 4}"
-      velocity="${2 * pi}" />
+      upper="2.356194490192345"
+      velocity="6.283185307179586" />
   </joint>
   <link name="link_5">
     <inertial>
@@ -241,10 +241,10 @@
         value="0.24163171" />
       <inertia
         ixx="0.00022638"
-        ixy="1e-06"
-        ixz="-4.42e-06"
+        ixy="0.00000100"
+        ixz="-0.00000442"
         iyy="0.00016124"
-        iyz="7.25e-06"
+        iyz="0.00000725"
         izz="0.00013726" />
     </inertial>
     <visual>
@@ -277,24 +277,24 @@
     <axis xyz="0 0 -1" />
     <limit
       effort="0"
-      lower="${-pi / 2}"
-      upper="${pi / 2}"
-      velocity="${2 * pi}" />
+      lower="-1.5707963267948966"
+      upper="1.5707963267948966"
+      velocity="6.283185307179586" />
   </joint>
   <link name="link_6">
     <inertial>
       <origin
-        xyz="-0.01044529 9.1e-06 0.00011242"
+        xyz="-0.01044529 0.00000910 0.00011242"
         rpy="0 0 0" />
       <mass
         value="0.18731697" />
       <inertia
-        ixx="6.195e-05"
-        ixy="-1e-08"
-        ixz="-3.2e-07"
-        iyy="5.051e-05"
-        iyz="0.0"
-        izz="6.44e-05" />
+        ixx="0.00006195"
+        ixy="-0.00000001"
+        ixz="-0.00000032"
+        iyy="0.00005051"
+        iyz="0.00000000"
+        izz="0.00006440" />
     </inertial>
     <visual>
       <origin
@@ -339,11 +339,11 @@
         value="0.23686287" />
       <inertia
         ixx="0.00019957"
-        ixy="-2.03e-06"
+        ixy="-0.00000203"
         ixz="0.00016948"
         iyy="0.00053905"
-        iyz="1.92e-06"
-        izz="0.0003876" />
+        iyz="0.00000192"
+        izz="0.00038760" />
     </inertial>
     <visual>
       <origin
@@ -374,8 +374,8 @@
     <child link="link_7" />
     <axis xyz="-1 0 0" />
     <limit
-      lower="${-pi / 2}"
-      upper="${pi / 2}"
+      lower="-1.5707963267948966"
+      upper="1.5707963267948966"
       effort="0"
       velocity="0" />
   </joint>
@@ -387,12 +387,12 @@
       <mass
         value="0.00915397" />
       <inertia
-        ixx="1.2e-06"
-        ixy="-2.1e-07"
-        ixz="1.02e-06"
-        iyy="3.85e-06"
-        iyz="1.1e-07"
-        izz="2.84e-06" />
+        ixx="0.00000120"
+        ixy="-0.00000021"
+        ixz="0.00000102"
+        iyy="0.00000385"
+        iyz="0.00000011"
+        izz="0.00000284" />
     </inertial>
     <visual>
       <origin
@@ -423,8 +423,8 @@
     <child link="link_8" />
     <axis xyz="0 1 0" />
     <limit
-      lower="${-pi / 2}"
-      upper="${pi / 2}"
+      lower="-1.5707963267948966"
+      upper="1.5707963267948966"
       effort="0"
       velocity="0" />
   </joint>
