@@ -48,7 +48,7 @@
     <child link="link_1"/>
     <origin rpy="0 0 0" xyz="0 0.068 0"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-3.141592653589793" upper="1.5707963267948966" velocity="6.283185307179586"/>
+    <limit effort="40.0" lower="-3.141592653589793" upper="1.5707963267948966" velocity="6.283185307179586"/>
   </joint>
   <link name="link_2">
     <inertial>
@@ -75,7 +75,7 @@
     <child link="link_2"/>
     <axis xyz="1 0 0"/>
     <origin rpy="0 0 0" xyz="0 0.064 0"/>
-    <limit effort="0" lower="0" upper="3.141592653589793" velocity="6.283185307179586"/>
+    <limit effort="20.0" lower="0" upper="3.141592653589793" velocity="6.283185307179586"/>
   </joint>
   <link name="link_3">
     <inertial>
@@ -102,7 +102,7 @@
     <parent link="link_2"/>
     <child link="link_3"/>
     <axis xyz="0 0 -1"/>
-    <limit effort="0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
+    <limit effort="20.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
   </joint>
   <link name="link_4">
     <inertial>
@@ -129,7 +129,7 @@
     <parent link="link_3"/>
     <child link="link_4"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-2.356194490192345" upper="0" velocity="6.283185307179586"/>
+    <limit effort="20.0" lower="-2.356194490192345" upper="0" velocity="6.283185307179586"/>
   </joint>
   <link name="link_5">
     <inertial>
@@ -156,7 +156,7 @@
     <parent link="link_4"/>
     <child link="link_5"/>
     <axis xyz="0 0 -1"/>
-    <limit effort="0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
+    <limit effort="11.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
   </joint>
   <link name="link_6">
     <inertial>
@@ -183,7 +183,7 @@
     <parent link="link_5"/>
     <child link="link_6"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="-0.7853981633974483" upper="0.7853981633974483" velocity="6.283185307179586"/>
+    <limit effort="27.0" lower="-0.7853981633974483" upper="0.7853981633974483" velocity="6.283185307179586"/>
   </joint>
   <link name="link_7">
     <inertial>
@@ -210,7 +210,7 @@
     <parent link="link_6"/>
     <child link="link_7"/>
     <axis xyz="1 0 0"/>
-    <limit effort="0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
+    <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="6.283185307179586"/>
   </joint>
   <link name="carriage_right">
     <inertial>
@@ -238,7 +238,7 @@
     <child link="carriage_right"/>
     <mimic joint="left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="0" lower="0" upper="0.04" velocity="0.25"/>
+    <limit effort="100.0" lower="0" upper="0.04" velocity="0.25"/>
   </joint>
   <link name="gripper_right">
     <inertial>
@@ -290,7 +290,7 @@
     <parent link="link_7"/>
     <child link="carriage_left"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0" lower="0" upper="0.04" velocity="0.25"/>
+    <limit effort="100.0" lower="0" upper="0.04" velocity="0.25"/>
   </joint>
   <link name="gripper_left">
     <inertial>

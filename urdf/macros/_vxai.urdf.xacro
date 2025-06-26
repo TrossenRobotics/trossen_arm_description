@@ -33,8 +33,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/base_link_right.stl" />
+            <mesh filename="${mesh_directory}/base_link_right.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -43,8 +42,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/base_link_right.stl" />
+            <mesh filename="${mesh_directory}/base_link_right.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == right -->
@@ -68,8 +66,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl" />
+            <mesh filename="${mesh_directory}/base_link_left.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -78,8 +75,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/base_link_left.stl" />
+            <mesh filename="${mesh_directory}/base_link_left.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == left -->
@@ -106,8 +102,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_1_right.stl" />
+            <mesh filename="${mesh_directory}/link_1_right.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -116,8 +111,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_1_right.stl" />
+            <mesh filename="${mesh_directory}/link_1_right.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == right -->
@@ -141,8 +135,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_1_left.stl" />
+            <mesh filename="${mesh_directory}/link_1_left.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -151,8 +144,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_1_left.stl" />
+            <mesh filename="${mesh_directory}/link_1_left.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == left -->
@@ -167,7 +159,7 @@
           rpy="0 0 0" />
         <axis xyz="0 -1 0" />
         <limit
-          effort="0"
+          effort="40.0"
           lower="${-pi / 2}"
           upper="${pi}"
           velocity="${2 * pi}" />
@@ -178,7 +170,7 @@
           rpy="0 0 0" />
         <axis xyz="0 1 0" />
         <limit
-          effort="0"
+          effort="40.0"
           lower="${-pi}"
           upper="${pi / 2}"
           velocity="${2 * pi}" />
@@ -205,7 +197,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_2.stl" />
+          <mesh filename="${mesh_directory}/link_2.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -214,7 +206,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_2.stl" />
+          <mesh filename="${mesh_directory}/link_2.stl" />
         </geometry>
       </collision>
     </link>
@@ -228,7 +220,7 @@
           xyz="0 -0.064 0"
           rpy="0 0 0" />
         <limit
-          effort="0"
+          effort="20.0"
           lower="${-pi}"
           upper="0"
           velocity="${2 * pi}" />
@@ -238,7 +230,7 @@
           xyz="0 0.064 0"
           rpy="0 0 0" />
         <limit
-          effort="0"
+          effort="20.0"
           lower="0"
           upper="${pi}"
           velocity="${2 * pi}" />
@@ -267,8 +259,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_3_right.stl" />
+            <mesh filename="${mesh_directory}/link_3_right.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -277,8 +268,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_3_right.stl" />
+            <mesh filename="${mesh_directory}/link_3_right.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == left -->
@@ -302,8 +292,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_3_left.stl" />
+            <mesh filename="${mesh_directory}/link_3_left.stl" />
           </geometry>
           <material name="trossen_black"/>
         </visual>
@@ -312,8 +301,7 @@
             xyz="0 0 0"
             rpy="0 0 0" />
           <geometry>
-            <mesh
-              filename="package://trossen_arm_description/meshes/vxai/link_3_left.stl" />
+            <mesh filename="${mesh_directory}/link_3_left.stl" />
           </geometry>
         </collision>
       </xacro:if>  <!-- arm_side == left -->
@@ -327,7 +315,7 @@
       <child link="${prefix}link_3" />
       <axis xyz="0 0 -1" />
       <limit
-        effort="0"
+        effort="20.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -352,7 +340,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_4.stl" />
+          <mesh filename="${mesh_directory}/link_4.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -361,7 +349,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_4.stl" />
+          <mesh filename="${mesh_directory}/link_4.stl" />
         </geometry>
       </collision>
     </link>
@@ -375,7 +363,7 @@
       <xacro:if value="${arm_side == 'right'}">
         <axis xyz="0 -1 0" />
         <limit
-          effort="0"
+          effort="20.0"
           lower="0"
           upper="${3 * pi / 4}"
           velocity="${2 * pi}" />
@@ -383,7 +371,7 @@
       <xacro:if value="${arm_side == 'left'}">
         <axis xyz="0 1 0" />
         <limit
-          effort="0"
+          effort="20.0"
           lower="${-3 * pi / 4}"
           upper="0"
           velocity="${2 * pi}" />
@@ -409,7 +397,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_5.stl" />
+          <mesh filename="${mesh_directory}/link_5.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -418,7 +406,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_5.stl" />
+          <mesh filename="${mesh_directory}/link_5.stl" />
         </geometry>
       </collision>
     </link>
@@ -431,7 +419,7 @@
       <child link="${prefix}link_5" />
       <axis xyz="0 0 -1" />
       <limit
-        effort="0"
+        effort="11.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -456,7 +444,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_6.stl" />
+          <mesh filename="${mesh_directory}/link_6.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -465,7 +453,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_6.stl" />
+          <mesh filename="${mesh_directory}/link_6.stl" />
         </geometry>
       </collision>
     </link>
@@ -478,7 +466,7 @@
       <child link="${prefix}link_6" />
       <axis xyz="0 1 0" />
       <limit
-        effort="0"
+        effort="27.0"
         lower="${-pi / 4}"
         upper="${pi / 4}"
         velocity="${2 * pi}" />
@@ -503,7 +491,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_7.stl" />
+          <mesh filename="${mesh_directory}/link_7.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -512,7 +500,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/link_7.stl" />
+          <mesh filename="${mesh_directory}/link_7.stl" />
         </geometry>
       </collision>
     </link>
@@ -525,7 +513,7 @@
       <child link="${prefix}link_7" />
       <axis xyz="1 0 0" />
       <limit
-        effort="0"
+        effort="7.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -550,7 +538,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/carriage_right.stl" />
+          <mesh filename="${mesh_directory}/carriage_right.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -559,7 +547,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/carriage_right.stl" />
+          <mesh filename="${mesh_directory}/carriage_right.stl" />
         </geometry>
       </collision>
     </link>
@@ -573,7 +561,7 @@
       <mimic joint="${prefix}left_carriage_joint" />
       <axis xyz="0 -1 0" />
       <limit
-        effort="0"
+        effort="100.0"
         lower="0"
         upper="0.04"
         velocity="0.25" />
@@ -598,7 +586,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/gripper_right.stl" />
+          <mesh filename="${mesh_directory}/gripper_right.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -607,7 +595,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/gripper_right.stl" />
+          <mesh filename="${mesh_directory}/gripper_right.stl" />
         </geometry>
       </collision>
     </link>
@@ -639,7 +627,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/carriage_left.stl" />
+          <mesh filename="${mesh_directory}/carriage_left.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -648,7 +636,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/carriage_left.stl" />
+          <mesh filename="${mesh_directory}/carriage_left.stl" />
         </geometry>
       </collision>
     </link>
@@ -661,7 +649,7 @@
       <child link="${prefix}carriage_left" />
       <axis xyz="0 1 0" />
       <limit
-        effort="0"
+        effort="100.0"
         lower="0"
         upper="0.04"
         velocity="0.25" />
@@ -686,7 +674,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/gripper_left.stl" />
+          <mesh filename="${mesh_directory}/gripper_left.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -695,7 +683,7 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/vxai/gripper_left.stl" />
+          <mesh filename="${mesh_directory}/gripper_left.stl" />
         </geometry>
       </collision>
     </link>
