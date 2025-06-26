@@ -167,7 +167,7 @@
           rpy="0 0 0" />
         <axis xyz="0 -1 0" />
         <limit
-          effort="0"
+          effort="27.0"
           lower="${-pi / 2}"
           upper="${pi}"
           velocity="${2 * pi}" />
@@ -178,7 +178,7 @@
           rpy="0 0 0" />
         <axis xyz="0 1 0" />
         <limit
-          effort="0"
+          effort="27.0"
           lower="${-pi}"
           upper="${pi / 2}"
           velocity="${2 * pi}" />
@@ -228,7 +228,7 @@
           xyz="0 -0.0365 0"
           rpy="0 0 0" />
         <limit
-          effort="0"
+          effort="27.0"
           lower="${-pi}"
           upper="0"
           velocity="${2 * pi}" />
@@ -238,7 +238,7 @@
           xyz="0 0.0365 0"
           rpy="0 0 0" />
         <limit
-          effort="0"
+          effort="27.0"
           lower="0"
           upper="${pi}"
           velocity="${2 * pi}" />
@@ -327,7 +327,7 @@
       <child link="${prefix}link_3" />
       <axis xyz="0 0 -1" />
       <limit
-        effort="0"
+        effort="7.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -375,7 +375,7 @@
       <xacro:if value="${arm_side == 'right'}">
         <axis xyz="0 -1 0" />
         <limit
-          effort="0"
+          effort="7.0"
           lower="0"
           upper="${3 * pi / 4}"
           velocity="${2 * pi}" />
@@ -383,7 +383,7 @@
       <xacro:if value="${arm_side == 'left'}">
         <axis xyz="0 1 0" />
         <limit
-          effort="0"
+          effort="7.0"
           lower="${-3 * pi / 4}"
           upper="0"
           velocity="${2 * pi}" />
@@ -431,7 +431,7 @@
       <child link="${prefix}link_5" />
       <axis xyz="0 0 -1" />
       <limit
-        effort="0"
+        effort="3.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -478,7 +478,7 @@
       <child link="${prefix}link_6" />
       <axis xyz="0 1 0" />
       <limit
-        effort="0"
+        effort="3.0"
         lower="${-pi / 4}"
         upper="${pi / 4}"
         velocity="${2 * pi}" />
@@ -525,7 +525,7 @@
       <child link="${prefix}link_7" />
       <axis xyz="1 0 0" />
       <limit
-        effort="0"
+        effort="3.0"
         lower="${-pi / 2}"
         upper="${pi / 2}"
         velocity="${2 * pi}" />
@@ -573,10 +573,10 @@
           rpy="0 0 0" />
         <axis xyz="0 1 0" />
         <limit
+          effort="3.0"
           lower="${-pi / 6}"
           upper="0"
-          effort="0"
-          velocity="0" />
+          velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
         <origin
@@ -584,10 +584,10 @@
           rpy="0 0 0" />
         <axis xyz="0 -1 0" />
         <limit
+          effort="3.0"
           lower="0"
           upper="${pi / 6}"
-          effort="0"
-          velocity="0" />
+          velocity="${2 * pi}" />
       </xacro:if>  <!-- arm_side == left -->
     </joint>
 
