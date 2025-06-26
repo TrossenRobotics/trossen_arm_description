@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="leader" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="variant"                         default=""/>          <!-- '', 'left', 'right' -->
+  <xacro:arg name="arm_side"                        default=""/>          <!-- '', 'left', 'right' -->
+  <xacro:arg name="use_world_frame"                 default="false"/>     <!-- 'true', 'false' -->
+  <xacro:arg name="base_link_frame"                 default="base_link"/>
+
+  <xacro:if value="$(arg use_world_frame)">
+    <link name="world"/>
+    <joint name="fixed" type="fixed">
+      <parent
+        link="world"/>
+      <child
+        link="$(arg base_link_frame)"/>
+    </joint>
+  </xacro:if> <!-- use_world_frame -->
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_leader.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_common.urdf.xacro" />
+
+  <xacro:trossen_black/>
+
+  <xacro:leader
+    arm_side="$(arg arm_side)"
+    variant="$(arg variant)"/>
+
+</robot>
