@@ -51,17 +51,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="-0.00002199 0.03351643 -0.00006205"
+            xyz="0.00005199 -0.03429087 0.00005295"
             rpy="0 0 0" />
           <mass
-            value="1.87165014" />
+            value="0.37290125" />
           <inertia
-            ixx="0.00209272"
-            ixy="0.00000341"
-            ixz="0.00000001"
-            iyy="0.00299206"
-            iyz="-0.00000068"
-            izz="0.00207913" />
+            ixx="0.00034804"
+            ixy="-0.00000039"
+            ixz="-0.00000003"
+            iyy="0.00014057"
+            iyz="-0.00000080"
+            izz="0.00034074" />
         </inertial>
         <visual>
           <origin
@@ -124,17 +124,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.00275057 0.05743620 -0.00006878"
+            xyz="0.00331378 -0.03460068 -0.00004285"
             rpy="0 0 0" />
           <mass
-            value="1.28114157" />
+            value="0.45236030" />
           <inertia
-            ixx="0.00179991"
-            ixy="-0.00001416"
-            ixz="-0.00000010"
-            iyy="0.00124087"
-            iyz="0.00000433"
-            izz="0.00154826" />
+            ixx="0.00018930"
+            ixy="0.00000360"
+            ixz="-0.00000033"
+            iyy="0.00043171"
+            iyz="0.00000000"
+            izz="0.00045089" />
         </inertial>
         <visual>
           <origin
@@ -174,7 +174,7 @@
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
         <origin
-          xyz="0 0.068 0"
+          xyz="0 -0.05825 0"
           rpy="0 0 0" />
         <axis xyz="0 1 0" />
         <limit
@@ -235,7 +235,7 @@
       </xacro:if>  <!-- arm_side == right -->
       <xacro:if value="${arm_side == 'left'}">
         <origin
-          xyz="0 0.064 0"
+          xyz="0 -0.0365 0"
           rpy="0 0 0" />
         <limit
           effort="0"
@@ -285,17 +285,17 @@
       <xacro:if value="${arm_side == 'left'}">
         <inertial>
           <origin
-            xyz="0.01468991 0.00233199 -0.13173731"
+            xyz="0.01706827 0.00212153 -0.16679020"
             rpy="0 0 0" />
           <mass
-            value="1.51522891" />
+            value="0.46940642" />
           <inertia
-            ixx="0.00491799"
-            ixy="-0.00001908"
-            ixz="0.00061539"
-            iyy="0.00521300"
-            iyz="0.00008711"
-            izz="0.00130863" />
+            ixx="0.00182642"
+            ixy="-0.00000341"
+            ixz="0.00015666"
+            iyy="0.00165644"
+            iyz="0.00002673"
+            izz="0.00039819" />
         </inertial>
         <visual>
           <origin
