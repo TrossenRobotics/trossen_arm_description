@@ -16,17 +16,17 @@
       <xacro:if value="${arm_side == 'right'}">
         <inertial>
           <origin
-            xyz="-0.00002199 -0.03351643 0.00006205"
+            xyz="0.00005199 -0.03429087 0.00005295"
             rpy="0 0 0" />
           <mass
-            value="1.87165014" />
+            value="0.37290125" />
           <inertia
-            ixx="0.00209272"
-            ixy="-0.00000341"
-            ixz="-0.00000001"
-            iyy="0.00299206"
-            iyz="-0.00000068"
-            izz="0.00207913" />
+            ixx="0.00034804"
+            ixy="-0.00000039"
+            ixz="-0.00000003"
+            iyy="0.00014057"
+            iyz="-0.00000080"
+            izz="0.00034074" />
         </inertial>
         <visual>
           <origin
@@ -89,17 +89,17 @@
       <xacro:if value="${arm_side == 'right'}">
         <inertial>
           <origin
-            xyz="0.00275058 -0.05744640 -0.00007470"
+            xyz="0.00331378 -0.03460068 -0.00004285"
             rpy="0 0 0" />
           <mass
-            value="1.28114157" />
+            value="0.45236030" />
           <inertia
-            ixx="0.00180008"
-            ixy="0.00001517"
-            ixz="0.00000048"
-            iyy="0.00124234"
-            iyz="-0.00000523"
-            izz="0.00154695" />
+            ixx="0.00018930"
+            ixy="0.00000360"
+            ixz="-0.00000033"
+            iyy="0.00043171"
+            iyz="0.00000000"
+            izz="0.00045089" />
         </inertial>
         <visual>
           <origin
@@ -163,7 +163,7 @@
       <child link="${prefix}link_1" />
       <xacro:if value="${arm_side == 'right'}">
         <origin
-          xyz="0 -0.068 0"
+          xyz="0 -0.05825 0"
           rpy="0 0 0" />
         <axis xyz="0 -1 0" />
         <limit
@@ -189,16 +189,16 @@
     <link name="${prefix}link_2">
       <inertial>
         <origin
-          xyz="0.00004155 0.00000477 -0.09223936"
+          xyz="-0.00000527 0.00001239 -0.08091014"
           rpy="0 0 0" />
-        <mass value="1.58168513" />
+        <mass value="0.33783172" />
         <inertia
-          ixx="0.00303540"
-          ixy="0.00000094"
-          ixz="0.00000007"
-          iyy="0.00325708"
-          iyz="0.00000058"
-          izz="0.00202764" />
+          ixx="0.00031788"
+          ixy="0.00000004"
+          ixz="-0.00000049"
+          iyy="0.00034942"
+          iyz="-0.00000045"
+          izz="0.00016037" />
       </inertial>
       <visual>
         <origin
@@ -225,7 +225,7 @@
       <axis xyz="1 0 0" />
       <xacro:if value="${arm_side == 'right'}">
         <origin
-          xyz="0 -0.064 0"
+          xyz="0 -0.0365 0"
           rpy="0 0 0" />
         <limit
           effort="0"
@@ -250,17 +250,17 @@
       <xacro:if value="${arm_side == 'right'}">
         <inertial>
           <origin
-            xyz="0.01469489 -0.00233198 -0.13174594"
+            xyz="0.01706827 0.00212153 -0.16679020"
             rpy="0 0 0" />
           <mass
-            value="1.51522891" />
+            value="0.46940642" />
           <inertia
-            ixx="0.00491722"
-            ixy="0.00001966"
-            ixz="0.00061652"
-            iyy="0.00521379"
-            iyz="-0.00008813"
-            izz="0.00131018" />
+            ixx="0.00182642"
+            ixy="-0.00000341"
+            ixz="0.00015666"
+            iyy="0.00165644"
+            iyz="0.00002673"
+            izz="0.00039819" />
         </inertial>
         <visual>
           <origin
@@ -321,7 +321,7 @@
 
     <joint name="${prefix}joint_2" type="revolute">
       <origin
-        xyz="0 0 -0.1284"
+        xyz="0 0 -0.106"
         rpy="0 0 0" />
       <parent link="${prefix}link_2" />
       <child link="${prefix}link_3" />
@@ -336,16 +336,16 @@
     <link name="${prefix}link_4">
       <inertial>
         <origin
-          xyz="-0.01788633 0.00011005 -0.07293050"
+          xyz="-0.01912502 0.00002771 -0.08994190"
           rpy="0 0 0" />
-        <mass value="0.59839689" />
+        <mass value="0.19153172" />
         <inertia
-          ixx="0.00082356"
-          ixy="0.00000013"
-          ixz="-0.00008634"
-          iyy="0.00069719"
-          iyz="0.00000093"
-          izz="0.00052102" />
+          ixx="0.00019027"
+          ixy="-0.00000010"
+          ixz="-0.00001489"
+          iyy="0.00015938"
+          iyz="-0.00000047"
+          izz="0.00008565" />
       </inertial>
       <visual>
         <origin
@@ -368,7 +368,7 @@
 
     <joint name="${prefix}joint_3" type="revolute">
       <origin
-        xyz="0.02 0 -0.159"
+        xyz="0.02 0 -0.1938"
         rpy="0 0 0" />
       <parent link="${prefix}link_3" />
       <child link="${prefix}link_4" />
@@ -393,16 +393,16 @@
     <link name="${prefix}link_5">
       <inertial>
         <origin
-          xyz="-0.00011067 0.00225112 -0.04045079"
+          xyz="-0.00025767 0.00302328 -0.03375968"
           rpy="0 0 0" />
-        <mass value="0.60644692" />
+        <mass value="0.24163171" />
         <inertia
-          ixx="0.00094550"
-          ixy="0.00000375"
-          ixz="-0.00000789"
-          iyy="0.00054664"
-          iyz="-0.00000214"
-          izz="0.00066100" />
+          ixx="0.00022638"
+          ixy="0.00000100"
+          ixz="-0.00000442"
+          iyy="0.00016124"
+          iyz="0.00000725"
+          izz="0.00013726" />
       </inertial>
       <visual>
         <origin
@@ -425,7 +425,7 @@
 
     <joint name="${prefix}joint_4" type="revolute">
       <origin
-        xyz="-0.02 0 -0.1065"
+        xyz="-0.02 0 -0.1185"
         rpy="0 0 0" />
       <parent link="${prefix}link_4" />
       <child link="${prefix}link_5" />
@@ -440,16 +440,16 @@
     <link name="${prefix}link_6">
       <inertial>
         <origin
-          xyz="-0.00058762 0.00058070 0.00001797"
+          xyz="-0.01044529 0.00000910 0.00011242"
           rpy="0 0 0" />
-        <mass value="0.38858221" />
+        <mass value="0.18731697" />
         <inertia
-          ixx="0.00018958"
-          ixy="-0.00000050"
-          ixz="0.00000001"
-          iyy="0.00026787"
-          iyz="0.00000008"
-          izz="0.00031658" />
+          ixx="0.00006195"
+          ixy="-0.00000001"
+          ixz="-0.00000032"
+          iyy="0.00005051"
+          iyz="0.00000000"
+          izz="0.00006440" />
       </inertial>
       <visual>
         <origin
@@ -472,7 +472,7 @@
 
     <joint name="${prefix}joint_5" type="revolute">
       <origin
-        xyz="0 0 -0.113"
+        xyz="0 0 -0.101"
         rpy="0 0 0" />
       <parent link="${prefix}link_5" />
       <child link="${prefix}link_6" />
@@ -487,16 +487,16 @@
     <link name="${prefix}link_7">
       <inertial>
         <origin
-          xyz="-0.01847211 -0.00000697 -0.08476049"
+          xyz="-0.04169427 0.00058029 -0.06323582"
           rpy="0 0 0" />
-        <mass value="0.57903811" />
+        <mass value="0.23686287" />
         <inertia
-          ixx="0.00135277"
-          ixy="-0.00000006"
-          ixz="-0.00009912"
-          iyy="0.00077371"
-          iyz="0.00000049"
-          izz="0.00085992" />
+          ixx="0.00019957"
+          ixy="-0.00000203"
+          ixz="0.00016948"
+          iyy="0.00053905"
+          iyz="0.00000192"
+          izz="0.00038760" />
       </inertial>
       <visual>
         <origin
@@ -519,7 +519,7 @@
 
     <joint name="${prefix}joint_6" type="revolute">
       <origin
-        xyz="0.021 0 0"
+        xyz="-0.034 0 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_6" />
       <child link="${prefix}link_7" />
@@ -531,26 +531,26 @@
         velocity="${2 * pi}" />
     </joint>
 
-    <link name="${prefix}carriage_right">
+    <link name="link_8">
       <inertial>
         <origin
-          xyz="0.00457901 0.00403514 0.00889602"
+          xyz="-0.01502064 0.00191435 0.00656522"
           rpy="0 0 0" />
-        <mass value="0.05036313" />
+        <mass value="0.00915397" />
         <inertia
-          ixx="0.00001378"
-          ixy="-0.00000172"
-          ixz="-0.00000104"
-          iyy="0.00000591"
-          iyz="-0.00000165"
-          izz="0.00001736" />
+          ixx="0.00000120"
+          ixy="-0.00000021"
+          ixz="0.00000102"
+          iyy="0.00000385"
+          iyz="0.00000011"
+          izz="0.00000284" />
       </inertial>
       <visual>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/carriage_right.stl" />
+          <mesh filename="package://trossen_arm_description/meshes/leader/link_8.stl" />
         </geometry>
         <material name="trossen_black"/>
       </visual>
@@ -559,160 +559,30 @@
           xyz="0 0 0"
           rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/carriage_right.stl" />
+          <mesh filename="package://trossen_arm_description/meshes/leader/link_8.stl" />
         </geometry>
       </collision>
     </link>
 
-    <joint name="${prefix}right_carriage_joint" type="prismatic">
+    <joint name="joint_7" type="revolute">
       <origin
-        xyz="-0.021 -0.022974 -0.1305"
+        xyz="-0.02847106 0.01930000 -0.07900135"
         rpy="0 0 0" />
-      <parent link="${prefix}link_7" />
-      <child link="${prefix}carriage_right" />
-      <mimic joint="${prefix}left_carriage_joint" />
-      <axis xyz="0 -1 0" />
-      <limit
-        effort="0"
-        lower="0"
-        upper="0.04"
-        velocity="0.25" />
-    </joint>
-
-    <link name="${prefix}gripper_right">
-      <inertial>
-        <origin
-          xyz="-0.00215452 0.00901223 -0.01893989"
-          rpy="0 0 0" />
-        <mass value="0.03090786" />
-        <inertia
-          ixx="0.00001184"
-          ixy="0.00000020"
-          ixz="-0.00000029"
-          iyy="0.00001487"
-          iyz="0.00000321"
-          izz="0.00000769" />
-      </inertial>
-      <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/gripper_right.stl" />
-        </geometry>
-        <material name="trossen_black"/>
-      </visual>
-      <collision>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/gripper_right.stl" />
-        </geometry>
-      </collision>
-    </link>
-
-    <joint name="${prefix}right_gripper_joint" type="fixed">
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <parent link="${prefix}carriage_right" />
-      <child link="${prefix}gripper_right" />
-    </joint>
-
-    <link name="${prefix}carriage_left">
-      <inertial>
-        <origin
-          xyz="-0.00457908 -0.00403515 0.00889602"
-          rpy="0 0 0" />
-        <mass value="0.05036313" />
-        <inertia
-          ixx="0.00001378"
-          ixy="-0.00000172"
-          ixz="0.00000104"
-          iyy="0.00000591"
-          iyz="0.00000165"
-          izz="0.00001736" />
-      </inertial>
-      <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/carriage_left.stl" />
-        </geometry>
-        <material name="trossen_black"/>
-      </visual>
-      <collision>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/carriage_left.stl" />
-        </geometry>
-      </collision>
-    </link>
-
-    <joint name="${prefix}left_carriage_joint" type="prismatic">
-      <origin
-        xyz="-0.021 0.022974 -0.1305"
-        rpy="0 0 0" />
-      <parent link="${prefix}link_7" />
-      <child link="${prefix}carriage_left" />
+      <parent link="link_7" />
+      <child link="link_8" />
       <axis xyz="0 1 0" />
       <limit
+        lower="-1.5707963267948966"
+        upper="1.5707963267948966"
         effort="0"
-        lower="0"
-        upper="0.04"
-        velocity="0.25" />
-    </joint>
-
-    <link name="${prefix}gripper_left">
-      <inertial>
-        <origin
-          xyz="-0.00215462 -0.00901217 -0.01893993"
-          rpy="0 0 0" />
-        <mass value="0.03090787" />
-        <inertia
-          ixx="0.00001184"
-          ixy="-0.00000020"
-          ixz="-0.00000029"
-          iyy="0.00001487"
-          iyz="-0.00000321"
-          izz="0.00000769" />
-      </inertial>
-      <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/gripper_left.stl" />
-        </geometry>
-        <material name="trossen_black"/>
-      </visual>
-      <collision>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="package://trossen_arm_description/meshes/leader/gripper_left.stl" />
-        </geometry>
-      </collision>
-    </link>
-
-    <joint name="${prefix}gripper_left_joint" type="fixed">
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <parent link="${prefix}carriage_left" />
-      <child link="${prefix}gripper_left" />
+        velocity="0" />
     </joint>
 
     <joint name="${prefix}ee_gripper" type="fixed">
       <origin
         xyz="-0.021 0 -0.200062"
         rpy="0 0 0" />
-      <parent link="${prefix}link_7" />
+      <parent link="${prefix}link_8" />
       <child link="${prefix}ee_gripper_link" />
     </joint>
 
