@@ -86,10 +86,10 @@
       <child link="${prefix}link_1" />
       <axis xyz="0 0 1" />
       <limit
-        lower="${-radians(180 - 5)}"
-        upper="${radians(180 - 5)}"
+        lower="-${pi}"
+        upper="${pi}"
         effort="27.0"
-        velocity="3.375" />
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_2">
@@ -136,7 +136,7 @@
         lower="0.0"
         upper="${pi}"
         effort="27.0"
-        velocity="3.375" />
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_3">
@@ -183,7 +183,7 @@
         lower="0.0"
         upper="${3 * pi / 4}"
         effort="27.0"
-        velocity="3.375" />
+        velocity="${2 * pi}" />
     </joint>
 
     <link name="${prefix}link_4">
@@ -230,7 +230,7 @@
         lower="-${pi / 2.0}"
         upper="${pi / 2.0}"
         effort="7.0"
-        velocity="7.0" />
+        velocity="${3 * pi}" />
     </joint>
 
     <link name="${prefix}link_5">
@@ -277,7 +277,7 @@
         lower="-${pi / 2.0}"
         upper="${pi / 2.0}"
         effort="7.0"
-        velocity="7.0" />
+        velocity="${3 * pi}" />
     </joint>
 
     <link name="${prefix}link_6">
@@ -324,7 +324,7 @@
         lower="-${pi}"
         upper="${pi}"
         effort="7.0"
-        velocity="7.0" />
+        velocity="${3 * pi}" />
     </joint>
 
     <link name="${prefix}carriage_right">
@@ -370,9 +370,9 @@
       <axis xyz="0 -1 0" />
       <limit
         lower="0.0"
-        upper="0.044"
-        effort="400.0"
-        velocity="0.0875" />
+        upper="0.04"
+        effort="100.0"
+        velocity="0.25" />
     </joint>
 
     <link name="${prefix}carriage_left">
@@ -417,9 +417,9 @@
       <axis xyz="0 1 0" />
       <limit
         lower="0.0"
-        upper="0.044"
-        effort="400.0"
-        velocity="0.0875" />
+        upper="0.04"
+        effort="100.0"
+        velocity="0.25" />
     </joint>
 
     <xacro:if value="${variant == 'follower'}">
