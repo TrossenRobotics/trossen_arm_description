@@ -24,9 +24,9 @@
   <xacro:trossen_black/>
 
   <xacro:wxai
-    arm_side="$(arg arm_side)"
     variant="$(arg variant)"
-    ip_address="$(arg ip_address)"
-    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+    arm_side="$(arg arm_side)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"
+    ip_address="$(arg ip_address)"/>
 
 </robot>
