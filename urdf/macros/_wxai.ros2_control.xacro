@@ -23,7 +23,6 @@
       <hardware>
         <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
           <plugin>fake_components/GenericSystem</plugin>
-          <!-- <plugin>mock_components/GenericSystem</plugin> -->
         </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
 
         <xacro:if value="${ros2_control_hardware_type == 'real'}">
