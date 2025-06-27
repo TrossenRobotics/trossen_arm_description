@@ -54,22 +54,6 @@
           </state_interface>
       </joint>
 
-      <!-- right_carriage_joint is a mimic of the left_carriage_joint and does not get a command interface -->
-      <joint name="${prefix}right_carriage_joint">
-          <param name="mimic">${prefix}left_carriage_joint</param>
-          <param name="multiplier">1</param>
-          <!-- <command_interface name="position" /> -->
-          <state_interface name="position">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="velocity">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="effort">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-      </joint>
-
     </ros2_control>
 
   </xacro:macro>
