@@ -30,7 +30,6 @@
           <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
           <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
           <param name="ip_address">${ip_address}</param>
-          <param name="update_period">0.1</param>
         </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>
 
