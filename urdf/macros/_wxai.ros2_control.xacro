@@ -5,32 +5,30 @@
     <joint name="${name}">
       <command_interface name="position"/>
       <state_interface name="position">
-          <param name="initial_value">0.0</param>
+        <param name="initial_value">0.0</param>
       </state_interface>
       <state_interface name="velocity">
-          <param name="initial_value">0.0</param>
+        <param name="initial_value">0.0</param>
       </state_interface>
       <state_interface name="effort">
-          <param name="initial_value">0.0</param>
+        <param name="initial_value">0.0</param>
       </state_interface>
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="wxai_ros2_control" params="prefix ip_address ros2_control_hardware_type">
+  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type:='real' ip_address:='192.168.1.2'">
 
     <ros2_control name="TrossenArmHardwareInterface" type="system">
 
       <hardware>
         <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
           <plugin>fake_components/GenericSystem</plugin>
-          <!-- <plugin>mock_components/GenericSystem</plugin> -->
         </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
 
         <xacro:if value="${ros2_control_hardware_type == 'real'}">
           <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
           <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
           <param name="ip_address">${ip_address}</param>
-          <param name="update_period">0.1</param>
         </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>
 
@@ -42,31 +40,17 @@
       <xacro:ros2_control_joint name="${prefix}joint_5"/>
 
       <joint name="${prefix}left_carriage_joint">
-          <command_interface name="position" />
-          <state_interface name="position">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="velocity">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="effort">
-            <param name="initial_value">0.0</param>
-          </state_interface>
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
       </joint>
-      <!-- <joint name="${prefix}right_carriage_joint">
-          <param name="mimic">${prefix}left_carriage_joint</param>
-          <param name="multiplier">1</param>
-          <command_interface name="position" />
-          <state_interface name="position">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="velocity">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-          <state_interface name="effort">
-            <param name="initial_value">0.0</param>
-          </state_interface>
-      </joint> -->
 
     </ros2_control>
 
