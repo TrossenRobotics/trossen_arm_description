@@ -8,7 +8,7 @@
     value="6"
     scope="local"/>
 
-  <xacro:macro name="wxai" params="variant arm_side:='' prefix:='' ros2_control_hardware_type:='real'">
+  <xacro:macro name="wxai" params="variant arm_side:='' prefix:='' ros2_control_hardware_type:='real' ip_address:='192.168.1.2'">
 
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
@@ -17,7 +17,7 @@
     <xacro:wxai_ros2_control
       ros2_control_hardware_type="${ros2_control_hardware_type}"
       prefix="${prefix}"
-      ip_address="192.168.1.2"/>  <!-- TODO(lukeschmitt-tr): pass this -->
+      ip_address="${ip_address}"/>
 
     <link name="${prefix}base_link">
       <inertial>
