@@ -8,9 +8,16 @@
     value="6"
     scope="local"/>
 
-  <xacro:macro name="wxai" params="variant arm_side:='' prefix:=''">
+  <xacro:macro name="wxai" params="variant arm_side:='' prefix:='' ros2_control_hardware_type ip_address">
 
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
+
+    <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.ros2_control.xacro"/>
+
+    <xacro:wxai_ros2_control
+      prefix="${prefix}"
+      ip_address="${ip_address}"
+      ros2_control_hardware_type="${ros2_control_hardware_type}"/>
 
     <link name="${prefix}base_link">
       <inertial>

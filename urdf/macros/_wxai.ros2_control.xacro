@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="ros2_control_joint" params="name">
+    <joint name="${name}">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type ip_address">
+
+    <ros2_control name="TrossenArmHardwareInterface" type="system">
+
+      <hardware>
+        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
+          <plugin>fake_components/GenericSystem</plugin>
+        </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
+
+        <xacro:if value="${ros2_control_hardware_type == 'real'}">
+          <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
+          <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
+          <param name="ip_address">${ip_address}</param>
+        </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
+      </hardware>
+
+      <xacro:ros2_control_joint name="${prefix}joint_0"/>
+      <xacro:ros2_control_joint name="${prefix}joint_1"/>
+      <xacro:ros2_control_joint name="${prefix}joint_2"/>
+      <xacro:ros2_control_joint name="${prefix}joint_3"/>
+      <xacro:ros2_control_joint name="${prefix}joint_4"/>
+      <xacro:ros2_control_joint name="${prefix}joint_5"/>
+
+      <joint name="${prefix}left_carriage_joint">
+        <command_interface name="position" />
+        <state_interface name="position">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="velocity">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+        <state_interface name="effort">
+          <param name="initial_value">0.0</param>
+        </state_interface>
+      </joint>
+
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>
