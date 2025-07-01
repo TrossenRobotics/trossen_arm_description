@@ -24,7 +24,7 @@
   <xacro:trossen_black/>
 
   <xacro:wxai
-    variant="$(arg variant)"
+    variant="$(arg arm_variant)"
     arm_side="$(arg arm_side)"
     ros2_control_hardware_type="$(arg ros2_control_hardware_type)"
     ip_address="$(arg ip_address)"/>
