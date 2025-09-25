@@ -16,7 +16,7 @@
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type ip_address">
+  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type ip_address variant">
 
     <ros2_control name="TrossenArmHardwareInterface" type="system">
 
@@ -27,7 +27,8 @@
 
         <xacro:if value="${ros2_control_hardware_type == 'real'}">
           <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
-          <param name="robot_model">0</param>        <!-- 0: wxai_v0 -->
+          <param name="robot_model">0</param>             <!-- 0: wxai_v0 -->
+          <param name="end_effector">${variant}</param>   <!-- 'base', 'follower' -->
           <param name="ip_address">${ip_address}</param>
         </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>

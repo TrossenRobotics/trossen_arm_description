@@ -17,7 +17,8 @@
     <xacro:wxai_ros2_control
       prefix="${prefix}"
       ip_address="${ip_address}"
-      ros2_control_hardware_type="${ros2_control_hardware_type}"/>
+      ros2_control_hardware_type="${ros2_control_hardware_type}"
+      variant="${variant}"/>
 
     <link name="${prefix}base_link">
       <inertial>

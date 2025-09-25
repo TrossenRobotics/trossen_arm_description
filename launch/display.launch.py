@@ -39,8 +39,9 @@ from launch.substitutions import (
     PathJoinSubstitution,
 )
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 from launch_ros.parameter_descriptions import ParameterValue
+from launch_ros.substitutions import FindPackageShare
+
 
 def launch_setup(context, *args, **kwargs):
     use_rviz_launch_arg = LaunchConfiguration('use_rviz')
@@ -158,14 +159,14 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'robot_description',
             default_value=Command([
-            FindExecutable(name='xacro'), ' ',
-            PathJoinSubstitution([
-                FindPackageShare('trossen_arm_description'),
-                'urdf',
-                LaunchConfiguration('robot_model'),
-                ]), '.urdf.xacro ',
-            'variant:=', LaunchConfiguration('arm_variant'), ' ',
-            'arm_side:=', LaunchConfiguration('arm_side'), ' ',
+                FindExecutable(name='xacro'), ' ',
+                PathJoinSubstitution([
+                    FindPackageShare('trossen_arm_description'),
+                    'urdf',
+                    LaunchConfiguration('robot_model'),
+                    ]), '.urdf.xacro ',
+                'variant:=', LaunchConfiguration('arm_variant'), ' ',
+                'arm_side:=', LaunchConfiguration('arm_side'), ' ',
             ])
         )
     )
