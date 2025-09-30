@@ -8,6 +8,7 @@
   <xacro:arg name="ros2_control_hardware_type"      default="real"/>        <!-- 'real', 'mock_components' -->
   <xacro:arg name="ip_address"                      default="192.168.1.2"/>
   <xacro:arg name="base_link_frame"                 default="base_link"/>
+  <xacro:arg name="command_interface"               default="position"/>    <!-- 'position', 'effort' -->
 
   <xacro:if value="$(arg use_world_frame)">
     <link name="world"/>
@@ -29,6 +30,7 @@
     arm_side="$(arg arm_side)"
     prefix="$(arg prefix)"
     ros2_control_hardware_type="$(arg ros2_control_hardware_type)"
-    ip_address="$(arg ip_address)"/>
+    ip_address="$(arg ip_address)"
+    command_interface="$(arg command_interface)"/>
 
 </robot>
