@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="ros2_control_joint" params="name">
+  <xacro:macro name="ros2_control_joint" params="name command_interface:='position'">
     <joint name="${name}">
-      <command_interface name="position"/>
+      <command_interface name="${command_interface}"/>
       <state_interface name="position">
         <param name="initial_value">0.0</param>
       </state_interface>
@@ -16,7 +16,7 @@
     </joint>
   </xacro:macro>
 
-  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type ip_address variant">
+  <xacro:macro name="wxai_ros2_control" params="prefix ros2_control_hardware_type ip_address variant command_interface:='position'">
 
     <ros2_control name="TrossenArmHardwareInterface" type="system">
 
@@ -33,15 +33,15 @@
         </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>
 
-      <xacro:ros2_control_joint name="${prefix}joint_0"/>
-      <xacro:ros2_control_joint name="${prefix}joint_1"/>
-      <xacro:ros2_control_joint name="${prefix}joint_2"/>
-      <xacro:ros2_control_joint name="${prefix}joint_3"/>
-      <xacro:ros2_control_joint name="${prefix}joint_4"/>
-      <xacro:ros2_control_joint name="${prefix}joint_5"/>
+      <xacro:ros2_control_joint name="${prefix}joint_0" command_interface="${command_interface}"/>
+      <xacro:ros2_control_joint name="${prefix}joint_1" command_interface="${command_interface}"/>
+      <xacro:ros2_control_joint name="${prefix}joint_2" command_interface="${command_interface}"/>
+      <xacro:ros2_control_joint name="${prefix}joint_3" command_interface="${command_interface}"/>
+      <xacro:ros2_control_joint name="${prefix}joint_4" command_interface="${command_interface}"/>
+      <xacro:ros2_control_joint name="${prefix}joint_5" command_interface="${command_interface}"/>
 
       <joint name="${prefix}left_carriage_joint">
-        <command_interface name="position" />
+        <command_interface name="${command_interface}"/>
         <state_interface name="position">
           <param name="initial_value">0.0</param>
         </state_interface>
