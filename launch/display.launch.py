@@ -143,7 +143,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'arm_variant',
             default_value='base',
-            choices=('base', 'leader', 'follower'),
+            choices=('base', 'leader', 'follower', 'follower_compliant'),
         )
     )
 

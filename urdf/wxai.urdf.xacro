@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="wxai" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="variant"                         default="base"/>        <!-- 'base', 'leader', 'follower' -->
+  <xacro:arg name="variant"                         default="base"/>        <!-- 'base', 'leader', 'follower', 'follower_compliant' -->
   <xacro:arg name="arm_side"                        default=""/>            <!-- '', 'left', 'right' -->
   <xacro:arg name="prefix"                          default=""/>
   <xacro:arg name="use_world_frame"                 default="false"/>       <!-- 'true', 'false' -->

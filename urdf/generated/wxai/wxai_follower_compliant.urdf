@@ -206,7 +206,7 @@
     </collision>
   </link>
   <joint name="right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 -0.0182 0"/>
     <parent link="link_6"/>
     <child link="carriage_right"/>
     <mimic joint="left_carriage_joint"/>
@@ -234,7 +234,7 @@
     </collision>
   </link>
   <joint name="left_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0865 0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 0.0182 0"/>
     <parent link="link_6"/>
     <child link="carriage_left"/>
     <axis xyz="0 1 0"/>
@@ -249,14 +249,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_left.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_left_compliant.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_left.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_left_compliant.stl"/>
       </geometry>
     </collision>
   </link>
@@ -274,14 +274,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_right_compliant.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_right.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/wxai/gripper_right_compliant.stl"/>
       </geometry>
     </collision>
   </link>
@@ -291,7 +291,7 @@
     <child link="gripper_right"/>
   </joint>
   <joint name="ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.156062 0 0"/>
+    <origin rpy="0 0 0" xyz="0.161 0 0"/>
     <parent link="link_6"/>
     <child link="ee_gripper_link"/>
   </joint>

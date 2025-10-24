@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <robot name="wxai">
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
@@ -206,7 +206,7 @@
     </collision>
   </link>
   <joint name="right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 -0.0182 0"/>
     <parent link="link_6"/>
     <child link="carriage_right"/>
     <mimic joint="left_carriage_joint"/>
@@ -234,7 +234,7 @@
     </collision>
   </link>
   <joint name="left_carriage_joint" type="prismatic">
-    <origin rpy="0 0 0" xyz="0.0865 0.023 0"/>
+    <origin rpy="0 0 0" xyz="0.0865 0.0182 0"/>
     <parent link="link_6"/>
     <child link="carriage_left"/>
     <axis xyz="0 1 0"/>
