@@ -57,6 +57,26 @@
         </state_interface>
       </joint>
 
+      <!-- Cartesian Pose - Position in x,y,z translation from base, Potation in axis-angle -->
+      <gpio name="ee_pos_x">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+      <gpio name="ee_pos_y">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+      <gpio name="ee_pos_z">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+      <gpio name="ee_rot_x">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+      <gpio name="ee_rot_y">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+      <gpio name="ee_rot_z">
+        <command_interface name="cartesian_pose" />
+      </gpio>
+
     </ros2_control>
 
   </xacro:macro>
