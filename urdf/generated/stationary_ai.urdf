@@ -81,7 +81,7 @@
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
   <joint name="cam_high_joint" type="fixed">
-    <origin rpy="-3.141592653589793 -1.1344640137963142 1.5707963267948966" xyz="0.040000 0.056352 0.036829"/>
+    <origin rpy="-3.141592653589793 -1.1344640137963142 1.5707963267948966" xyz="0.040000 0.056252 0.030"/>
     <parent link="cam_high_mount_link"/>
     <child link="cam_high_bottom_screw_frame"/>
   </joint>
@@ -194,7 +194,7 @@
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
   <joint name="cam_low_joint" type="fixed">
-    <origin rpy="-3.141592653589793 0.09599310885968812 1.5707963267948966" xyz="0.024884 0.031947 0.033325"/>
+    <origin rpy="-3.141592653589793 0.09599310885968812 1.5707963267948966" xyz="0.024884 0.0253 0.033325"/>
     <parent link="cam_low_mount_link"/>
     <child link="cam_low_bottom_screw_frame"/>
   </joint>

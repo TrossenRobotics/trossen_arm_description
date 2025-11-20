@@ -142,7 +142,7 @@
     parent="cam_high_mount_link"
     use_nominal_extrinsics="true">
     <origin
-      xyz="0.040000 0.056352 0.036829"
+      xyz="0.040000 0.056252 0.030"
       rpy="${radians(-180)} ${radians(-65)} ${radians(90)}" />
   </xacro:sensor_d405>
 
@@ -194,7 +194,7 @@
     parent="cam_low_mount_link"
     use_nominal_extrinsics="true">
     <origin
-      xyz="0.024884 0.031947 0.033325"
+      xyz="0.024884 0.0253 0.033325"
       rpy="${radians(-180)} ${radians(5.5)} ${radians(90)}" />
   </xacro:sensor_d405>
 
