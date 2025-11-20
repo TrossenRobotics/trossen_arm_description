@@ -7,4 +7,10 @@
     </material>
   </xacro:macro>  <!-- trossen_black -->
 
+  <xacro:macro name="maple_tabletop">
+    <material name="maple_tabletop">
+      <texture filename="package://trossen_arm_description/meshes/maple_tabletop.png"/>
+    </material>
+  </xacro:macro>  <!-- maple_tabletop -->
+
 </robot>
