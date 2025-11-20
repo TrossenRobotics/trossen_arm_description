@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="stationary_ai" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:arg name="ip_address_left" default="192.168.1.10"/>
-  <xacro:arg name="ip_address_right" default="192.168.1.11"/>
+  <xacro:arg name="ip_address_left" default="192.168.1.5"/>
+  <xacro:arg name="ip_address_right" default="192.168.1.4"/>
   <xacro:arg name="ros2_control_hardware_type" default="mock_components"/>
 
   <xacro:property name="robot_model"
@@ -16,8 +16,9 @@
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/stationary_ai"/>
 
   <xacro:trossen_black/>
+  <xacro:maple_tabletop/>
 
-  <link name="base_link">
+  <link name="tabletop_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -36,29 +37,19 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/base_link.stl" />
+        <mesh filename="${mesh_directory}/tabletop_link.stl" />
       </geometry>
-      <material name="trossen_black"/>
+      <material name="maple_tabletop"/>
     </visual>
     <collision>
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/base_link.stl" />
+        <mesh filename="${mesh_directory}/tabletop_link.stl" />
       </geometry>
     </collision>
   </link>
-
-  <link name="base_footprint"/>
-
-  <joint
-    name="base_footprint_joint"
-    type="fixed">
-    <origin xyz="0 0 0.020" rpy="0 0 0"/>
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-  </joint>
 
   <link name="frame_link">
     <inertial>
@@ -99,11 +90,11 @@
     <origin
       xyz="0.0 0.0 0.0"
       rpy="0 0 0" />
-    <parent link="base_link" />
+    <parent link="tabletop_link" />
     <child link="frame_link" />
   </joint>
 
-  <link name="overhead_cam_mount_link">
+  <link name="cam_high_mount_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -122,7 +113,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/overhead_cam_mount_link.stl" />
+        <mesh filename="${mesh_directory}/cam_high_mount_link.stl" />
       </geometry>
       <material name="trossen_black"/>
     </visual>
@@ -131,31 +122,31 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/overhead_cam_mount_link.stl" />
+        <mesh filename="${mesh_directory}/cam_high_mount_link.stl" />
       </geometry>
     </collision>
   </link>
 
   <joint
-    name="overhead_cam_mount_joint"
+    name="cam_high_mount_joint"
     type="fixed">
     <origin
       xyz="-0.401982 -0.040000 1.059852"
       rpy="${radians(-180)} 0 ${radians(90)}" />
     <parent link="frame_link" />
-    <child link="overhead_cam_mount_link" />
+    <child link="cam_high_mount_link" />
   </joint>
 
   <xacro:sensor_d405
-    name="cam_overhead"
-    parent="overhead_cam_mount_link"
+    name="cam_high"
+    parent="cam_high_mount_link"
     use_nominal_extrinsics="true">
     <origin
       xyz="0.040000 0.056352 0.036829"
       rpy="${radians(-180)} ${radians(-65)} ${radians(90)}" />
   </xacro:sensor_d405>
 
-  <link name="worms_eye_cam_mount_link">
+  <link name="cam_low_mount_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -174,7 +165,7 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/worms_eye_cam_mount_link.stl" />
+        <mesh filename="${mesh_directory}/cam_low_mount_link.stl" />
       </geometry>
       <material name="trossen_black"/>
     </visual>
@@ -183,24 +174,24 @@
         xyz="0 0 0"
         rpy="0 0 0" />
       <geometry>
-        <mesh filename="${mesh_directory}/worms_eye_cam_mount_link.stl" />
+        <mesh filename="${mesh_directory}/cam_low_mount_link.stl" />
       </geometry>
     </collision>
   </link>
 
   <joint
-    name="worms_eye_cam_mount_joint"
+    name="cam_low_mount_joint"
     type="fixed">
     <origin
       xyz="-0.415000 -0.024884 0.044061"
       rpy="${radians(-180)} 0 ${radians(90)}" />
     <parent link="frame_link" />
-    <child link="worms_eye_cam_mount_link" />
+    <child link="cam_low_mount_link" />
   </joint>
 
   <xacro:sensor_d405
-    name="cam_worms_eye"
-    parent="worms_eye_cam_mount_link"
+    name="cam_low"
+    parent="cam_low_mount_link"
     use_nominal_extrinsics="true">
     <origin
       xyz="0.024884 0.031947 0.033325"

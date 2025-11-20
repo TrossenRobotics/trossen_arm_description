@@ -1,12 +1,15 @@
 <?xml version="1.0" ?>
-
 <robot name="stationary_ai">
   <!-- trossen_black -->
+  <!-- maple_tabletop -->
   <!-- wxai -->
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
   </material>
-  <link name="base_link">
+  <material name="maple_tabletop">
+    <texture filename="package://trossen_arm_description/meshes/maple_tabletop.png"/>
+  </material>
+  <link name="tabletop_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="10.0"/>
@@ -15,23 +18,17 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/base_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/tabletop_link.stl"/>
       </geometry>
-      <material name="trossen_black"/>
+      <material name="maple_tabletop"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/base_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/tabletop_link.stl"/>
       </geometry>
     </collision>
   </link>
-  <link name="base_footprint"/>
-  <joint name="base_footprint_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0 0 0.020"/>
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-  </joint>
   <link name="frame_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -54,10 +51,10 @@
   </link>
   <joint name="frame_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
-    <parent link="base_link"/>
+    <parent link="tabletop_link"/>
     <child link="frame_link"/>
   </joint>
-  <link name="overhead_cam_mount_link">
+  <link name="cam_high_mount_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.1"/>
@@ -66,35 +63,35 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/overhead_cam_mount_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/cam_high_mount_link.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/overhead_cam_mount_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/cam_high_mount_link.stl"/>
       </geometry>
     </collision>
   </link>
-  <joint name="overhead_cam_mount_joint" type="fixed">
+  <joint name="cam_high_mount_joint" type="fixed">
     <origin rpy="-3.141592653589793 0 1.5707963267948966" xyz="-0.401982 -0.040000 1.059852"/>
     <parent link="frame_link"/>
-    <child link="overhead_cam_mount_link"/>
+    <child link="cam_high_mount_link"/>
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
-  <joint name="cam_overhead_joint" type="fixed">
+  <joint name="cam_high_joint" type="fixed">
     <origin rpy="-3.141592653589793 -1.1344640137963142 1.5707963267948966" xyz="0.040000 0.056352 0.036829"/>
-    <parent link="overhead_cam_mount_link"/>
-    <child link="cam_overhead_bottom_screw_frame"/>
+    <parent link="cam_high_mount_link"/>
+    <child link="cam_high_bottom_screw_frame"/>
   </joint>
-  <link name="cam_overhead_bottom_screw_frame"/>
-  <joint name="cam_overhead_link_joint" type="fixed">
+  <link name="cam_high_bottom_screw_frame"/>
+  <joint name="cam_high_link_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.01085 0.009 0.021"/>
-    <parent link="cam_overhead_bottom_screw_frame"/>
-    <child link="cam_overhead_link"/>
+    <parent link="cam_high_bottom_screw_frame"/>
+    <child link="cam_high_link"/>
   </joint>
-  <link name="cam_overhead_link">
+  <link name="cam_high_link">
     <visual>
       <!-- the mesh origin is at front plate in between the two infrared camera axes -->
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
@@ -119,58 +116,58 @@
     </inertial>
   </link>
   <!-- camera depth joints and links -->
-  <joint name="cam_overhead_depth_joint" type="fixed">
+  <joint name="cam_high_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="cam_overhead_link"/>
-    <child link="cam_overhead_depth_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_depth_frame"/>
   </joint>
-  <link name="cam_overhead_depth_frame"/>
-  <joint name="cam_overhead_depth_optical_joint" type="fixed">
+  <link name="cam_high_depth_frame"/>
+  <joint name="cam_high_depth_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_overhead_depth_frame"/>
-    <child link="cam_overhead_depth_optical_frame"/>
+    <parent link="cam_high_depth_frame"/>
+    <child link="cam_high_depth_optical_frame"/>
   </joint>
-  <link name="cam_overhead_depth_optical_frame"/>
+  <link name="cam_high_depth_optical_frame"/>
   <!-- camera left IR joints and links -->
-  <joint name="cam_overhead_infra1_joint" type="fixed">
+  <joint name="cam_high_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="cam_overhead_link"/>
-    <child link="cam_overhead_infra1_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_infra1_frame"/>
   </joint>
-  <link name="cam_overhead_infra1_frame"/>
-  <joint name="cam_overhead_infra1_optical_joint" type="fixed">
+  <link name="cam_high_infra1_frame"/>
+  <joint name="cam_high_infra1_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_overhead_infra1_frame"/>
-    <child link="cam_overhead_infra1_optical_frame"/>
+    <parent link="cam_high_infra1_frame"/>
+    <child link="cam_high_infra1_optical_frame"/>
   </joint>
-  <link name="cam_overhead_infra1_optical_frame"/>
+  <link name="cam_high_infra1_optical_frame"/>
   <!-- camera right IR joints and links -->
-  <joint name="cam_overhead_infra2_joint" type="fixed">
+  <joint name="cam_high_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
-    <parent link="cam_overhead_link"/>
-    <child link="cam_overhead_infra2_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_infra2_frame"/>
   </joint>
-  <link name="cam_overhead_infra2_frame"/>
-  <joint name="cam_overhead_infra2_optical_joint" type="fixed">
+  <link name="cam_high_infra2_frame"/>
+  <joint name="cam_high_infra2_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_overhead_infra2_frame"/>
-    <child link="cam_overhead_infra2_optical_frame"/>
+    <parent link="cam_high_infra2_frame"/>
+    <child link="cam_high_infra2_optical_frame"/>
   </joint>
-  <link name="cam_overhead_infra2_optical_frame"/>
+  <link name="cam_high_infra2_optical_frame"/>
   <!-- camera color joints and links -->
-  <joint name="cam_overhead_color_joint" type="fixed">
+  <joint name="cam_high_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="cam_overhead_link"/>
-    <child link="cam_overhead_color_frame"/>
+    <parent link="cam_high_link"/>
+    <child link="cam_high_color_frame"/>
   </joint>
-  <link name="cam_overhead_color_frame"/>
-  <joint name="cam_overhead_color_optical_joint" type="fixed">
+  <link name="cam_high_color_frame"/>
+  <joint name="cam_high_color_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_overhead_color_frame"/>
-    <child link="cam_overhead_color_optical_frame"/>
+    <parent link="cam_high_color_frame"/>
+    <child link="cam_high_color_optical_frame"/>
   </joint>
-  <link name="cam_overhead_color_optical_frame"/>
-  <link name="worms_eye_cam_mount_link">
+  <link name="cam_high_color_optical_frame"/>
+  <link name="cam_low_mount_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="0.1"/>
@@ -179,35 +176,35 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/worms_eye_cam_mount_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/cam_low_mount_link.stl"/>
       </geometry>
       <material name="trossen_black"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/worms_eye_cam_mount_link.stl"/>
+        <mesh filename="package://trossen_arm_description/meshes/stationary_ai/cam_low_mount_link.stl"/>
       </geometry>
     </collision>
   </link>
-  <joint name="worms_eye_cam_mount_joint" type="fixed">
+  <joint name="cam_low_mount_joint" type="fixed">
     <origin rpy="-3.141592653589793 0 1.5707963267948966" xyz="-0.415000 -0.024884 0.044061"/>
     <parent link="frame_link"/>
-    <child link="worms_eye_cam_mount_link"/>
+    <child link="cam_low_mount_link"/>
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
-  <joint name="cam_worms_eye_joint" type="fixed">
+  <joint name="cam_low_joint" type="fixed">
     <origin rpy="-3.141592653589793 0.09599310885968812 1.5707963267948966" xyz="0.024884 0.031947 0.033325"/>
-    <parent link="worms_eye_cam_mount_link"/>
-    <child link="cam_worms_eye_bottom_screw_frame"/>
+    <parent link="cam_low_mount_link"/>
+    <child link="cam_low_bottom_screw_frame"/>
   </joint>
-  <link name="cam_worms_eye_bottom_screw_frame"/>
-  <joint name="cam_worms_eye_link_joint" type="fixed">
+  <link name="cam_low_bottom_screw_frame"/>
+  <joint name="cam_low_link_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.01085 0.009 0.021"/>
-    <parent link="cam_worms_eye_bottom_screw_frame"/>
-    <child link="cam_worms_eye_link"/>
+    <parent link="cam_low_bottom_screw_frame"/>
+    <child link="cam_low_link"/>
   </joint>
-  <link name="cam_worms_eye_link">
+  <link name="cam_low_link">
     <visual>
       <!-- the mesh origin is at front plate in between the two infrared camera axes -->
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
@@ -232,57 +229,57 @@
     </inertial>
   </link>
   <!-- camera depth joints and links -->
-  <joint name="cam_worms_eye_depth_joint" type="fixed">
+  <joint name="cam_low_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="cam_worms_eye_link"/>
-    <child link="cam_worms_eye_depth_frame"/>
+    <parent link="cam_low_link"/>
+    <child link="cam_low_depth_frame"/>
   </joint>
-  <link name="cam_worms_eye_depth_frame"/>
-  <joint name="cam_worms_eye_depth_optical_joint" type="fixed">
+  <link name="cam_low_depth_frame"/>
+  <joint name="cam_low_depth_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_worms_eye_depth_frame"/>
-    <child link="cam_worms_eye_depth_optical_frame"/>
+    <parent link="cam_low_depth_frame"/>
+    <child link="cam_low_depth_optical_frame"/>
   </joint>
-  <link name="cam_worms_eye_depth_optical_frame"/>
+  <link name="cam_low_depth_optical_frame"/>
   <!-- camera left IR joints and links -->
-  <joint name="cam_worms_eye_infra1_joint" type="fixed">
+  <joint name="cam_low_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="cam_worms_eye_link"/>
-    <child link="cam_worms_eye_infra1_frame"/>
+    <parent link="cam_low_link"/>
+    <child link="cam_low_infra1_frame"/>
   </joint>
-  <link name="cam_worms_eye_infra1_frame"/>
-  <joint name="cam_worms_eye_infra1_optical_joint" type="fixed">
+  <link name="cam_low_infra1_frame"/>
+  <joint name="cam_low_infra1_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_worms_eye_infra1_frame"/>
-    <child link="cam_worms_eye_infra1_optical_frame"/>
+    <parent link="cam_low_infra1_frame"/>
+    <child link="cam_low_infra1_optical_frame"/>
   </joint>
-  <link name="cam_worms_eye_infra1_optical_frame"/>
+  <link name="cam_low_infra1_optical_frame"/>
   <!-- camera right IR joints and links -->
-  <joint name="cam_worms_eye_infra2_joint" type="fixed">
+  <joint name="cam_low_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
-    <parent link="cam_worms_eye_link"/>
-    <child link="cam_worms_eye_infra2_frame"/>
+    <parent link="cam_low_link"/>
+    <child link="cam_low_infra2_frame"/>
   </joint>
-  <link name="cam_worms_eye_infra2_frame"/>
-  <joint name="cam_worms_eye_infra2_optical_joint" type="fixed">
+  <link name="cam_low_infra2_frame"/>
+  <joint name="cam_low_infra2_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_worms_eye_infra2_frame"/>
-    <child link="cam_worms_eye_infra2_optical_frame"/>
+    <parent link="cam_low_infra2_frame"/>
+    <child link="cam_low_infra2_optical_frame"/>
   </joint>
-  <link name="cam_worms_eye_infra2_optical_frame"/>
+  <link name="cam_low_infra2_optical_frame"/>
   <!-- camera color joints and links -->
-  <joint name="cam_worms_eye_color_joint" type="fixed">
+  <joint name="cam_low_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="cam_worms_eye_link"/>
-    <child link="cam_worms_eye_color_frame"/>
+    <parent link="cam_low_link"/>
+    <child link="cam_low_color_frame"/>
   </joint>
-  <link name="cam_worms_eye_color_frame"/>
-  <joint name="cam_worms_eye_color_optical_joint" type="fixed">
+  <link name="cam_low_color_frame"/>
+  <joint name="cam_low_color_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="cam_worms_eye_color_frame"/>
-    <child link="cam_worms_eye_color_optical_frame"/>
+    <parent link="cam_low_color_frame"/>
+    <child link="cam_low_color_optical_frame"/>
   </joint>
-  <link name="cam_worms_eye_color_optical_frame"/>
+  <link name="cam_low_color_optical_frame"/>
   <joint name="follower_left_mount_joint" type="fixed">
     <origin rpy="0 0 -1.5707963267948966" xyz="-0.019982 0.457500 0.019086"/>
     <parent link="frame_link"/>
