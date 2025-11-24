@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="stationary_ai" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="ip_address_left" default="192.168.1.5"/>
+  <xacro:arg name="ip_address_right" default="192.168.1.4"/>
+  <xacro:arg name="ros2_control_hardware_type" default="mock_components"/>
+
+  <xacro:property name="robot_model"
+    value="stationary_ai"
+    scope="global"/>
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_common.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/rs_d405.urdf.xacro" />
+
+  <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/stationary_ai"/>
+
+  <xacro:trossen_black/>
+  <xacro:maple_tabletop/>
+
+  <link name="tabletop_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="10.0" />
+      <inertia
+        ixx="0.1"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.1"
+        iyz="0.0"
+        izz="0.1" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/tabletop_link.stl" />
+      </geometry>
+      <material name="maple_tabletop"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/tabletop_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="frame_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="5.0" />
+      <inertia
+        ixx="0.05"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.05"
+        iyz="0.0"
+        izz="0.05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/frame_link.stl" />
+      </geometry>
+      <material name="trossen_black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/frame_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="frame_joint"
+    type="fixed">
+    <origin
+      xyz="0.0 0.0 0.02"
+      rpy="0 0 0" />
+    <parent link="tabletop_link" />
+    <child link="frame_link" />
+  </joint>
+
+  <link name="cam_high_mount_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia
+        ixx="0.001"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.001"
+        iyz="0.0"
+        izz="0.001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_high_mount_link.stl" />
+      </geometry>
+      <material name="trossen_black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_high_mount_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="cam_high_mount_joint"
+    type="fixed">
+    <origin
+      xyz="-0.401982 -0.040000 1.059852"
+      rpy="${radians(-180)} ${radians(-0)} ${radians(90)}" />
+    <parent link="frame_link" />
+    <child link="cam_high_mount_link" />
+  </joint>
+
+  <xacro:sensor_d405
+    name="cam_high"
+    parent="frame_link"
+    use_nominal_extrinsics="true">
+    <origin
+      xyz="-0.348293 -0.000000 1.028733"
+      rpy="0 ${radians(65)} 0" />
+  </xacro:sensor_d405>
+
+  <link name="cam_low_mount_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="0.1" />
+      <inertia
+        ixx="0.001"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.001"
+        iyz="0.0"
+        izz="0.001" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_low_mount_link.stl" />
+      </geometry>
+      <material name="trossen_black"/>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_low_mount_link.stl" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint
+    name="cam_low_mount_joint"
+    type="fixed">
+    <origin
+      xyz="-0.415000 -0.024884 0.044061"
+      rpy="${radians(-180)} ${radians(-0)} ${radians(90)}" />
+    <parent link="frame_link" />
+    <child link="cam_low_mount_link" />
+  </joint>
+
+  <xacro:sensor_d405
+    name="cam_low"
+    parent="frame_link"
+    use_nominal_extrinsics="true">
+    <origin
+      xyz="-0.389324 0.000000 0.010132"
+      rpy="0 ${radians(-5.5)} 0" />
+  </xacro:sensor_d405>
+
+  <joint
+    name="follower_left_mount_joint"
+    type="fixed">
+    <origin
+      xyz="-0.019982 0.457500 0.019086"
+      rpy="0 0 ${radians(-90)}" />
+    <parent link="frame_link" />
+    <child link="follower_left_base_link" />
+  </joint>
+
+  <xacro:wxai
+    variant="follower"
+    prefix="follower_left_"
+    ip_address="$(arg ip_address_left)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+
+  <joint
+    name="follower_right_mount_joint"
+    type="fixed">
+    <origin
+      xyz="-0.019982 -0.457500 0.019086"
+      rpy="0 0 ${radians(90)}" />
+    <parent link="frame_link" />
+    <child link="follower_right_base_link" />
+  </joint>
+
+  <xacro:wxai
+    variant="follower"
+    prefix="follower_right_"
+    ip_address="$(arg ip_address_right)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+
+</robot>
