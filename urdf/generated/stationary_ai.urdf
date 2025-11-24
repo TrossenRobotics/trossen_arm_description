@@ -50,7 +50,7 @@
     </collision>
   </link>
   <joint name="frame_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.02"/>
     <parent link="tabletop_link"/>
     <child link="frame_link"/>
   </joint>
@@ -75,14 +75,14 @@
     </collision>
   </link>
   <joint name="cam_high_mount_joint" type="fixed">
-    <origin rpy="-3.141592653589793 0 1.5707963267948966" xyz="-0.401982 -0.040000 1.059852"/>
+    <origin rpy="-3.141592653589793 0.0 1.5707963267948966" xyz="-0.401982 -0.040000 1.059852"/>
     <parent link="frame_link"/>
     <child link="cam_high_mount_link"/>
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
   <joint name="cam_high_joint" type="fixed">
-    <origin rpy="-3.141592653589793 -1.1344640137963142 1.5707963267948966" xyz="0.040000 0.056252 0.030"/>
-    <parent link="cam_high_mount_link"/>
+    <origin rpy="0 1.1344640137963142 0" xyz="-0.348293 -0.000000 1.028733"/>
+    <parent link="frame_link"/>
     <child link="cam_high_bottom_screw_frame"/>
   </joint>
   <link name="cam_high_bottom_screw_frame"/>
@@ -188,14 +188,14 @@
     </collision>
   </link>
   <joint name="cam_low_mount_joint" type="fixed">
-    <origin rpy="-3.141592653589793 0 1.5707963267948966" xyz="-0.415000 -0.024884 0.044061"/>
+    <origin rpy="-3.141592653589793 0.0 1.5707963267948966" xyz="-0.415000 -0.024884 0.044061"/>
     <parent link="frame_link"/>
     <child link="cam_low_mount_link"/>
   </joint>
   <!-- camera body, with origin at bottom screw mount -->
   <joint name="cam_low_joint" type="fixed">
-    <origin rpy="-3.141592653589793 0.09599310885968812 1.5707963267948966" xyz="0.024884 0.0253 0.033325"/>
-    <parent link="cam_low_mount_link"/>
+    <origin rpy="0 -0.09599310885968812 0" xyz="-0.389324 0.000000 0.010132"/>
+    <parent link="frame_link"/>
     <child link="cam_low_bottom_screw_frame"/>
   </joint>
   <link name="cam_low_bottom_screw_frame"/>

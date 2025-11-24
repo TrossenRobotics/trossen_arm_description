@@ -88,7 +88,7 @@
     name="frame_joint"
     type="fixed">
     <origin
-      xyz="0.0 0.0 0.0"
+      xyz="0.0 0.0 0.02"
       rpy="0 0 0" />
     <parent link="tabletop_link" />
     <child link="frame_link" />
@@ -132,18 +132,18 @@
     type="fixed">
     <origin
       xyz="-0.401982 -0.040000 1.059852"
-      rpy="${radians(-180)} 0 ${radians(90)}" />
+      rpy="${radians(-180)} ${radians(-0)} ${radians(90)}" />
     <parent link="frame_link" />
     <child link="cam_high_mount_link" />
   </joint>
 
   <xacro:sensor_d405
     name="cam_high"
-    parent="cam_high_mount_link"
+    parent="frame_link"
     use_nominal_extrinsics="true">
     <origin
-      xyz="0.040000 0.056252 0.030"
-      rpy="${radians(-180)} ${radians(-65)} ${radians(90)}" />
+      xyz="-0.348293 -0.000000 1.028733"
+      rpy="0 ${radians(65)} 0" />
   </xacro:sensor_d405>
 
   <link name="cam_low_mount_link">
@@ -184,18 +184,18 @@
     type="fixed">
     <origin
       xyz="-0.415000 -0.024884 0.044061"
-      rpy="${radians(-180)} 0 ${radians(90)}" />
+      rpy="${radians(-180)} ${radians(-0)} ${radians(90)}" />
     <parent link="frame_link" />
     <child link="cam_low_mount_link" />
   </joint>
 
   <xacro:sensor_d405
     name="cam_low"
-    parent="cam_low_mount_link"
+    parent="frame_link"
     use_nominal_extrinsics="true">
     <origin
-      xyz="0.024884 0.0253 0.033325"
-      rpy="${radians(-180)} ${radians(5.5)} ${radians(90)}" />
+      xyz="-0.389324 0.000000 0.010132"
+      rpy="0 ${radians(-5.5)} 0" />
   </xacro:sensor_d405>
 
   <joint
