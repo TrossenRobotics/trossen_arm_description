@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="vxai" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="robot_model"
+    value="vxai"
+    scope="local"/>
+  <xacro:property name="dof"
+    value="7"
+    scope="local"/>
+
+  <xacro:macro name="vxai" params="variant arm_side:='' prefix:=''">
+
+    <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
+
+    <link name="${prefix}base_link">
+      <xacro:if value="${arm_side == 'right'}">
+        <inertial>
+          <origin
+            xyz="-0.00002199 -0.03351643 0.00006205"
+            rpy="0 0 0" />
+          <mass
+            value="1.87165014" />
+          <inertia
+            ixx="0.00209272"
+            ixy="-0.00000341"
+            ixz="-0.00000001"
+            iyy="0.00299206"
+            iyz="-0.00000068"
+            izz="0.00207913" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/base_link_right.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/base_link_right.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <inertial>
+          <origin
+            xyz="-0.00002199 0.03351643 -0.00006205"
+            rpy="0 0 0" />
+          <mass
+            value="1.87165014" />
+          <inertia
+            ixx="0.00209272"
+            ixy="0.00000341"
+            ixz="0.00000001"
+            iyy="0.00299206"
+            iyz="-0.00000068"
+            izz="0.00207913" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/base_link_left.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/base_link_left.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == left -->
+    </link>
+
+    <link name="${prefix}link_1">
+      <xacro:if value="${arm_side == 'right'}">
+        <inertial>
+          <origin
+            xyz="0.00275058 -0.05744640 -0.00007470"
+            rpy="0 0 0" />
+          <mass
+            value="1.28114157" />
+          <inertia
+            ixx="0.00180008"
+            ixy="0.00001517"
+            ixz="0.00000048"
+            iyy="0.00124234"
+            iyz="-0.00000523"
+            izz="0.00154695" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_1_right.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_1_right.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <inertial>
+          <origin
+            xyz="0.00275057 0.05743620 -0.00006878"
+            rpy="0 0 0" />
+          <mass
+            value="1.28114157" />
+          <inertia
+            ixx="0.00179991"
+            ixy="-0.00001416"
+            ixz="-0.00000010"
+            iyy="0.00124087"
+            iyz="0.00000433"
+            izz="0.00154826" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_1_left.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_1_left.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == left -->
+    </link>
+
+    <joint name="${prefix}joint_0" type="revolute">
+      <parent link="${prefix}base_link" />
+      <child link="${prefix}link_1" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="40.0"
+          lower="${-pi / 2}"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.068 0"
+          rpy="0 0 0" />
+        <axis xyz="0 1 0" />
+        <limit
+          effort="40.0"
+          lower="${-pi}"
+          upper="${pi / 2}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
+    </joint>
+
+    <!-- link 2 universal -->
+    <link name="${prefix}link_2">
+      <inertial>
+        <origin
+          xyz="0.00004155 0.00000477 -0.09223936"
+          rpy="0 0 0" />
+        <mass value="1.58168513" />
+        <inertia
+          ixx="0.00303540"
+          ixy="0.00000094"
+          ixz="0.00000007"
+          iyy="0.00325708"
+          iyz="0.00000058"
+          izz="0.00202764" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_2.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_2.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_1" type="revolute">
+      <parent link="${prefix}link_1" />
+      <child link="${prefix}link_2" />
+      <axis xyz="1 0 0" />
+      <xacro:if value="${arm_side == 'right'}">
+        <origin
+          xyz="0 -0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="20.0"
+          lower="${-pi}"
+          upper="0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <origin
+          xyz="0 0.064 0"
+          rpy="0 0 0" />
+        <limit
+          effort="20.0"
+          lower="0"
+          upper="${pi}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
+    </joint>
+
+    <!-- link 3 right -->
+    <link name="${prefix}link_3">
+      <xacro:if value="${arm_side == 'right'}">
+        <inertial>
+          <origin
+            xyz="0.01469489 -0.00233198 -0.13174594"
+            rpy="0 0 0" />
+          <mass
+            value="1.51522891" />
+          <inertia
+            ixx="0.00491722"
+            ixy="0.00001966"
+            ixz="0.00061652"
+            iyy="0.00521379"
+            iyz="-0.00008813"
+            izz="0.00131018" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_3_right.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_3_right.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == left -->
+      <xacro:if value="${arm_side == 'left'}">
+        <inertial>
+          <origin
+            xyz="0.01468991 0.00233199 -0.13173731"
+            rpy="0 0 0" />
+          <mass
+            value="1.51522891" />
+          <inertia
+            ixx="0.00491799"
+            ixy="-0.00001908"
+            ixz="0.00061539"
+            iyy="0.00521300"
+            iyz="0.00008711"
+            izz="0.00130863" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_3_left.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/link_3_left.stl" />
+          </geometry>
+        </collision>
+      </xacro:if>  <!-- arm_side == left -->
+    </link>
+
+    <joint name="${prefix}joint_2" type="revolute">
+      <origin
+        xyz="0 0 -0.1284"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_2" />
+      <child link="${prefix}link_3" />
+      <axis xyz="0 0 -1" />
+      <limit
+        effort="20.0"
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
+    </joint>
+
+    <link name="${prefix}link_4">
+      <inertial>
+        <origin
+          xyz="-0.01788633 0.00011005 -0.07293050"
+          rpy="0 0 0" />
+        <mass value="0.59839689" />
+        <inertia
+          ixx="0.00082356"
+          ixy="0.00000013"
+          ixz="-0.00008634"
+          iyy="0.00069719"
+          iyz="0.00000093"
+          izz="0.00052102" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_4.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_4.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_3" type="revolute">
+      <origin
+        xyz="0.02 0 -0.159"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_3" />
+      <child link="${prefix}link_4" />
+      <xacro:if value="${arm_side == 'right'}">
+        <axis xyz="0 -1 0" />
+        <limit
+          effort="20.0"
+          lower="0"
+          upper="${3 * pi / 4}"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == right -->
+      <xacro:if value="${arm_side == 'left'}">
+        <axis xyz="0 1 0" />
+        <limit
+          effort="20.0"
+          lower="${-3 * pi / 4}"
+          upper="0"
+          velocity="${2 * pi}" />
+      </xacro:if>  <!-- arm_side == left -->
+    </joint>
+
+    <link name="${prefix}link_5">
+      <inertial>
+        <origin
+          xyz="-0.00011067 0.00225112 -0.04045079"
+          rpy="0 0 0" />
+        <mass value="0.60644692" />
+        <inertia
+          ixx="0.00094550"
+          ixy="0.00000375"
+          ixz="-0.00000789"
+          iyy="0.00054664"
+          iyz="-0.00000214"
+          izz="0.00066100" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_5.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_5.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_4" type="revolute">
+      <origin
+        xyz="-0.02 0 -0.1065"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_4" />
+      <child link="${prefix}link_5" />
+      <axis xyz="0 0 -1" />
+      <limit
+        effort="11.0"
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
+    </joint>
+
+    <link name="${prefix}link_6">
+      <inertial>
+        <origin
+          xyz="-0.00058762 0.00058070 0.00001797"
+          rpy="0 0 0" />
+        <mass value="0.38858221" />
+        <inertia
+          ixx="0.00018958"
+          ixy="-0.00000050"
+          ixz="0.00000001"
+          iyy="0.00026787"
+          iyz="0.00000008"
+          izz="0.00031658" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_6.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_6.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_5" type="revolute">
+      <origin
+        xyz="0 0 -0.113"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_5" />
+      <child link="${prefix}link_6" />
+      <axis xyz="0 1 0" />
+      <limit
+        effort="27.0"
+        lower="${-pi / 4}"
+        upper="${pi / 4}"
+        velocity="${2 * pi}" />
+    </joint>
+
+    <link name="${prefix}link_7">
+      <inertial>
+        <origin
+          xyz="-0.01847211 -0.00000697 -0.08476049"
+          rpy="0 0 0" />
+        <mass value="0.57903811" />
+        <inertia
+          ixx="0.00135277"
+          ixy="-0.00000006"
+          ixz="-0.00009912"
+          iyy="0.00077371"
+          iyz="0.00000049"
+          izz="0.00085992" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_7.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/link_7.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}joint_6" type="revolute">
+      <origin
+        xyz="0.021 0 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_6" />
+      <child link="${prefix}link_7" />
+      <axis xyz="1 0 0" />
+      <limit
+        effort="7.0"
+        lower="${-pi / 2}"
+        upper="${pi / 2}"
+        velocity="${2 * pi}" />
+    </joint>
+
+    <link name="${prefix}carriage_right">
+      <inertial>
+        <origin
+          xyz="0.00457901 0.00403514 0.00889602"
+          rpy="0 0 0" />
+        <mass value="0.05036313" />
+        <inertia
+          ixx="0.00001378"
+          ixy="-0.00000172"
+          ixz="-0.00000104"
+          iyy="0.00000591"
+          iyz="-0.00000165"
+          izz="0.00001736" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_right.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_right.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}right_carriage_joint" type="prismatic">
+      <origin
+        xyz="-0.021 -0.022974 -0.1305"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_7" />
+      <child link="${prefix}carriage_right" />
+      <mimic joint="${prefix}left_carriage_joint" />
+      <axis xyz="0 -1 0" />
+      <limit
+        effort="100.0"
+        lower="0"
+        upper="0.04"
+        velocity="0.25" />
+    </joint>
+
+    <link name="${prefix}gripper_right">
+      <inertial>
+        <origin
+          xyz="-0.00215452 0.00901223 -0.01893989"
+          rpy="0 0 0" />
+        <mass value="0.03090786" />
+        <inertia
+          ixx="0.00001184"
+          ixy="0.00000020"
+          ixz="-0.00000029"
+          iyy="0.00001487"
+          iyz="0.00000321"
+          izz="0.00000769" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_right.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_right.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}right_gripper_joint" type="fixed">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}carriage_right" />
+      <child link="${prefix}gripper_right" />
+    </joint>
+
+    <link name="${prefix}carriage_left">
+      <inertial>
+        <origin
+          xyz="-0.00457908 -0.00403515 0.00889602"
+          rpy="0 0 0" />
+        <mass value="0.05036313" />
+        <inertia
+          ixx="0.00001378"
+          ixy="-0.00000172"
+          ixz="0.00000104"
+          iyy="0.00000591"
+          iyz="0.00000165"
+          izz="0.00001736" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_left.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_left.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}left_carriage_joint" type="prismatic">
+      <origin
+        xyz="-0.021 0.022974 -0.1305"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_7" />
+      <child link="${prefix}carriage_left" />
+      <axis xyz="0 1 0" />
+      <limit
+        effort="100.0"
+        lower="0"
+        upper="0.04"
+        velocity="0.25" />
+    </joint>
+
+    <link name="${prefix}gripper_left">
+      <inertial>
+        <origin
+          xyz="-0.00215462 -0.00901217 -0.01893993"
+          rpy="0 0 0" />
+        <mass value="0.03090787" />
+        <inertia
+          ixx="0.00001184"
+          ixy="-0.00000020"
+          ixz="-0.00000029"
+          iyy="0.00001487"
+          iyz="-0.00000321"
+          izz="0.00000769" />
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_left.stl" />
+        </geometry>
+        <material name="trossen_black"/>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_left.stl" />
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${prefix}gripper_left_joint" type="fixed">
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <parent link="${prefix}carriage_left" />
+      <child link="${prefix}gripper_left" />
+    </joint>
+
+    <joint name="${prefix}ee_gripper" type="fixed">
+      <origin
+        xyz="-0.021 0 -0.200062"
+        rpy="0 0 0" />
+      <parent link="${prefix}link_7" />
+      <child link="${prefix}ee_gripper_link" />
+    </joint>
+
+    <link name="${prefix}ee_gripper_link" />
+
+  </xacro:macro>  <!-- vxai -->
+
+</robot>
