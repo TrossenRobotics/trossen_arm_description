@@ -14,6 +14,24 @@
 
     <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxai.ros2_control.xacro"/>
 
+    <!-- Finger offsets -->
+    <xacro:if value="${variant == 'base'}">
+      <xacro:property name="offset_finger_left" value="0.0"/>
+      <xacro:property name="offset_finger_right" value="0.0"/>
+    </xacro:if>
+    <xacro:if value="${variant == 'leader'}">
+      <xacro:property name="offset_finger_left" value="-0.0048"/>
+      <xacro:property name="offset_finger_right" value="0.0048"/>
+    </xacro:if>
+    <xacro:if value="${variant == 'follower'}">
+      <xacro:property name="offset_finger_left" value="0.0"/>
+      <xacro:property name="offset_finger_right" value="0.0"/>
+    </xacro:if>
+    <xacro:if value="${variant == 'follower_compliant'}">
+      <xacro:property name="offset_finger_left" value="-0.0048"/>
+      <xacro:property name="offset_finger_right" value="0.0048"/>
+    </xacro:if>
+
     <xacro:wxai_ros2_control
       prefix="${prefix}"
       ip_address="${ip_address}"
@@ -370,7 +388,7 @@
 
     <joint name="${prefix}right_carriage_joint" type="prismatic">
       <origin
-        xyz="0.0865 -0.023 0"
+        xyz="0.0865 ${-0.023 + offset_finger_right} 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_6" />
       <child link="${prefix}carriage_right" />
@@ -418,7 +436,7 @@
 
     <joint name="${prefix}left_carriage_joint" type="prismatic">
       <origin
-        xyz="0.0865 0.023 0"
+        xyz="0.0865 ${0.023 + offset_finger_left} 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_6" />
       <child link="${prefix}carriage_left" />
@@ -839,6 +857,102 @@
       <link name="${prefix}ee_gripper_link" />
 
     </xacro:if> <!-- variant in ('base', 'follower') -->
+
+    <xacro:if value="${variant == 'follower_compliant'}">
+
+      <link name="${prefix}gripper_left">
+        <inertial>
+          <origin
+            xyz="0.01893993 -0.00901223 -0.00215453"
+            rpy="0 0 0" />
+          <mass value="0.03090787" />
+          <inertia
+            ixx="0.00000769"
+            ixy="0.00000321"
+            ixz="0.00000029"
+            iyy="0.00001487"
+            iyz="-0.00000020"
+            izz="0.00001184" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/gripper_left_compliant.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/gripper_left_compliant.stl" />
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="${prefix}left_gripper_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}carriage_left" />
+        <child link="${prefix}gripper_left" />
+      </joint>
+
+      <link name="${prefix}gripper_right">
+        <inertial>
+          <origin
+            xyz="0.01893989 0.00901216 -0.00215461"
+            rpy="0 0 0" />
+          <mass value="0.03090786" />
+          <inertia
+            ixx="0.00000769"
+            ixy="-0.00000321"
+            ixz="0.00000029"
+            iyy="0.00001487"
+            iyz="0.00000020"
+            izz="0.00001184" />
+        </inertial>
+        <visual>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/gripper_right_compliant.stl" />
+          </geometry>
+          <material name="trossen_black"/>
+        </visual>
+        <collision>
+          <origin
+            xyz="0 0 0"
+            rpy="0 0 0" />
+          <geometry>
+            <mesh filename="${mesh_directory}/gripper_right_compliant.stl" />
+          </geometry>
+        </collision>
+      </link>
+
+      <joint name="${prefix}right_gripper_joint" type="fixed">
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}carriage_right" />
+        <child link="${prefix}gripper_right" />
+      </joint>
+
+      <joint name="${prefix}ee_gripper" type="fixed">
+        <origin
+          xyz="0.161 0 0"
+          rpy="0 0 0" />
+        <parent link="${prefix}link_6" />
+        <child link="${prefix}ee_gripper_link" />
+      </joint>
+
+      <link name="${prefix}ee_gripper_link" />
+
+    </xacro:if> <!-- variant == 'follower_compliant' -->
 
   </xacro:macro>  <!-- wxai -->
 

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <robot name="wxai">
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
