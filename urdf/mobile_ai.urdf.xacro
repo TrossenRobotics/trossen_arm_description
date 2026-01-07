@@ -295,13 +295,13 @@
   </xacro:caster_wheel>
 
   <joint
-    name="follower_left/mount_joint"
+    name="follower_left_mount_joint"
     type="fixed">
     <origin
       xyz="0.331 0.3 0.831"
       rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="follower_left/base_link" />
+    <child link="follower_left_base_link" />
   </joint>
 
   <xacro:wxai
@@ -311,13 +311,13 @@
     ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
 
   <joint
-    name="follower_right/mount_joint"
+    name="follower_right_mount_joint"
     type="fixed">
     <origin
       xyz="0.331 -0.3 0.831"
       rpy="0 0 0" />
     <parent link="base_link" />
-    <child link="follower_right/base_link" />
+    <child link="follower_right_base_link" />
   </joint>
 
   <xacro:wxai

@@ -410,10 +410,10 @@
     <axis xyz="0 1 0"/>
     <limit effort="0" velocity="3.141592653589793"/>
   </joint>
-  <joint name="follower_left/mount_joint" type="fixed">
+  <joint name="follower_left_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.331 0.3 0.831"/>
     <parent link="base_link"/>
-    <child link="follower_left/base_link"/>
+    <child link="follower_left_base_link"/>
   </joint>
   <ros2_control name="TrossenArmHardwareInterface" type="system">
     <hardware>
@@ -929,10 +929,10 @@
   </joint>
   <link name="follower_left_ee_gripper_link"/>
   <!-- variant in ('base', 'follower') -->
-  <joint name="follower_right/mount_joint" type="fixed">
+  <joint name="follower_right_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.331 -0.3 0.831"/>
     <parent link="base_link"/>
-    <child link="follower_right/base_link"/>
+    <child link="follower_right_base_link"/>
   </joint>
   <ros2_control name="TrossenArmHardwareInterface" type="system">
     <hardware>
