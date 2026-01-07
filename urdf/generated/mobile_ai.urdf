@@ -1,8 +1,12 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <robot name="mobile_ai">
+  <!-- trossen_black -->
+  <!-- maple_tabletop -->
+  <!-- wxai -->
   <material name="trossen_black">
     <texture filename="package://trossen_arm_description/meshes/trossen_black.png"/>
   </material>
+  <!-- caster_wheel -->
   <link name="base_link">
     <inertial>
       <origin rpy="1.57079632679 0 0" xyz="0.01556204 0.00159774 0.22495608"/>
@@ -28,6 +32,7 @@
     <parent link="base_footprint"/>
     <child link="base_link"/>
   </joint>
+  <!-- camera body, with origin at bottom screw mount -->
   <joint name="cam_high_joint" type="fixed">
     <origin rpy="0 0.6457718232379019 0" xyz="0.209805 0 1.031778"/>
     <parent link="base_link"/>
@@ -41,6 +46,7 @@
   </joint>
   <link name="cam_high_link">
     <visual>
+      <!-- the mesh origin is at front plate in between the two infrared camera axes -->
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/peripherals/d405.stl" scale="0.001 0.001 0.001"/>
@@ -56,11 +62,13 @@
       </geometry>
     </collision>
     <inertial>
+      <!-- The following are not reliable values, and should not be used for modeling -->
       <mass value="0.072"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.00002117" ixy="0.0" ixz="0.0" iyy="0.000013758" iyz="0.0" izz="0.000013758"/>
     </inertial>
   </link>
+  <!-- camera depth joints and links -->
   <joint name="cam_high_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <parent link="cam_high_link"/>
@@ -73,6 +81,7 @@
     <child link="cam_high_depth_optical_frame"/>
   </joint>
   <link name="cam_high_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
   <joint name="cam_high_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
     <parent link="cam_high_link"/>
@@ -85,6 +94,7 @@
     <child link="cam_high_infra1_optical_frame"/>
   </joint>
   <link name="cam_high_infra1_optical_frame"/>
+  <!-- camera right IR joints and links -->
   <joint name="cam_high_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
     <parent link="cam_high_link"/>
@@ -97,6 +107,7 @@
     <child link="cam_high_infra2_optical_frame"/>
   </joint>
   <link name="cam_high_infra2_optical_frame"/>
+  <!-- camera color joints and links -->
   <joint name="cam_high_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
     <parent link="cam_high_link"/>
@@ -148,7 +159,7 @@
   <link name="right_wheel_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.981755254019503"/>
+      <mass value="3.00000000"/>
       <inertia ixx="0.00165792997375718" ixy="4.41844662675169E-36" ixz="2.2697691956304E-36" iyy="0.00291162000439156" iyz="-7.22801448323669E-21" izz="0.00165792997375718"/>
     </inertial>
     <visual>
@@ -404,7 +415,112 @@
     <parent link="base_link"/>
     <child link="follower_left/base_link"/>
   </joint>
-  <link name="follower_left/base_link">
+  <ros2_control name="TrossenArmHardwareInterface" type="system">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+      <!-- ros2_control_hardware_type == 'mock_components' -->
+      <!-- ros2_control_hardware_type == 'real' -->
+    </hardware>
+    <joint name="follower_left_joint_0">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_joint_1">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_joint_2">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_joint_3">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_joint_4">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_joint_5">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_left_left_carriage_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </ros2_control>
+  <link name="follower_left_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00014175 -0.00005228 0.03175177"/>
       <mass value="0.45969858"/>
@@ -424,7 +540,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="follower_left/link_1">
+  <link name="follower_left_link_1">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00011075 0.00171176 0.02044592"/>
       <mass value="0.15270428"/>
@@ -444,14 +560,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_0" type="revolute">
+  <joint name="follower_left_joint_0" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0.05725"/>
-    <parent link="follower_left/base_link"/>
-    <child link="follower_left/link_1"/>
+    <parent link="follower_left_base_link"/>
+    <child link="follower_left_link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.375"/>
   </joint>
-  <link name="follower_left/link_2">
+  <link name="follower_left_link_2">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.13121451 -0.00292583 0.00021345"/>
       <mass value="1.15316319"/>
@@ -471,14 +587,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_1" type="revolute">
+  <joint name="follower_left_joint_1" type="revolute">
     <origin rpy="0 0 0" xyz="0.02 0 0.04625"/>
-    <parent link="follower_left/link_1"/>
-    <child link="follower_left/link_2"/>
+    <parent link="follower_left_link_1"/>
+    <child link="follower_left_link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
   </joint>
-  <link name="follower_left/link_3">
+  <link name="follower_left_link_3">
     <inertial>
       <origin rpy="0 0 0" xyz="0.18083602 -0.00094090 0.05554937"/>
       <mass value="0.68666638"/>
@@ -498,14 +614,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_2" type="revolute">
+  <joint name="follower_left_joint_2" type="revolute">
     <origin rpy="0 0 0" xyz="-0.264 0 0"/>
-    <parent link="follower_left/link_2"/>
-    <child link="follower_left/link_3"/>
+    <parent link="follower_left_link_2"/>
+    <child link="follower_left_link_3"/>
     <axis xyz="0 -1 0"/>
     <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.375"/>
   </joint>
-  <link name="follower_left/link_4">
+  <link name="follower_left_link_4">
     <inertial>
       <origin rpy="0 0 0" xyz="0.05797842 0.00027145 0.05884447"/>
       <mass value="0.45789905"/>
@@ -525,14 +641,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_3" type="revolute">
+  <joint name="follower_left_joint_3" type="revolute">
     <origin rpy="0 0 0" xyz="0.245 0 0.06"/>
-    <parent link="follower_left/link_3"/>
-    <child link="follower_left/link_4"/>
+    <parent link="follower_left_link_3"/>
+    <child link="follower_left_link_4"/>
     <axis xyz="0 -1 0"/>
     <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
-  <link name="follower_left/link_5">
+  <link name="follower_left_link_5">
     <inertial>
       <origin rpy="0 0 0" xyz="0.00412447 -0.00001138 -0.04283184"/>
       <mass value="0.36693910"/>
@@ -552,14 +668,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_4" type="revolute">
+  <joint name="follower_left_joint_4" type="revolute">
     <origin rpy="0 0 0" xyz="0.06775 0 0.0455"/>
-    <parent link="follower_left/link_4"/>
-    <child link="follower_left/link_5"/>
+    <parent link="follower_left_link_4"/>
+    <child link="follower_left_link_5"/>
     <axis xyz="0 0 -1"/>
     <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
-  <link name="follower_left/link_6">
+  <link name="follower_left_link_6">
     <inertial>
       <origin rpy="0 0 0" xyz="0.04572768 -0.00000726 0.00001402"/>
       <mass value="0.55469347"/>
@@ -579,14 +695,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/joint_5" type="revolute">
+  <joint name="follower_left_joint_5" type="revolute">
     <origin rpy="0 0 0" xyz="0.02895 0 -0.0455"/>
-    <parent link="follower_left/link_5"/>
-    <child link="follower_left/link_6"/>
+    <parent link="follower_left_link_5"/>
+    <child link="follower_left_link_6"/>
     <axis xyz="1 0 0"/>
     <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="7.0"/>
   </joint>
-  <link name="follower_left/carriage_right">
+  <link name="follower_left_carriage_right">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00889602 0.00403514 0.00457901"/>
       <mass value="0.05036313"/>
@@ -606,15 +722,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/right_carriage_joint" type="prismatic">
+  <joint name="follower_left_right_carriage_joint" type="prismatic">
     <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
-    <parent link="follower_left/link_6"/>
-    <child link="follower_left/carriage_right"/>
-    <mimic joint="follower_left/left_carriage_joint"/>
+    <parent link="follower_left_link_6"/>
+    <child link="follower_left_carriage_right"/>
+    <mimic joint="follower_left_left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
-  <link name="follower_left/carriage_left">
+  <link name="follower_left_carriage_left">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00889602 -0.00403515 -0.00457908"/>
       <mass value="0.05036313"/>
@@ -634,14 +750,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/left_carriage_joint" type="prismatic">
+  <joint name="follower_left_left_carriage_joint" type="prismatic">
     <origin rpy="0 0 0" xyz="0.0865 0.023 0"/>
-    <parent link="follower_left/link_6"/>
-    <child link="follower_left/carriage_left"/>
+    <parent link="follower_left_link_6"/>
+    <child link="follower_left_carriage_left"/>
     <axis xyz="0 1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
-  <link name="follower_left/camera_mount_d405">
+  <link name="follower_left_camera_mount_d405">
     <inertial>
       <origin rpy="0 0 0" xyz="0.03023383 0.00679835 0.05006687"/>
       <mass value="0.04518012"/>
@@ -661,24 +777,26 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/camera_mount_joint" type="fixed">
+  <joint name="follower_left_camera_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.012 0 0"/>
-    <parent link="follower_left/link_6"/>
-    <child link="follower_left/camera_mount_d405"/>
+    <parent link="follower_left_link_6"/>
+    <child link="follower_left_camera_mount_d405"/>
   </joint>
-  <joint name="follower_left/camera_joint" type="fixed">
+  <!-- camera body, with origin at bottom screw mount -->
+  <joint name="follower_left_camera_joint" type="fixed">
     <origin rpy="0 0.3490658503988659 0" xyz="0.02927207801 0 0.03824951197"/>
-    <parent link="follower_left/camera_mount_d405"/>
-    <child link="follower_left/camera_bottom_screw_frame"/>
+    <parent link="follower_left_camera_mount_d405"/>
+    <child link="follower_left_camera_bottom_screw_frame"/>
   </joint>
-  <link name="follower_left/camera_bottom_screw_frame"/>
-  <joint name="follower_left/camera_link_joint" type="fixed">
+  <link name="follower_left_camera_bottom_screw_frame"/>
+  <joint name="follower_left_camera_link_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.01085 0.009 0.021"/>
-    <parent link="follower_left/camera_bottom_screw_frame"/>
-    <child link="follower_left/camera_link"/>
+    <parent link="follower_left_camera_bottom_screw_frame"/>
+    <child link="follower_left_camera_link"/>
   </joint>
-  <link name="follower_left/camera_link">
+  <link name="follower_left_camera_link">
     <visual>
+      <!-- the mesh origin is at front plate in between the two infrared camera axes -->
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/peripherals/d405.stl" scale="0.001 0.001 0.001"/>
@@ -694,60 +812,67 @@
       </geometry>
     </collision>
     <inertial>
+      <!-- The following are not reliable values, and should not be used for modeling -->
       <mass value="0.072"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.00002117" ixy="0.0" ixz="0.0" iyy="0.000013758" iyz="0.0" izz="0.000013758"/>
     </inertial>
   </link>
-  <joint name="follower_left/camera_depth_joint" type="fixed">
+  <!-- camera depth joints and links -->
+  <joint name="follower_left_camera_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_left/camera_link"/>
-    <child link="follower_left/camera_depth_frame"/>
+    <parent link="follower_left_camera_link"/>
+    <child link="follower_left_camera_depth_frame"/>
   </joint>
-  <link name="follower_left/camera_depth_frame"/>
-  <joint name="follower_left/camera_depth_optical_joint" type="fixed">
+  <link name="follower_left_camera_depth_frame"/>
+  <joint name="follower_left_camera_depth_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_left/camera_depth_frame"/>
-    <child link="follower_left/camera_depth_optical_frame"/>
+    <parent link="follower_left_camera_depth_frame"/>
+    <child link="follower_left_camera_depth_optical_frame"/>
   </joint>
-  <link name="follower_left/camera_depth_optical_frame"/>
-  <joint name="follower_left/camera_infra1_joint" type="fixed">
+  <link name="follower_left_camera_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
+  <joint name="follower_left_camera_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="follower_left/camera_link"/>
-    <child link="follower_left/camera_infra1_frame"/>
+    <parent link="follower_left_camera_link"/>
+    <child link="follower_left_camera_infra1_frame"/>
   </joint>
-  <link name="follower_left/camera_infra1_frame"/>
-  <joint name="follower_left/camera_infra1_optical_joint" type="fixed">
+  <link name="follower_left_camera_infra1_frame"/>
+  <joint name="follower_left_camera_infra1_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_left/camera_infra1_frame"/>
-    <child link="follower_left/camera_infra1_optical_frame"/>
+    <parent link="follower_left_camera_infra1_frame"/>
+    <child link="follower_left_camera_infra1_optical_frame"/>
   </joint>
-  <link name="follower_left/camera_infra1_optical_frame"/>
-  <joint name="follower_left/camera_infra2_joint" type="fixed">
+  <link name="follower_left_camera_infra1_optical_frame"/>
+  <!-- camera right IR joints and links -->
+  <joint name="follower_left_camera_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
-    <parent link="follower_left/camera_link"/>
-    <child link="follower_left/camera_infra2_frame"/>
+    <parent link="follower_left_camera_link"/>
+    <child link="follower_left_camera_infra2_frame"/>
   </joint>
-  <link name="follower_left/camera_infra2_frame"/>
-  <joint name="follower_left/camera_infra2_optical_joint" type="fixed">
+  <link name="follower_left_camera_infra2_frame"/>
+  <joint name="follower_left_camera_infra2_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_left/camera_infra2_frame"/>
-    <child link="follower_left/camera_infra2_optical_frame"/>
+    <parent link="follower_left_camera_infra2_frame"/>
+    <child link="follower_left_camera_infra2_optical_frame"/>
   </joint>
-  <link name="follower_left/camera_infra2_optical_frame"/>
-  <joint name="follower_left/camera_color_joint" type="fixed">
+  <link name="follower_left_camera_infra2_optical_frame"/>
+  <!-- camera color joints and links -->
+  <joint name="follower_left_camera_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="follower_left/camera_link"/>
-    <child link="follower_left/camera_color_frame"/>
+    <parent link="follower_left_camera_link"/>
+    <child link="follower_left_camera_color_frame"/>
   </joint>
-  <link name="follower_left/camera_color_frame"/>
-  <joint name="follower_left/camera_color_optical_joint" type="fixed">
+  <link name="follower_left_camera_color_frame"/>
+  <joint name="follower_left_camera_color_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_left/camera_color_frame"/>
-    <child link="follower_left/camera_color_optical_frame"/>
+    <parent link="follower_left_camera_color_frame"/>
+    <child link="follower_left_camera_color_optical_frame"/>
   </joint>
-  <link name="follower_left/camera_color_optical_frame"/>
-  <link name="follower_left/gripper_left">
+  <link name="follower_left_camera_color_optical_frame"/>
+  <!-- variant == 'follower' -->
+  <!-- variant == 'leader' -->
+  <link name="follower_left_gripper_left">
     <inertial>
       <origin rpy="0 0 0" xyz="0.01893993 -0.00901223 -0.00215453"/>
       <mass value="0.03090787"/>
@@ -767,12 +892,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/left_gripper_joint" type="fixed">
+  <joint name="follower_left_left_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_left/carriage_left"/>
-    <child link="follower_left/gripper_left"/>
+    <parent link="follower_left_carriage_left"/>
+    <child link="follower_left_gripper_left"/>
   </joint>
-  <link name="follower_left/gripper_right">
+  <link name="follower_left_gripper_right">
     <inertial>
       <origin rpy="0 0 0" xyz="0.01893989 0.00901216 -0.00215461"/>
       <mass value="0.03090786"/>
@@ -792,23 +917,129 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left/right_gripper_joint" type="fixed">
+  <joint name="follower_left_right_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_left/carriage_right"/>
-    <child link="follower_left/gripper_right"/>
+    <parent link="follower_left_carriage_right"/>
+    <child link="follower_left_gripper_right"/>
   </joint>
-  <joint name="follower_left/ee_gripper" type="fixed">
+  <joint name="follower_left_ee_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="0.156062 0 0"/>
-    <parent link="follower_left/link_6"/>
-    <child link="follower_left/ee_gripper_link"/>
+    <parent link="follower_left_link_6"/>
+    <child link="follower_left_ee_gripper_link"/>
   </joint>
-  <link name="follower_left/ee_gripper_link"/>
+  <link name="follower_left_ee_gripper_link"/>
+  <!-- variant in ('base', 'follower') -->
   <joint name="follower_right/mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.331 -0.3 0.831"/>
     <parent link="base_link"/>
     <child link="follower_right/base_link"/>
   </joint>
-  <link name="follower_right/base_link">
+  <ros2_control name="TrossenArmHardwareInterface" type="system">
+    <hardware>
+      <plugin>mock_components/GenericSystem</plugin>
+      <!-- ros2_control_hardware_type == 'mock_components' -->
+      <!-- ros2_control_hardware_type == 'real' -->
+    </hardware>
+    <joint name="follower_right_joint_0">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_joint_1">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_joint_2">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_joint_3">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_joint_4">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_joint_5">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+    <joint name="follower_right_left_carriage_joint">
+      <command_interface name="position"/>
+      <command_interface name="velocity"/>
+      <command_interface name="external_effort"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </ros2_control>
+  <link name="follower_right_base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00014175 -0.00005228 0.03175177"/>
       <mass value="0.45969858"/>
@@ -828,7 +1059,7 @@
       </geometry>
     </collision>
   </link>
-  <link name="follower_right/link_1">
+  <link name="follower_right_link_1">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00011075 0.00171176 0.02044592"/>
       <mass value="0.15270428"/>
@@ -848,14 +1079,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_0" type="revolute">
+  <joint name="follower_right_joint_0" type="revolute">
     <origin rpy="0 0 0" xyz="0 0 0.05725"/>
-    <parent link="follower_right/base_link"/>
-    <child link="follower_right/link_1"/>
+    <parent link="follower_right_base_link"/>
+    <child link="follower_right_link_1"/>
     <axis xyz="0 0 1"/>
     <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.375"/>
   </joint>
-  <link name="follower_right/link_2">
+  <link name="follower_right_link_2">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.13121451 -0.00292583 0.00021345"/>
       <mass value="1.15316319"/>
@@ -875,14 +1106,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_1" type="revolute">
+  <joint name="follower_right_joint_1" type="revolute">
     <origin rpy="0 0 0" xyz="0.02 0 0.04625"/>
-    <parent link="follower_right/link_1"/>
-    <child link="follower_right/link_2"/>
+    <parent link="follower_right_link_1"/>
+    <child link="follower_right_link_2"/>
     <axis xyz="0 1 0"/>
     <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
   </joint>
-  <link name="follower_right/link_3">
+  <link name="follower_right_link_3">
     <inertial>
       <origin rpy="0 0 0" xyz="0.18083602 -0.00094090 0.05554937"/>
       <mass value="0.68666638"/>
@@ -902,14 +1133,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_2" type="revolute">
+  <joint name="follower_right_joint_2" type="revolute">
     <origin rpy="0 0 0" xyz="-0.264 0 0"/>
-    <parent link="follower_right/link_2"/>
-    <child link="follower_right/link_3"/>
+    <parent link="follower_right_link_2"/>
+    <child link="follower_right_link_3"/>
     <axis xyz="0 -1 0"/>
     <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.375"/>
   </joint>
-  <link name="follower_right/link_4">
+  <link name="follower_right_link_4">
     <inertial>
       <origin rpy="0 0 0" xyz="0.05797842 0.00027145 0.05884447"/>
       <mass value="0.45789905"/>
@@ -929,14 +1160,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_3" type="revolute">
+  <joint name="follower_right_joint_3" type="revolute">
     <origin rpy="0 0 0" xyz="0.245 0 0.06"/>
-    <parent link="follower_right/link_3"/>
-    <child link="follower_right/link_4"/>
+    <parent link="follower_right_link_3"/>
+    <child link="follower_right_link_4"/>
     <axis xyz="0 -1 0"/>
     <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
-  <link name="follower_right/link_5">
+  <link name="follower_right_link_5">
     <inertial>
       <origin rpy="0 0 0" xyz="0.00412447 -0.00001138 -0.04283184"/>
       <mass value="0.36693910"/>
@@ -956,14 +1187,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_4" type="revolute">
+  <joint name="follower_right_joint_4" type="revolute">
     <origin rpy="0 0 0" xyz="0.06775 0 0.0455"/>
-    <parent link="follower_right/link_4"/>
-    <child link="follower_right/link_5"/>
+    <parent link="follower_right_link_4"/>
+    <child link="follower_right_link_5"/>
     <axis xyz="0 0 -1"/>
     <limit effort="7.0" lower="-1.5707963267948966" upper="1.5707963267948966" velocity="7.0"/>
   </joint>
-  <link name="follower_right/link_6">
+  <link name="follower_right_link_6">
     <inertial>
       <origin rpy="0 0 0" xyz="0.04572768 -0.00000726 0.00001402"/>
       <mass value="0.55469347"/>
@@ -983,14 +1214,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/joint_5" type="revolute">
+  <joint name="follower_right_joint_5" type="revolute">
     <origin rpy="0 0 0" xyz="0.02895 0 -0.0455"/>
-    <parent link="follower_right/link_5"/>
-    <child link="follower_right/link_6"/>
+    <parent link="follower_right_link_5"/>
+    <child link="follower_right_link_6"/>
     <axis xyz="1 0 0"/>
     <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="7.0"/>
   </joint>
-  <link name="follower_right/carriage_right">
+  <link name="follower_right_carriage_right">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00889602 0.00403514 0.00457901"/>
       <mass value="0.05036313"/>
@@ -1010,15 +1241,15 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/right_carriage_joint" type="prismatic">
+  <joint name="follower_right_right_carriage_joint" type="prismatic">
     <origin rpy="0 0 0" xyz="0.0865 -0.023 0"/>
-    <parent link="follower_right/link_6"/>
-    <child link="follower_right/carriage_right"/>
-    <mimic joint="follower_right/left_carriage_joint"/>
+    <parent link="follower_right_link_6"/>
+    <child link="follower_right_carriage_right"/>
+    <mimic joint="follower_right_left_carriage_joint"/>
     <axis xyz="0 -1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
-  <link name="follower_right/carriage_left">
+  <link name="follower_right_carriage_left">
     <inertial>
       <origin rpy="0 0 0" xyz="-0.00889602 -0.00403515 -0.00457908"/>
       <mass value="0.05036313"/>
@@ -1038,14 +1269,14 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/left_carriage_joint" type="prismatic">
+  <joint name="follower_right_left_carriage_joint" type="prismatic">
     <origin rpy="0 0 0" xyz="0.0865 0.023 0"/>
-    <parent link="follower_right/link_6"/>
-    <child link="follower_right/carriage_left"/>
+    <parent link="follower_right_link_6"/>
+    <child link="follower_right_carriage_left"/>
     <axis xyz="0 1 0"/>
     <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
   </joint>
-  <link name="follower_right/camera_mount_d405">
+  <link name="follower_right_camera_mount_d405">
     <inertial>
       <origin rpy="0 0 0" xyz="0.03023383 0.00679835 0.05006687"/>
       <mass value="0.04518012"/>
@@ -1065,24 +1296,26 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/camera_mount_joint" type="fixed">
+  <joint name="follower_right_camera_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.012 0 0"/>
-    <parent link="follower_right/link_6"/>
-    <child link="follower_right/camera_mount_d405"/>
+    <parent link="follower_right_link_6"/>
+    <child link="follower_right_camera_mount_d405"/>
   </joint>
-  <joint name="follower_right/camera_joint" type="fixed">
+  <!-- camera body, with origin at bottom screw mount -->
+  <joint name="follower_right_camera_joint" type="fixed">
     <origin rpy="0 0.3490658503988659 0" xyz="0.02927207801 0 0.03824951197"/>
-    <parent link="follower_right/camera_mount_d405"/>
-    <child link="follower_right/camera_bottom_screw_frame"/>
+    <parent link="follower_right_camera_mount_d405"/>
+    <child link="follower_right_camera_bottom_screw_frame"/>
   </joint>
-  <link name="follower_right/camera_bottom_screw_frame"/>
-  <joint name="follower_right/camera_link_joint" type="fixed">
+  <link name="follower_right_camera_bottom_screw_frame"/>
+  <joint name="follower_right_camera_link_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.01085 0.009 0.021"/>
-    <parent link="follower_right/camera_bottom_screw_frame"/>
-    <child link="follower_right/camera_link"/>
+    <parent link="follower_right_camera_bottom_screw_frame"/>
+    <child link="follower_right_camera_link"/>
   </joint>
-  <link name="follower_right/camera_link">
+  <link name="follower_right_camera_link">
     <visual>
+      <!-- the mesh origin is at front plate in between the two infrared camera axes -->
       <origin rpy="1.5707963267948966 0 1.5707963267948966" xyz="0.0038 -0.009 0"/>
       <geometry>
         <mesh filename="package://trossen_arm_description/meshes/peripherals/d405.stl" scale="0.001 0.001 0.001"/>
@@ -1098,60 +1331,67 @@
       </geometry>
     </collision>
     <inertial>
+      <!-- The following are not reliable values, and should not be used for modeling -->
       <mass value="0.072"/>
       <origin xyz="0 0 0"/>
       <inertia ixx="0.00002117" ixy="0.0" ixz="0.0" iyy="0.000013758" iyz="0.0" izz="0.000013758"/>
     </inertial>
   </link>
-  <joint name="follower_right/camera_depth_joint" type="fixed">
+  <!-- camera depth joints and links -->
+  <joint name="follower_right_camera_depth_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_right/camera_link"/>
-    <child link="follower_right/camera_depth_frame"/>
+    <parent link="follower_right_camera_link"/>
+    <child link="follower_right_camera_depth_frame"/>
   </joint>
-  <link name="follower_right/camera_depth_frame"/>
-  <joint name="follower_right/camera_depth_optical_joint" type="fixed">
+  <link name="follower_right_camera_depth_frame"/>
+  <joint name="follower_right_camera_depth_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_right/camera_depth_frame"/>
-    <child link="follower_right/camera_depth_optical_frame"/>
+    <parent link="follower_right_camera_depth_frame"/>
+    <child link="follower_right_camera_depth_optical_frame"/>
   </joint>
-  <link name="follower_right/camera_depth_optical_frame"/>
-  <joint name="follower_right/camera_infra1_joint" type="fixed">
+  <link name="follower_right_camera_depth_optical_frame"/>
+  <!-- camera left IR joints and links -->
+  <joint name="follower_right_camera_infra1_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="follower_right/camera_link"/>
-    <child link="follower_right/camera_infra1_frame"/>
+    <parent link="follower_right_camera_link"/>
+    <child link="follower_right_camera_infra1_frame"/>
   </joint>
-  <link name="follower_right/camera_infra1_frame"/>
-  <joint name="follower_right/camera_infra1_optical_joint" type="fixed">
+  <link name="follower_right_camera_infra1_frame"/>
+  <joint name="follower_right_camera_infra1_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_right/camera_infra1_frame"/>
-    <child link="follower_right/camera_infra1_optical_frame"/>
+    <parent link="follower_right_camera_infra1_frame"/>
+    <child link="follower_right_camera_infra1_optical_frame"/>
   </joint>
-  <link name="follower_right/camera_infra1_optical_frame"/>
-  <joint name="follower_right/camera_infra2_joint" type="fixed">
+  <link name="follower_right_camera_infra1_optical_frame"/>
+  <!-- camera right IR joints and links -->
+  <joint name="follower_right_camera_infra2_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.018 0"/>
-    <parent link="follower_right/camera_link"/>
-    <child link="follower_right/camera_infra2_frame"/>
+    <parent link="follower_right_camera_link"/>
+    <child link="follower_right_camera_infra2_frame"/>
   </joint>
-  <link name="follower_right/camera_infra2_frame"/>
-  <joint name="follower_right/camera_infra2_optical_joint" type="fixed">
+  <link name="follower_right_camera_infra2_frame"/>
+  <joint name="follower_right_camera_infra2_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_right/camera_infra2_frame"/>
-    <child link="follower_right/camera_infra2_optical_frame"/>
+    <parent link="follower_right_camera_infra2_frame"/>
+    <child link="follower_right_camera_infra2_optical_frame"/>
   </joint>
-  <link name="follower_right/camera_infra2_optical_frame"/>
-  <joint name="follower_right/camera_color_joint" type="fixed">
+  <link name="follower_right_camera_infra2_optical_frame"/>
+  <!-- camera color joints and links -->
+  <joint name="follower_right_camera_color_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.0 0"/>
-    <parent link="follower_right/camera_link"/>
-    <child link="follower_right/camera_color_frame"/>
+    <parent link="follower_right_camera_link"/>
+    <child link="follower_right_camera_color_frame"/>
   </joint>
-  <link name="follower_right/camera_color_frame"/>
-  <joint name="follower_right/camera_color_optical_joint" type="fixed">
+  <link name="follower_right_camera_color_frame"/>
+  <joint name="follower_right_camera_color_optical_joint" type="fixed">
     <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
-    <parent link="follower_right/camera_color_frame"/>
-    <child link="follower_right/camera_color_optical_frame"/>
+    <parent link="follower_right_camera_color_frame"/>
+    <child link="follower_right_camera_color_optical_frame"/>
   </joint>
-  <link name="follower_right/camera_color_optical_frame"/>
-  <link name="follower_right/gripper_left">
+  <link name="follower_right_camera_color_optical_frame"/>
+  <!-- variant == 'follower' -->
+  <!-- variant == 'leader' -->
+  <link name="follower_right_gripper_left">
     <inertial>
       <origin rpy="0 0 0" xyz="0.01893993 -0.00901223 -0.00215453"/>
       <mass value="0.03090787"/>
@@ -1171,12 +1411,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/left_gripper_joint" type="fixed">
+  <joint name="follower_right_left_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_right/carriage_left"/>
-    <child link="follower_right/gripper_left"/>
+    <parent link="follower_right_carriage_left"/>
+    <child link="follower_right_gripper_left"/>
   </joint>
-  <link name="follower_right/gripper_right">
+  <link name="follower_right_gripper_right">
     <inertial>
       <origin rpy="0 0 0" xyz="0.01893989 0.00901216 -0.00215461"/>
       <mass value="0.03090786"/>
@@ -1196,15 +1436,16 @@
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right/right_gripper_joint" type="fixed">
+  <joint name="follower_right_right_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0 0"/>
-    <parent link="follower_right/carriage_right"/>
-    <child link="follower_right/gripper_right"/>
+    <parent link="follower_right_carriage_right"/>
+    <child link="follower_right_gripper_right"/>
   </joint>
-  <joint name="follower_right/ee_gripper" type="fixed">
+  <joint name="follower_right_ee_gripper" type="fixed">
     <origin rpy="0 0 0" xyz="0.156062 0 0"/>
-    <parent link="follower_right/link_6"/>
-    <child link="follower_right/ee_gripper_link"/>
+    <parent link="follower_right_link_6"/>
+    <child link="follower_right_ee_gripper_link"/>
   </joint>
-  <link name="follower_right/ee_gripper_link"/>
+  <link name="follower_right_ee_gripper_link"/>
+  <!-- variant in ('base', 'follower') -->
 </robot>

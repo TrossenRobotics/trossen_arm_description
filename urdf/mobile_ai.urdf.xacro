@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="mobile_ai" xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:arg name="ip_address_left" default="192.168.1.5"/>
+  <xacro:arg name="ip_address_right" default="192.168.1.4"/>
+  <xacro:arg name="ros2_control_hardware_type" default="mock_components"/>
+
   <xacro:property name="robot_model"
     value="mobile_ai"
     scope="global"/>
@@ -234,7 +238,7 @@
       <origin
         xyz="0 0 0"
         rpy="0 0 0" />
-      <mass value="0.981755254019503" />
+      <mass value="3.00000000" />
       <inertia
         ixx="0.00165792997375718"
         ixy="4.41844662675169E-36"
@@ -302,7 +306,9 @@
 
   <xacro:wxai
     variant="follower"
-    prefix="follower_left/"/>
+    prefix="follower_left_"
+    ip_address="$(arg ip_address_left)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
 
   <joint
     name="follower_right/mount_joint"
@@ -316,6 +322,8 @@
 
   <xacro:wxai
     variant="follower"
-    prefix="follower_right/"/>
+    prefix="follower_right_"
+    ip_address="$(arg ip_address_right)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
 
 </robot>
