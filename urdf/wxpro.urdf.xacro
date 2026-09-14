@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot name="widowx_pro" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="wxpro" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:arg name="prefix"                          default=""/>
   <xacro:arg name="use_world_frame"                 default="false"/>       <!-- 'true', 'false' -->
@@ -16,9 +16,9 @@
     </joint>
   </xacro:if> <!-- use_world_frame -->
 
-  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_widowx_pro.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
 
-  <xacro:widowx_pro
+  <xacro:wxpro
     prefix="$(arg prefix)"/>
 
 </robot>

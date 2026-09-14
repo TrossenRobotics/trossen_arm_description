@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<robot name="widowx_pro" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="wxpro" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:property name="robot_model"
-    value="widowx_pro"/>
+    value="wxpro"
+    scope="local"/>
 
-  <xacro:macro name="widowx_pro" params="prefix:=''">
+  <xacro:macro name="wxpro" params="prefix:=''">
 
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
-    <!-- TODO(abhismirai42): ros2_control  -->
+    <!-- TODO(abhismirai42): ros2_control -->
 
     <link name="${prefix}base_link">
       <inertial>
@@ -28,13 +29,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/base_link.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/base_link.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/base_link.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/base_link.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -56,13 +61,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_1.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_1.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_1.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_1.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -76,8 +85,8 @@
       <limit
         lower="${-radians(180 - 5)}"
         upper="${radians(180 - 5)}"
-        velocity="3.375"
-        effort="27.0" />
+        effort="27.0"
+        velocity="3.375" />
     </joint>
 
     <link name="${prefix}link_2">
@@ -98,13 +107,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_2.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_2.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_2.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_2.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -118,8 +131,8 @@
       <limit
         lower="0.0"
         upper="${pi}"
-        velocity="3.375"
-        effort="27.0" />
+        effort="27.0"
+        velocity="3.375" />
     </joint>
 
     <link name="${prefix}link_3">
@@ -140,13 +153,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_3.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_3.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_3.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_3.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -160,8 +177,8 @@
       <limit
         lower="0.0"
         upper="${3 * pi / 4}"
-        velocity="3.375"
-        effort="27.0" />
+        effort="27.0"
+        velocity="3.375" />
     </joint>
 
     <link name="${prefix}link_4">
@@ -182,13 +199,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_4.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_4.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_4.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_4.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -200,10 +221,10 @@
       <child link="${prefix}link_4"/>
       <axis xyz="0 -1 0"/>
       <limit
-        lower="${-pi / 2}"
+        lower="-${pi / 2}"
         upper="${pi / 2}"
-        velocity="7.0"
-        effort="7.0" />
+        effort="7.0"
+        velocity="7.0" />
     </joint>
 
     <link name="${prefix}link_5">
@@ -224,13 +245,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_5.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_5.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_5.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_5.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -242,10 +267,10 @@
       <child link="${prefix}link_5"/>
       <axis xyz="0 0 -1"/>
       <limit
-        lower="${-pi / 2}"
+        lower="-${pi / 2}"
         upper="${pi / 2}"
-        velocity="7.0"
-        effort="7.0" />
+        effort="7.0"
+        velocity="7.0" />
     </joint>
 
     <link name="${prefix}link_6">
@@ -266,13 +291,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_6.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_6.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/link_6.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/link_6.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -284,13 +313,13 @@
       <child link="${prefix}link_6"/>
       <axis xyz="1 0 0"/>
       <limit
-        lower="${-pi}"
+        lower="-${pi}"
         upper="${pi}"
-        velocity="7.0"
-        effort="7.0" />
+        effort="7.0"
+        velocity="7.0" />
     </joint>
 
-    <!-- TODO(abhismirai42): verify intertial properties carrige_links, gripper_links and camera_link -->
+    <!-- TODO(abhismirai42): verify inertial properties carriage_links, gripper_links and camera_link -->
     <link name="${prefix}carriage_right">
       <inertial>
         <origin
@@ -309,13 +338,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/carriage_right.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_right.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/carriage_right.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_right.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -330,8 +363,8 @@
       <limit
         lower="0.0"
         upper="0.044"
-        velocity="0.0875"
-        effort="400.0" />
+        effort="400.0"
+        velocity="0.0875" />
     </joint>
 
     <link name="${prefix}carriage_left">
@@ -352,28 +385,32 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/carriage_left.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_left.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/carriage_left.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/carriage_left.obj"/>
+        </geometry>
       </collision>
     </link>
 
     <joint name="${prefix}left_carriage_joint" type="prismatic">
       <origin
         xyz="0.1285 0.0225 0"
-        rpy="${pi} 0 ${-pi / 2}" />
+        rpy="${pi} 0 -${pi / 2}" />
       <parent link="${prefix}link_6"/>
       <child link="${prefix}carriage_left"/>
       <axis xyz="-1 0 0"/>
       <limit
         lower="0.0"
         upper="0.044"
-        velocity="0.0875"
-        effort="400.0" />
+        effort="400.0"
+        velocity="0.0875" />
     </joint>
 
     <link name="${prefix}gripper_left">
@@ -394,13 +431,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/gripper_left.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_left.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/gripper_left.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_left.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -430,13 +471,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/gripper_right.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_right.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/gripper_right.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/gripper_right.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -448,14 +493,7 @@
       <child link="${prefix}gripper_right"/>
     </joint>
 
-    <link name="${prefix}ee_gripper_link">
-      <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry><sphere radius="0.003"/></geometry>
-      </visual>
-    </link>
+    <link name="${prefix}ee_gripper_link" />
 
     <joint name="${prefix}ee_gripper" type="fixed">
       <origin
@@ -483,13 +521,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/camera_mount.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/camera_mount.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/camera_mount.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/camera_mount.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -501,7 +543,7 @@
       <child link="${prefix}camera_mount"/>
     </joint>
 
-    <!-- TODO(abhismirai42): use offical zed camera xacro model -->
+    <!-- TODO(abhismirai42): use official zed camera xacro model -->
     <link name="${prefix}camera">
       <inertial>
         <origin
@@ -520,13 +562,17 @@
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/camera.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/camera.obj"/>
+        </geometry>
       </visual>
       <collision>
         <origin
           xyz="0 0 0"
           rpy="0 0 0" />
-        <geometry><mesh filename="${mesh_directory}/camera.obj"/></geometry>
+        <geometry>
+          <mesh filename="${mesh_directory}/camera.obj"/>
+        </geometry>
       </collision>
     </link>
 
@@ -538,6 +584,6 @@
       <child link="${prefix}camera"/>
     </joint>
 
-  </xacro:macro> <!-- widowx_pro -->
+  </xacro:macro> <!-- wxpro -->
 
 </robot>
