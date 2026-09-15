@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="workbench" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="robot_model"
+    value="workbench"
+    scope="global"/>
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
+
+  <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/workbench"/>
+
+  <!-- TODO(abhismirai42): update inertial property for workbench_base and cam_high -->
+  <link name="workbench_base_link">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="10.0"/>
+      <inertia
+        ixx="0.1"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.1"
+        iyz="0.0"
+        izz="0.1"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/workbench_base.obj"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/workbench_base.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="cam_high">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass value="0.1"/>
+      <inertia
+        ixx="0.001"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.001"
+        iyz="0.0"
+        izz="0.001"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_high.obj"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/cam_high.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="cam_high_joint" type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent link="workbench_base_link"/>
+    <child link="cam_high"/>
+  </joint>
+
+  <joint name="follower_left_mount_joint" type="fixed">
+    <origin
+      xyz="0.274 0.062 0.006"
+      rpy="0 0 ${pi / 2}" />
+    <parent link="workbench_base_link"/>
+    <child link="follower_left_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_left_"/>
+
+  <joint name="follower_right_mount_joint" type="fixed">
+    <origin
+      xyz="-0.274 0.062 0.006"
+      rpy="0 0 ${pi / 2}" />
+    <parent link="workbench_base_link"/>
+    <child link="follower_right_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_right_"/>
+
+</robot>
