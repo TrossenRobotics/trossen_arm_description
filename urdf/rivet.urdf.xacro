@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rivet" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:property name="robot_model"
+    value="rivet"
+    scope="global"/>
+
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
+
+  <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/rivet"/>
+
+  <!-- TODO(abhismirai42): update inertial property for rivet links -->
+  <link name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.00387668 -0.0332838 0.198466"
+        rpy="0 0 0" />
+      <mass value="73.7606"/>
+      <inertia
+        ixx="6.32878"
+        ixy="-0.0384037"
+        ixz="-0.00555349"
+        iyy="5.76624"
+        iyz="-0.51839"
+        izz="2.94862"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/base_link.obj"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/base_link.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="base_footprint"/>
+
+  <joint name="base_footprint_joint" type="fixed">
+    <origin
+      xyz="0 0 0.1285"
+      rpy="0 0 0" />
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!--TODO(abhismirai42): lower/upper are placeholders.-->
+  <joint name="carriage_lift_joint" type="prismatic">
+    <origin
+      xyz="-0.000125 0.165 0.595105"
+      rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="carriage_lift_link"/>
+    <axis xyz="0 0 1"/>
+    <limit
+      lower="-0.32"
+      upper="0.42"
+      effort="1"
+      velocity="1" />
+  </joint>
+
+  <link name="carriage_lift_link">
+    <inertial>
+      <origin
+        xyz="0 0.0543177 0.0192157"
+        rpy="0 0 0" />
+      <mass value="2.69782"/>
+      <inertia
+        ixx="0.0103103"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.102184"
+        iyz="-0.000235492"
+        izz="0.0952441"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/carriage_lift_link.obj"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/carriage_lift_link.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="camera">
+    <inertial>
+      <origin
+        xyz="0 0.0181899 0"
+        rpy="0 0 0" />
+      <mass value="0.0982026"/>
+      <inertia
+        ixx="0.0000174033"
+        ixy="0.0"
+        ixz="0.0"
+        iyy="0.0000756992"
+        iyz="0.0"
+        izz="0.0000778027"/>
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/camera.obj"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh filename="${mesh_directory}/camera.obj"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="camera_mount_joint" type="fixed">
+    <origin
+      xyz="0 0.0786917 0.351299"
+      rpy="-0.436332 0 0" />
+    <parent link="carriage_lift_link"/>
+    <child link="camera"/>
+  </joint>
+
+  <xacro:macro name="swivel_module" params="suffix steer_joint_xyz steer_joint_rpy">
+    <link name="swivel_${suffix}">
+      <inertial>
+        <origin
+          xyz="0 0 -0.0395608"
+          rpy="0 0 0" />
+        <mass value="0.619024"/>
+        <inertia
+          ixx="0.000923685"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="0.00137238"
+          iyz="0.0"
+          izz="0.00117765"/>
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/swivel.obj"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/swivel.obj"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="swivel_steer_${suffix}" type="continuous">
+      <origin
+        xyz="${steer_joint_xyz}"
+        rpy="${steer_joint_rpy}" />
+      <parent link="base_link"/>
+      <child link="swivel_${suffix}"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <link name="wheel_${suffix}">
+      <inertial>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <mass value="0.330766"/>
+        <inertia
+          ixx="0.000500429"
+          ixy="0.0"
+          ixz="0.0"
+          iyy="0.000294662"
+          iyz="0.0"
+          izz="0.000294662"/>
+      </inertial>
+      <visual>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/wheel.obj"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin
+          xyz="0 0 0"
+          rpy="0 0 0" />
+        <geometry>
+          <mesh filename="${mesh_directory}/wheel.obj"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="swivel_drive_${suffix}" type="continuous">
+      <origin
+        xyz="0 0 -0.078"
+        rpy="0 0 0" />
+      <parent link="swivel_${suffix}"/>
+      <child link="wheel_${suffix}"/>
+      <axis xyz="-1 0 0"/>
+    </joint>
+  </xacro:macro> <!-- swivel_module -->
+
+  <xacro:swivel_module suffix="1"
+    steer_joint_xyz="0.000125 -0.24 0.003"
+    steer_joint_rpy="0 0 0"/>
+  <xacro:swivel_module suffix="2"
+    steer_joint_xyz="-0.189875 0.24 0.003"
+    steer_joint_rpy="0 0 0"/>
+  <xacro:swivel_module suffix="3"
+    steer_joint_xyz="0.190125 0.24 0.003"
+    steer_joint_rpy="0 0 0"/>
+
+  <joint name="follower_left_mount_joint" type="fixed">
+    <origin
+      xyz="-0.275 0.0615 0.031"
+      rpy="0 0 ${pi / 2}" />
+    <parent link="carriage_lift_link"/>
+    <child link="follower_left_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_left_"/>
+
+  <joint name="follower_right_mount_joint" type="fixed">
+    <origin
+      xyz="0.275 0.0615 0.031"
+      rpy="0 0 ${pi / 2}" />
+    <parent link="carriage_lift_link"/>
+    <child link="follower_right_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_right_"/>
+
+</robot>
