@@ -172,13 +172,18 @@
       </collision>
     </link>
 
-    <joint name="swivel_steer_${suffix}" type="continuous">
+    <joint name="swivel_steer_${suffix}" type="revolute">
       <origin
         xyz="${steer_joint_xyz}"
         rpy="${steer_joint_rpy}" />
       <parent link="base_link"/>
       <child link="swivel_${suffix}"/>
       <axis xyz="0 0 1"/>
+      <limit
+        lower="${-pi}"
+        upper="${pi}"
+        effort="10"
+        velocity="6.283185" />
     </joint>
 
     <link name="wheel_${suffix}">
@@ -220,6 +225,9 @@
       <parent link="swivel_${suffix}"/>
       <child link="wheel_${suffix}"/>
       <axis xyz="-1 0 0"/>
+      <limit
+        effort="4"
+        velocity="18.691589" />
     </joint>
   </xacro:macro> <!-- swivel_module -->
 
