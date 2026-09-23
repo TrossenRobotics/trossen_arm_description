@@ -98,11 +98,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="swivel_steer_1" type="continuous">
+  <joint name="swivel_steer_1" type="revolute">
     <origin rpy="0 0 0" xyz="0.000125 -0.24 0.003"/>
     <parent link="base_link"/>
     <child link="swivel_1"/>
     <axis xyz="0 0 1"/>
+    <limit effort="10" lower="-3.141592653589793" upper="3.141592653589793" velocity="6.283185"/>
   </joint>
   <link name="wheel_1">
     <inertial>
@@ -128,6 +129,7 @@
     <parent link="swivel_1"/>
     <child link="wheel_1"/>
     <axis xyz="-1 0 0"/>
+    <limit effort="4" velocity="18.691589"/>
   </joint>
   <link name="swivel_2">
     <inertial>
@@ -148,11 +150,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="swivel_steer_2" type="continuous">
+  <joint name="swivel_steer_2" type="revolute">
     <origin rpy="0 0 0" xyz="-0.189875 0.24 0.003"/>
     <parent link="base_link"/>
     <child link="swivel_2"/>
     <axis xyz="0 0 1"/>
+    <limit effort="10" lower="-3.141592653589793" upper="3.141592653589793" velocity="6.283185"/>
   </joint>
   <link name="wheel_2">
     <inertial>
@@ -178,6 +181,7 @@
     <parent link="swivel_2"/>
     <child link="wheel_2"/>
     <axis xyz="-1 0 0"/>
+    <limit effort="4" velocity="18.691589"/>
   </joint>
   <link name="swivel_3">
     <inertial>
@@ -198,11 +202,12 @@
       </geometry>
     </collision>
   </link>
-  <joint name="swivel_steer_3" type="continuous">
+  <joint name="swivel_steer_3" type="revolute">
     <origin rpy="0 0 0" xyz="0.190125 0.24 0.003"/>
     <parent link="base_link"/>
     <child link="swivel_3"/>
     <axis xyz="0 0 1"/>
+    <limit effort="10" lower="-3.141592653589793" upper="3.141592653589793" velocity="6.283185"/>
   </joint>
   <link name="wheel_3">
     <inertial>
@@ -228,6 +233,7 @@
     <parent link="swivel_3"/>
     <child link="wheel_3"/>
     <axis xyz="-1 0 0"/>
+    <limit effort="4" velocity="18.691589"/>
   </joint>
   <joint name="follower_left_mount_joint" type="fixed">
     <origin rpy="0 0 1.5707963267948966" xyz="-0.275 0.0615 0.031"/>
