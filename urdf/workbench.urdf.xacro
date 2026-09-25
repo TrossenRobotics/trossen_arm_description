@@ -82,24 +82,24 @@
     <child link="cam_high"/>
   </joint>
 
-  <joint name="follower_left_mount_joint" type="fixed">
-    <origin
-      xyz="-0.274 0.062 0.006"
-      rpy="0 0 ${pi / 2}" />
-    <parent link="workbench_base_link"/>
-    <child link="follower_left_base_link"/>
-  </joint>
-
-  <xacro:wxpro prefix="follower_left_"/>
-
   <joint name="follower_right_mount_joint" type="fixed">
     <origin
-      xyz="0.274 0.062 0.006"
-      rpy="0 0 ${pi / 2}" />
+      xyz="0.062 -0.274 0.006"
+      rpy="0 0 0" />
     <parent link="workbench_base_link"/>
     <child link="follower_right_base_link"/>
   </joint>
 
   <xacro:wxpro prefix="follower_right_"/>
+
+  <joint name="follower_left_mount_joint" type="fixed">
+    <origin
+      xyz="0.062 0.274 0.006"
+      rpy="0 0 0" />
+    <parent link="workbench_base_link"/>
+    <child link="follower_left_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_left_"/>
 
 </robot>
