@@ -13,15 +13,15 @@
   <link name="base_link">
     <inertial>
       <origin
-        xyz="-0.00387668 -0.0332838 0.198466"
+        xyz="-0.0332838 0.00387668 0.198466"
         rpy="0 0 0" />
       <mass value="73.7606"/>
       <inertia
-        ixx="6.32878"
-        ixy="-0.0384037"
-        ixz="-0.00555349"
-        iyy="5.76624"
-        iyz="-0.51839"
+        ixx="5.76624"
+        ixy="0.0"
+        ixz="-0.51839"
+        iyy="6.32878"
+        iyz="0.00555349"
         izz="2.94862"/>
     </inertial>
     <visual>
@@ -52,17 +52,16 @@
     <child link="base_link"/>
   </joint>
 
-  <!--TODO(abhismirai42): lower/upper are placeholders.-->
   <joint name="carriage_lift_joint" type="prismatic">
     <origin
-      xyz="-0.000125 0.165 0.595105"
+      xyz="0.165 0.0 0.181"
       rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="carriage_lift_link"/>
     <axis xyz="0 0 1"/>
     <limit
-      lower="-0.32"
-      upper="0.42"
+      lower="0.0"
+      upper="0.858"
       effort="1"
       velocity="1" />
   </joint>
@@ -70,15 +69,15 @@
   <link name="carriage_lift_link">
     <inertial>
       <origin
-        xyz="0 0.0543177 0.0192157"
+        xyz="0.0543177 0 0.0192157"
         rpy="0 0 0" />
       <mass value="2.69782"/>
       <inertia
-        ixx="0.0103103"
+        ixx="0.102184"
         ixy="0.0"
-        ixz="0.0"
-        iyy="0.102184"
-        iyz="-0.000235492"
+        ixz="-0.000235492"
+        iyy="0.0103103"
+        iyz="0.0"
         izz="0.0952441"/>
     </inertial>
     <visual>
@@ -102,14 +101,14 @@
   <link name="camera">
     <inertial>
       <origin
-        xyz="0 0.0181899 0"
+        xyz="0.0181899 0 0"
         rpy="0 0 0" />
       <mass value="0.0982026"/>
       <inertia
-        ixx="0.0000174033"
+        ixx="0.0000756992"
         ixy="0.0"
         ixz="0.0"
-        iyy="0.0000756992"
+        iyy="0.0000174033"
         iyz="0.0"
         izz="0.0000778027"/>
     </inertial>
@@ -133,8 +132,8 @@
 
   <joint name="camera_mount_joint" type="fixed">
     <origin
-      xyz="0 0.0786917 0.351299"
-      rpy="-0.436332 0 0" />
+      xyz="0.0786917 0 0.351299"
+      rpy="0 0.436332 0" />
     <parent link="carriage_lift_link"/>
     <child link="camera"/>
   </joint>
@@ -147,10 +146,10 @@
           rpy="0 0 0" />
         <mass value="0.619024"/>
         <inertia
-          ixx="0.000923685"
+          ixx="0.00137238"
           ixy="0.0"
           ixz="0.0"
-          iyy="0.00137238"
+          iyy="0.000923685"
           iyz="0.0"
           izz="0.00117765"/>
       </inertial>
@@ -172,7 +171,7 @@
       </collision>
     </link>
 
-    <joint name="swivel_steer_${suffix}" type="revolute">
+    <joint name="swivel_joint_${suffix}" type="continuous">
       <origin
         xyz="${steer_joint_xyz}"
         rpy="${steer_joint_rpy}" />
@@ -180,8 +179,6 @@
       <child link="swivel_${suffix}"/>
       <axis xyz="0 0 1"/>
       <limit
-        lower="${-pi}"
-        upper="${pi}"
         effort="10"
         velocity="6.283185" />
     </joint>
@@ -193,10 +190,10 @@
           rpy="0 0 0" />
         <mass value="0.330766"/>
         <inertia
-          ixx="0.000500429"
+          ixx="0.000294662"
           ixy="0.0"
           ixz="0.0"
-          iyy="0.000294662"
+          iyy="0.000500429"
           iyz="0.0"
           izz="0.000294662"/>
       </inertial>
@@ -218,13 +215,13 @@
       </collision>
     </link>
 
-    <joint name="swivel_drive_${suffix}" type="continuous">
+    <joint name="wheel_joint_${suffix}" type="continuous">
       <origin
         xyz="0 0 -0.078"
         rpy="0 0 0" />
       <parent link="swivel_${suffix}"/>
       <child link="wheel_${suffix}"/>
-      <axis xyz="-1 0 0"/>
+      <axis xyz="0 -1 0"/>
       <limit
         effort="4"
         velocity="18.691589" />
@@ -232,33 +229,33 @@
   </xacro:macro> <!-- swivel_module -->
 
   <xacro:swivel_module suffix="1"
-    steer_joint_xyz="0.000125 -0.24 0.003"
+    steer_joint_xyz="-0.24 0.0 0.003"
     steer_joint_rpy="0 0 0"/>
   <xacro:swivel_module suffix="2"
-    steer_joint_xyz="-0.189875 0.24 0.003"
+    steer_joint_xyz="0.24 -0.190 0.003"
     steer_joint_rpy="0 0 0"/>
   <xacro:swivel_module suffix="3"
-    steer_joint_xyz="0.190125 0.24 0.003"
+    steer_joint_xyz="0.24 0.190 0.003"
     steer_joint_rpy="0 0 0"/>
-
-  <joint name="follower_left_mount_joint" type="fixed">
-    <origin
-      xyz="-0.275 0.0615 0.031"
-      rpy="0 0 ${pi / 2}" />
-    <parent link="carriage_lift_link"/>
-    <child link="follower_left_base_link"/>
-  </joint>
-
-  <xacro:wxpro prefix="follower_left_"/>
 
   <joint name="follower_right_mount_joint" type="fixed">
     <origin
-      xyz="0.275 0.0615 0.031"
-      rpy="0 0 ${pi / 2}" />
+      xyz="0.0615 -0.275 0.031"
+      rpy="0 0 0" />
     <parent link="carriage_lift_link"/>
     <child link="follower_right_base_link"/>
   </joint>
 
   <xacro:wxpro prefix="follower_right_"/>
+
+  <joint name="follower_left_mount_joint" type="fixed">
+    <origin
+      xyz="0.0615 0.275 0.031"
+      rpy="0 0 0" />
+    <parent link="carriage_lift_link"/>
+    <child link="follower_left_base_link"/>
+  </joint>
+
+  <xacro:wxpro prefix="follower_left_"/>
 
 </robot>
