@@ -128,7 +128,7 @@
     <origin rpy="0 0 0" xyz="0 0 -0.078"/>
     <parent link="swivel_1"/>
     <child link="wheel_1"/>
-    <axis xyz="0 -1 0"/>
+    <axis xyz="0 1 0"/>
     <limit effort="4" velocity="18.691589"/>
   </joint>
   <link name="swivel_2">
@@ -180,7 +180,7 @@
     <origin rpy="0 0 0" xyz="0 0 -0.078"/>
     <parent link="swivel_2"/>
     <child link="wheel_2"/>
-    <axis xyz="0 -1 0"/>
+    <axis xyz="0 1 0"/>
     <limit effort="4" velocity="18.691589"/>
   </joint>
   <link name="swivel_3">
@@ -232,7 +232,7 @@
     <origin rpy="0 0 0" xyz="0 0 -0.078"/>
     <parent link="swivel_3"/>
     <child link="wheel_3"/>
-    <axis xyz="0 -1 0"/>
+    <axis xyz="0 1 0"/>
     <limit effort="4" velocity="18.691589"/>
   </joint>
   <joint name="follower_right_mount_joint" type="fixed">
