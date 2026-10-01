@@ -199,6 +199,6 @@
     <parent link="link_6"/>
     <child link="trigger"/>
     <axis xyz="0 1 0"/>
-    <limit effort="0.8750000000000001" lower="0.0" upper="4.571428571428571" velocity="28.57142857142857"/>
+    <limit effort="1.8" lower="0.0" upper="0.7853981633974483" velocity="5.0"/>
   </joint>
 </robot>
