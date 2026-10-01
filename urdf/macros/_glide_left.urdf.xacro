@@ -10,7 +10,6 @@
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
     <!-- TODO(abhismirai42): inertial properties are placeholders -->
-    <!-- TODO(abhismirai42): joint limits not yet known for joint_6 (trigger) -->
 
     <link name="${prefix}base_link">
       <inertial>
@@ -361,9 +360,9 @@
       <axis xyz="0 -1 0"/>
       <limit
         lower="0.0"
-        upper="${0.04 / 0.00875}"
-        effort="${100.0 * 0.00875}"
-        velocity="${0.25 / 0.00875}" />
+        upper="${pi / 4}"
+        effort="1.8"
+        velocity="5.0" />
     </joint>
 
   </xacro:macro> <!-- glide_left -->
