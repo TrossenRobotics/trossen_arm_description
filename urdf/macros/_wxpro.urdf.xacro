@@ -5,6 +5,8 @@
     value="wxpro"
     scope="local"/>
 
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/zed_camera.urdf.xacro" />
+
   <xacro:macro name="wxpro" params="prefix:=''">
 
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
@@ -537,52 +539,17 @@
 
     <joint name="${prefix}camera_mount_joint" type="fixed">
       <origin
-        xyz="0.104 0 0"
+        xyz="0.102 0 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_6"/>
       <child link="${prefix}camera_mount"/>
     </joint>
 
-    <!-- TODO(abhismirai42): use official zed camera xacro model -->
-    <link name="${prefix}camera">
-      <inertial>
-        <origin
-          xyz="-0.00555 0 0.07215"
-          rpy="0 0 0" />
-        <mass value="0.0695"/>
-        <inertia
-          ixx="0.0000195"
-          ixy="0.0"
-          ixz="0.0"
-          iyy="0.0000192"
-          iyz="0.0"
-          izz="0.0000202"/>
-      </inertial>
-      <visual>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="${mesh_directory}/camera.obj"/>
-        </geometry>
-      </visual>
-      <collision>
-        <origin
-          xyz="0 0 0"
-          rpy="0 0 0" />
-        <geometry>
-          <mesh filename="${mesh_directory}/camera.obj"/>
-        </geometry>
-      </collision>
-    </link>
-
-    <joint name="${prefix}camera_joint" type="fixed">
+    <xacro:zed_camera name="${prefix}wrist" model="zedxnano" parent="${prefix}link_6">
       <origin
-        xyz="-0.002173 0 0.001068"
-        rpy="0 0 0" />
-      <parent link="${prefix}camera_mount"/>
-      <child link="${prefix}camera"/>
-    </joint>
+        xyz="0.086133 0 0.057843"
+        rpy="0 0.436 0" />
+    </xacro:zed_camera>
 
   </xacro:macro> <!-- wxpro -->
 
