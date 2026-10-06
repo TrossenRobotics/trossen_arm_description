@@ -6,6 +6,7 @@
     scope="global"/>
 
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/zed_camera.urdf.xacro" />
 
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/rivet"/>
 
@@ -98,45 +99,11 @@
     </collision>
   </link>
 
-  <link name="camera">
-    <inertial>
-      <origin
-        xyz="0.0181899 0 0"
-        rpy="0 0 0" />
-      <mass value="0.0982026"/>
-      <inertia
-        ixx="0.0000756992"
-        ixy="0.0"
-        ixz="0.0"
-        iyy="0.0000174033"
-        iyz="0.0"
-        izz="0.0000778027"/>
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh filename="${mesh_directory}/camera.obj"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh filename="${mesh_directory}/camera.obj"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="camera_mount_joint" type="fixed">
+  <xacro:zed_camera name="cam_high" model="zedxm" parent="lift_link">
     <origin
-      xyz="0.0786917 0 0.351299"
+      xyz="0.0906 0 0.3267"
       rpy="0 0.436332 0" />
-    <parent link="lift_link"/>
-    <child link="camera"/>
-  </joint>
+  </xacro:zed_camera>
 
   <xacro:macro name="swerve_module" params="prefix pivot_xyz pivot_rpy">
     <link name="${prefix}_pivot_link">
