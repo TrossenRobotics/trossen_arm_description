@@ -4,7 +4,7 @@
 <!-- |    EDITING THIS FILE BY HAND IS NOT RECOMMENDED                                 | -->
 <!-- =================================================================================== -->
 <robot name="workbench">
-  <link name="workbench_base_link">
+  <link name="base_link">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <mass value="10.0"/>
@@ -25,7 +25,7 @@
   </link>
   <joint name="cam_high_mount_joint" type="fixed">
     <origin rpy="0 0.872665 0" xyz="0.028173 0 0.857613"/>
-    <parent link="workbench_base_link"/>
+    <parent link="base_link"/>
     <child link="cam_high_camera_link"/>
   </joint>
   <link name="cam_high_camera_link"/>
@@ -82,7 +82,7 @@
   </joint>
   <joint name="follower_right_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.274 0.0064"/>
-    <parent link="workbench_base_link"/>
+    <parent link="base_link"/>
     <child link="follower_right_base_link"/>
   </joint>
   <link name="follower_right_base_link">
@@ -450,7 +450,7 @@
   </joint>
   <joint name="follower_left_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.274 0.0064"/>
-    <parent link="workbench_base_link"/>
+    <parent link="base_link"/>
     <child link="follower_left_base_link"/>
   </joint>
   <link name="follower_left_base_link">
