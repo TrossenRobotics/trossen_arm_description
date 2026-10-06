@@ -6,10 +6,11 @@
     scope="global"/>
 
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/zed_camera.urdf.xacro" />
 
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/workbench"/>
 
-  <!-- TODO(abhismirai42): update inertial property for workbench_base and cam_high -->
+  <!-- TODO(abhismirai42): update inertial property for workbench_base -->
   <link name="workbench_base_link">
     <inertial>
       <origin
@@ -42,45 +43,11 @@
     </collision>
   </link>
 
-  <link name="cam_high">
-    <inertial>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <mass value="0.1"/>
-      <inertia
-        ixx="0.001"
-        ixy="0.0"
-        ixz="0.0"
-        iyy="0.001"
-        iyz="0.0"
-        izz="0.001"/>
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh filename="${mesh_directory}/cam_high.obj"/>
-      </geometry>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh filename="${mesh_directory}/cam_high.obj"/>
-      </geometry>
-    </collision>
-  </link>
-
-  <joint name="cam_high_joint" type="fixed">
+  <xacro:zed_camera name="cam_high" model="zedxm" parent="workbench_base_link">
     <origin
-      xyz="0.049994 0 0.856358"
+      xyz="0.028173 0 0.857613"
       rpy="0 0.872665 0" />
-    <parent link="workbench_base_link"/>
-    <child link="cam_high"/>
-  </joint>
+  </xacro:zed_camera>
 
   <joint name="follower_right_mount_joint" type="fixed">
     <origin

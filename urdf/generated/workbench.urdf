@@ -23,29 +23,62 @@
       </geometry>
     </collision>
   </link>
-  <link name="cam_high">
+  <joint name="cam_high_mount_joint" type="fixed">
+    <origin rpy="0 0.872665 0" xyz="0.028173 0 0.857613"/>
+    <parent link="workbench_base_link"/>
+    <child link="cam_high_camera_link"/>
+  </joint>
+  <link name="cam_high_camera_link"/>
+  <link name="cam_high_camera_center">
     <inertial>
       <origin rpy="0 0 0" xyz="0 0 0"/>
-      <mass value="0.1"/>
-      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+      <mass value="0.15"/>
+      <inertia ixx="0.00012325000000000001" ixy="0.0" ixz="0.0" iyy="2.99125e-05" iyz="0.0" izz="0.0001275625"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.016"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/workbench/cam_high.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxm.stl"/>
       </geometry>
+      <material name="zed_camera_mat">
+        <color rgba="0.25 0.25 0.25 1.0"/>
+      </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.016"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/workbench/cam_high.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxm.stl"/>
       </geometry>
     </collision>
   </link>
-  <joint name="cam_high_joint" type="fixed">
-    <origin rpy="0 0.872665 0" xyz="0.049994 0 0.856358"/>
-    <parent link="workbench_base_link"/>
-    <child link="cam_high"/>
+  <joint name="cam_high_camera_center_joint" type="fixed">
+    <parent link="cam_high_camera_link"/>
+    <child link="cam_high_camera_center"/>
+    <origin rpy="0 0 0" xyz="0 0 0.016"/>
+  </joint>
+  <link name="cam_high_left_camera_frame"/>
+  <joint name="cam_high_left_camera_joint" type="fixed">
+    <parent link="cam_high_camera_center"/>
+    <child link="cam_high_left_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 0.025 0"/>
+  </joint>
+  <link name="cam_high_left_camera_frame_optical"/>
+  <joint name="cam_high_left_camera_optical_joint" type="fixed">
+    <parent link="cam_high_left_camera_frame"/>
+    <child link="cam_high_left_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+  </joint>
+  <link name="cam_high_right_camera_frame"/>
+  <joint name="cam_high_right_camera_joint" type="fixed">
+    <parent link="cam_high_camera_center"/>
+    <child link="cam_high_right_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 -0.025 0"/>
+  </joint>
+  <link name="cam_high_right_camera_frame_optical"/>
+  <joint name="cam_high_right_camera_optical_joint" type="fixed">
+    <parent link="cam_high_right_camera_frame"/>
+    <child link="cam_high_right_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
   </joint>
   <joint name="follower_right_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 -0.274 0.0064"/>
@@ -354,33 +387,66 @@
     </collision>
   </link>
   <joint name="follower_right_camera_mount_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.104 0 0"/>
+    <origin rpy="0 0 0" xyz="0.102 0 0"/>
     <parent link="follower_right_link_6"/>
     <child link="follower_right_camera_mount"/>
   </joint>
-  <link name="follower_right_camera">
+  <joint name="follower_right_wrist_mount_joint" type="fixed">
+    <origin rpy="0 0.436 0" xyz="0.086133 0 0.057843"/>
+    <parent link="follower_right_link_6"/>
+    <child link="follower_right_wrist_camera_link"/>
+  </joint>
+  <link name="follower_right_wrist_camera_link"/>
+  <link name="follower_right_wrist_camera_center">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00555 0 0.07215"/>
-      <mass value="0.0695"/>
-      <inertia ixx="0.0000195" ixy="0.0" ixz="0.0" iyy="0.0000192" iyz="0.0" izz="0.0000202"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.075"/>
+      <inertia ixx="1.68390625e-05" ixy="0.0" ixz="0.0" iyy="1.2954312499999998e-05" iyz="0.0" izz="1.8165249999999997e-05"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.01525"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxpro/camera.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxnano.stl"/>
       </geometry>
+      <material name="zed_camera_mat">
+        <color rgba="0.25 0.25 0.25 1.0"/>
+      </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.01525"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxpro/camera.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxnano.stl"/>
       </geometry>
     </collision>
   </link>
-  <joint name="follower_right_camera_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.002173 0 0.001068"/>
-    <parent link="follower_right_camera_mount"/>
-    <child link="follower_right_camera"/>
+  <joint name="follower_right_wrist_camera_center_joint" type="fixed">
+    <parent link="follower_right_wrist_camera_link"/>
+    <child link="follower_right_wrist_camera_center"/>
+    <origin rpy="0 0 0" xyz="0 0 0.01525"/>
+  </joint>
+  <link name="follower_right_wrist_left_camera_frame"/>
+  <joint name="follower_right_wrist_left_camera_joint" type="fixed">
+    <parent link="follower_right_wrist_camera_center"/>
+    <child link="follower_right_wrist_left_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 0.009 0"/>
+  </joint>
+  <link name="follower_right_wrist_left_camera_frame_optical"/>
+  <joint name="follower_right_wrist_left_camera_optical_joint" type="fixed">
+    <parent link="follower_right_wrist_left_camera_frame"/>
+    <child link="follower_right_wrist_left_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+  </joint>
+  <link name="follower_right_wrist_right_camera_frame"/>
+  <joint name="follower_right_wrist_right_camera_joint" type="fixed">
+    <parent link="follower_right_wrist_camera_center"/>
+    <child link="follower_right_wrist_right_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 -0.009 0"/>
+  </joint>
+  <link name="follower_right_wrist_right_camera_frame_optical"/>
+  <joint name="follower_right_wrist_right_camera_optical_joint" type="fixed">
+    <parent link="follower_right_wrist_right_camera_frame"/>
+    <child link="follower_right_wrist_right_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
   </joint>
   <joint name="follower_left_mount_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0 0.274 0.0064"/>
@@ -689,32 +755,65 @@
     </collision>
   </link>
   <joint name="follower_left_camera_mount_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="0.104 0 0"/>
+    <origin rpy="0 0 0" xyz="0.102 0 0"/>
     <parent link="follower_left_link_6"/>
     <child link="follower_left_camera_mount"/>
   </joint>
-  <link name="follower_left_camera">
+  <joint name="follower_left_wrist_mount_joint" type="fixed">
+    <origin rpy="0 0.436 0" xyz="0.086133 0 0.057843"/>
+    <parent link="follower_left_link_6"/>
+    <child link="follower_left_wrist_camera_link"/>
+  </joint>
+  <link name="follower_left_wrist_camera_link"/>
+  <link name="follower_left_wrist_camera_center">
     <inertial>
-      <origin rpy="0 0 0" xyz="-0.00555 0 0.07215"/>
-      <mass value="0.0695"/>
-      <inertia ixx="0.0000195" ixy="0.0" ixz="0.0" iyy="0.0000192" iyz="0.0" izz="0.0000202"/>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <mass value="0.075"/>
+      <inertia ixx="1.68390625e-05" ixy="0.0" ixz="0.0" iyy="1.2954312499999998e-05" iyz="0.0" izz="1.8165249999999997e-05"/>
     </inertial>
     <visual>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.01525"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxpro/camera.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxnano.stl"/>
       </geometry>
+      <material name="zed_camera_mat">
+        <color rgba="0.25 0.25 0.25 1.0"/>
+      </material>
     </visual>
     <collision>
-      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <origin rpy="0 0 0" xyz="0 0 -0.01525"/>
       <geometry>
-        <mesh filename="package://trossen_arm_description/meshes/wxpro/camera.obj"/>
+        <mesh filename="package://trossen_arm_description/meshes/peripherals/zedxnano.stl"/>
       </geometry>
     </collision>
   </link>
-  <joint name="follower_left_camera_joint" type="fixed">
-    <origin rpy="0 0 0" xyz="-0.002173 0 0.001068"/>
-    <parent link="follower_left_camera_mount"/>
-    <child link="follower_left_camera"/>
+  <joint name="follower_left_wrist_camera_center_joint" type="fixed">
+    <parent link="follower_left_wrist_camera_link"/>
+    <child link="follower_left_wrist_camera_center"/>
+    <origin rpy="0 0 0" xyz="0 0 0.01525"/>
+  </joint>
+  <link name="follower_left_wrist_left_camera_frame"/>
+  <joint name="follower_left_wrist_left_camera_joint" type="fixed">
+    <parent link="follower_left_wrist_camera_center"/>
+    <child link="follower_left_wrist_left_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 0.009 0"/>
+  </joint>
+  <link name="follower_left_wrist_left_camera_frame_optical"/>
+  <joint name="follower_left_wrist_left_camera_optical_joint" type="fixed">
+    <parent link="follower_left_wrist_left_camera_frame"/>
+    <child link="follower_left_wrist_left_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
+  </joint>
+  <link name="follower_left_wrist_right_camera_frame"/>
+  <joint name="follower_left_wrist_right_camera_joint" type="fixed">
+    <parent link="follower_left_wrist_camera_center"/>
+    <child link="follower_left_wrist_right_camera_frame"/>
+    <origin rpy="0 0 0" xyz="-0.01 -0.009 0"/>
+  </joint>
+  <link name="follower_left_wrist_right_camera_frame_optical"/>
+  <joint name="follower_left_wrist_right_camera_optical_joint" type="fixed">
+    <parent link="follower_left_wrist_right_camera_frame"/>
+    <child link="follower_left_wrist_right_camera_frame_optical"/>
+    <origin rpy="-1.5707963267948966 0 -1.5707963267948966" xyz="0 0 0"/>
   </joint>
 </robot>
