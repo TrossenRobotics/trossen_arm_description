@@ -11,7 +11,7 @@
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/workbench"/>
 
   <!-- TODO(abhismirai42): update inertial property for workbench_base -->
-  <link name="workbench_base_link">
+  <link name="base_link">
     <inertial>
       <origin
         xyz="0 0 0"
@@ -43,7 +43,7 @@
     </collision>
   </link>
 
-  <xacro:zed_camera name="cam_high" model="zedxm" parent="workbench_base_link">
+  <xacro:zed_camera name="cam_high" model="zedxm" parent="base_link">
     <origin
       xyz="0.028173 0 0.857613"
       rpy="0 0.872665 0" />
@@ -53,7 +53,7 @@
     <origin
       xyz="0 -0.274 0.0064"
       rpy="0 0 0" />
-    <parent link="workbench_base_link"/>
+    <parent link="base_link"/>
     <child link="follower_right_base_link"/>
   </joint>
 
@@ -63,7 +63,7 @@
     <origin
       xyz="0 0.274 0.0064"
       rpy="0 0 0" />
-    <parent link="workbench_base_link"/>
+    <parent link="base_link"/>
     <child link="follower_left_base_link"/>
   </joint>
 
