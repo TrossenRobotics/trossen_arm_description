@@ -198,7 +198,7 @@
     <origin rpy="0 0 0" xyz="0.114138 0.012 0.0116"/>
     <parent link="link_6"/>
     <child link="trigger"/>
-    <axis xyz="0 1 0"/>
+    <axis xyz="0 -1 0"/>
     <limit effort="1.8" lower="0.0" upper="0.7853981633974483" velocity="5.0"/>
   </joint>
 </robot>
