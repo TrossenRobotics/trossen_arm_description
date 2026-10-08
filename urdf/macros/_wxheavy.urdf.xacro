@@ -85,9 +85,9 @@
       <child link="${prefix}link_1"/>
       <axis xyz="0 0 1"/>
       <limit
-        lower="${-radians(180 - 5)}"
-        upper="${radians(180 - 5)}"
-        effort="27.0"
+        lower="${-radians(165)}"
+        upper="${radians(165)}"
+        effort="97.0"
         velocity="3.375" />
     </joint>
 
@@ -132,8 +132,8 @@
       <axis xyz="0 1 0"/>
       <limit
         lower="0.0"
-        upper="${pi}"
-        effort="27.0"
+        upper="${radians(220)}"
+        effort="194.0"
         velocity="3.375" />
     </joint>
 
@@ -178,8 +178,8 @@
       <axis xyz="0 -1 0"/>
       <limit
         lower="0.0"
-        upper="${3 * pi / 4}"
-        effort="27.0"
+        upper="${radians(215)}"
+        effort="97.0"
         velocity="3.375" />
     </joint>
 
@@ -225,7 +225,7 @@
       <limit
         lower="-${pi / 2}"
         upper="${pi / 2}"
-        effort="7.0"
+        effort="27.0"
         velocity="7.0" />
     </joint>
 
@@ -315,8 +315,8 @@
       <child link="${prefix}link_6"/>
       <axis xyz="1 0 0"/>
       <limit
-        lower="-${pi}"
-        upper="${pi}"
+        lower="${-radians(115)}"
+        upper="${radians(115)}"
         effort="7.0"
         velocity="7.0" />
     </joint>
@@ -364,7 +364,7 @@
       <axis xyz="-1 0 0"/>
       <limit
         lower="0.0"
-        upper="0.044"
+        upper="0.045"
         effort="400.0"
         velocity="0.0875" />
     </joint>
@@ -410,7 +410,7 @@
       <axis xyz="-1 0 0"/>
       <limit
         lower="0.0"
-        upper="0.044"
+        upper="0.045"
         effort="400.0"
         velocity="0.0875" />
     </joint>
