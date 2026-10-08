@@ -124,7 +124,7 @@
     <parent link="follower_right_base_link"/>
     <child link="follower_right_link_1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.375"/>
+    <limit effort="27.0" lower="-2.8797932657906435" upper="2.8797932657906435" velocity="3.375"/>
   </joint>
   <link name="follower_right_link_2">
     <inertial>
@@ -150,7 +150,7 @@
     <parent link="follower_right_link_1"/>
     <child link="follower_right_link_2"/>
     <axis xyz="0 1 0"/>
-    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
+    <limit effort="97.0" lower="0.0" upper="3.5779249665883754" velocity="3.375"/>
   </joint>
   <link name="follower_right_link_3">
     <inertial>
@@ -176,7 +176,7 @@
     <parent link="follower_right_link_2"/>
     <child link="follower_right_link_3"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.375"/>
+    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
   </joint>
   <link name="follower_right_link_4">
     <inertial>
@@ -254,7 +254,7 @@
     <parent link="follower_right_link_5"/>
     <child link="follower_right_link_6"/>
     <axis xyz="1 0 0"/>
-    <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="7.0"/>
+    <limit effort="7.0" lower="-2.007128639793479" upper="2.007128639793479" velocity="7.0"/>
   </joint>
   <link name="follower_right_carriage_right">
     <inertial>
@@ -281,7 +281,7 @@
     <child link="follower_right_carriage_right"/>
     <mimic joint="follower_right_left_carriage_joint"/>
     <axis xyz="-1 0 0"/>
-    <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
+    <limit effort="400.0" lower="0.0" upper="0.045" velocity="0.0875"/>
   </joint>
   <link name="follower_right_carriage_left">
     <inertial>
@@ -307,7 +307,7 @@
     <parent link="follower_right_link_6"/>
     <child link="follower_right_carriage_left"/>
     <axis xyz="-1 0 0"/>
-    <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
+    <limit effort="400.0" lower="0.0" upper="0.045" velocity="0.0875"/>
   </joint>
   <link name="follower_right_gripper_left">
     <inertial>
@@ -492,7 +492,7 @@
     <parent link="follower_left_base_link"/>
     <child link="follower_left_link_1"/>
     <axis xyz="0 0 1"/>
-    <limit effort="27.0" lower="-3.0543261909900767" upper="3.0543261909900767" velocity="3.375"/>
+    <limit effort="27.0" lower="-2.8797932657906435" upper="2.8797932657906435" velocity="3.375"/>
   </joint>
   <link name="follower_left_link_2">
     <inertial>
@@ -518,7 +518,7 @@
     <parent link="follower_left_link_1"/>
     <child link="follower_left_link_2"/>
     <axis xyz="0 1 0"/>
-    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
+    <limit effort="97.0" lower="0.0" upper="3.5779249665883754" velocity="3.375"/>
   </joint>
   <link name="follower_left_link_3">
     <inertial>
@@ -544,7 +544,7 @@
     <parent link="follower_left_link_2"/>
     <child link="follower_left_link_3"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="27.0" lower="0.0" upper="2.356194490192345" velocity="3.375"/>
+    <limit effort="27.0" lower="0.0" upper="3.141592653589793" velocity="3.375"/>
   </joint>
   <link name="follower_left_link_4">
     <inertial>
@@ -622,7 +622,7 @@
     <parent link="follower_left_link_5"/>
     <child link="follower_left_link_6"/>
     <axis xyz="1 0 0"/>
-    <limit effort="7.0" lower="-3.141592653589793" upper="3.141592653589793" velocity="7.0"/>
+    <limit effort="7.0" lower="-2.007128639793479" upper="2.007128639793479" velocity="7.0"/>
   </joint>
   <link name="follower_left_carriage_right">
     <inertial>
@@ -649,7 +649,7 @@
     <child link="follower_left_carriage_right"/>
     <mimic joint="follower_left_left_carriage_joint"/>
     <axis xyz="-1 0 0"/>
-    <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
+    <limit effort="400.0" lower="0.0" upper="0.045" velocity="0.0875"/>
   </joint>
   <link name="follower_left_carriage_left">
     <inertial>
@@ -675,7 +675,7 @@
     <parent link="follower_left_link_6"/>
     <child link="follower_left_carriage_left"/>
     <axis xyz="-1 0 0"/>
-    <limit effort="400.0" lower="0.0" upper="0.044" velocity="0.0875"/>
+    <limit effort="400.0" lower="0.0" upper="0.045" velocity="0.0875"/>
   </joint>
   <link name="follower_left_gripper_left">
     <inertial>
