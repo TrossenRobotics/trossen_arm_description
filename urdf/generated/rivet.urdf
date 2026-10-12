@@ -438,7 +438,7 @@
     </collision>
   </link>
   <joint name="follower_right_joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.012 0.0 -0.048"/>
+    <origin rpy="0 0 0" xyz="-0.009 0.0 -0.048"/>
     <parent link="follower_right_link_5"/>
     <child link="follower_right_link_6"/>
     <axis xyz="1 0 0"/>
@@ -464,7 +464,7 @@
     </collision>
   </link>
   <joint name="follower_right_right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 1.5707963267948966" xyz="0.1285 -0.0225 0"/>
+    <origin rpy="0 0 1.5707963267948966" xyz="0.1265 -0.0225 0"/>
     <parent link="follower_right_link_6"/>
     <child link="follower_right_carriage_right"/>
     <mimic joint="follower_right_left_carriage_joint"/>
@@ -491,7 +491,7 @@
     </collision>
   </link>
   <joint name="follower_right_left_carriage_joint" type="prismatic">
-    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1285 0.0225 0"/>
+    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1265 0.0225 0"/>
     <parent link="follower_right_link_6"/>
     <child link="follower_right_carriage_left"/>
     <axis xyz="-1 0 0"/>
@@ -547,7 +547,7 @@
   </joint>
   <link name="follower_right_ee_gripper_link"/>
   <joint name="follower_right_ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.22 0 0"/>
+    <origin rpy="0 0 0" xyz="0.218 0 0"/>
     <parent link="follower_right_link_6"/>
     <child link="follower_right_ee_gripper_link"/>
   </joint>
@@ -576,7 +576,7 @@
     <child link="follower_right_camera_mount"/>
   </joint>
   <joint name="follower_right_wrist_mount_joint" type="fixed">
-    <origin rpy="0 0.436 0" xyz="0.086133 0 0.057843"/>
+    <origin rpy="0 0.436332 0" xyz="0.091112 0 0.057797"/>
     <parent link="follower_right_link_6"/>
     <child link="follower_right_wrist_camera_link"/>
   </joint>
@@ -806,7 +806,7 @@
     </collision>
   </link>
   <joint name="follower_left_joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.012 0.0 -0.048"/>
+    <origin rpy="0 0 0" xyz="-0.009 0.0 -0.048"/>
     <parent link="follower_left_link_5"/>
     <child link="follower_left_link_6"/>
     <axis xyz="1 0 0"/>
@@ -832,7 +832,7 @@
     </collision>
   </link>
   <joint name="follower_left_right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 1.5707963267948966" xyz="0.1285 -0.0225 0"/>
+    <origin rpy="0 0 1.5707963267948966" xyz="0.1265 -0.0225 0"/>
     <parent link="follower_left_link_6"/>
     <child link="follower_left_carriage_right"/>
     <mimic joint="follower_left_left_carriage_joint"/>
@@ -859,7 +859,7 @@
     </collision>
   </link>
   <joint name="follower_left_left_carriage_joint" type="prismatic">
-    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1285 0.0225 0"/>
+    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1265 0.0225 0"/>
     <parent link="follower_left_link_6"/>
     <child link="follower_left_carriage_left"/>
     <axis xyz="-1 0 0"/>
@@ -915,7 +915,7 @@
   </joint>
   <link name="follower_left_ee_gripper_link"/>
   <joint name="follower_left_ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.22 0 0"/>
+    <origin rpy="0 0 0" xyz="0.218 0 0"/>
     <parent link="follower_left_link_6"/>
     <child link="follower_left_ee_gripper_link"/>
   </joint>
@@ -944,7 +944,7 @@
     <child link="follower_left_camera_mount"/>
   </joint>
   <joint name="follower_left_wrist_mount_joint" type="fixed">
-    <origin rpy="0 0.436 0" xyz="0.086133 0 0.057843"/>
+    <origin rpy="0 0.436332 0" xyz="0.091112 0 0.057797"/>
     <parent link="follower_left_link_6"/>
     <child link="follower_left_wrist_camera_link"/>
   </joint>
