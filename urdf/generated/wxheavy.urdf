@@ -169,7 +169,7 @@
     </collision>
   </link>
   <joint name="joint_5" type="revolute">
-    <origin rpy="0 0 0" xyz="-0.012 0.0 -0.048"/>
+    <origin rpy="0 0 0" xyz="-0.009 0.0 -0.048"/>
     <parent link="link_5"/>
     <child link="link_6"/>
     <axis xyz="1 0 0"/>
@@ -195,7 +195,7 @@
     </collision>
   </link>
   <joint name="right_carriage_joint" type="prismatic">
-    <origin rpy="0 0 1.5707963267948966" xyz="0.1285 -0.0225 0"/>
+    <origin rpy="0 0 1.5707963267948966" xyz="0.1265 -0.0225 0"/>
     <parent link="link_6"/>
     <child link="carriage_right"/>
     <mimic joint="left_carriage_joint"/>
@@ -222,7 +222,7 @@
     </collision>
   </link>
   <joint name="left_carriage_joint" type="prismatic">
-    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1285 0.0225 0"/>
+    <origin rpy="3.141592653589793 0 -1.5707963267948966" xyz="0.1265 0.0225 0"/>
     <parent link="link_6"/>
     <child link="carriage_left"/>
     <axis xyz="-1 0 0"/>
@@ -278,7 +278,7 @@
   </joint>
   <link name="ee_gripper_link"/>
   <joint name="ee_gripper" type="fixed">
-    <origin rpy="0 0 0" xyz="0.22 0 0"/>
+    <origin rpy="0 0 0" xyz="0.218 0 0"/>
     <parent link="link_6"/>
     <child link="ee_gripper_link"/>
   </joint>

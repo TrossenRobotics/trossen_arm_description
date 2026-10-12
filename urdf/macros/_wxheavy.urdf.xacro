@@ -309,7 +309,7 @@
 
     <joint name="${prefix}joint_5" type="revolute">
       <origin
-        xyz="-0.012 0.0 -0.048"
+        xyz="-0.009 0.0 -0.048"
         rpy="0 0 0" />
       <parent link="${prefix}link_5"/>
       <child link="${prefix}link_6"/>
@@ -356,7 +356,7 @@
 
     <joint name="${prefix}right_carriage_joint" type="prismatic">
       <origin
-        xyz="0.1285 -0.0225 0"
+        xyz="0.1265 -0.0225 0"
         rpy="0 0 ${pi / 2}" />
       <parent link="${prefix}link_6"/>
       <child link="${prefix}carriage_right"/>
@@ -403,7 +403,7 @@
 
     <joint name="${prefix}left_carriage_joint" type="prismatic">
       <origin
-        xyz="0.1285 0.0225 0"
+        xyz="0.1265 0.0225 0"
         rpy="${pi} 0 -${pi / 2}" />
       <parent link="${prefix}link_6"/>
       <child link="${prefix}carriage_left"/>
@@ -499,7 +499,7 @@
 
     <joint name="${prefix}ee_gripper" type="fixed">
       <origin
-        xyz="0.22 0 0"
+        xyz="0.218 0 0"
         rpy="0 0 0" />
       <parent link="${prefix}link_6"/>
       <child link="${prefix}ee_gripper_link"/>
