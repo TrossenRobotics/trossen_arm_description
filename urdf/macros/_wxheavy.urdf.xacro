@@ -12,6 +12,7 @@
     <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/${robot_model}"/>
 
     <!-- TODO(abhismirai42): ros2_control -->
+    <!-- TODO(abhismirai42): verify inertial properties for all links -->
 
     <link name="${prefix}base_link">
       <inertial>
@@ -321,7 +322,6 @@
         velocity="7.0" />
     </joint>
 
-    <!-- TODO(abhismirai42): verify inertial properties carriage_links, gripper_links and camera_link -->
     <link name="${prefix}carriage_right">
       <inertial>
         <origin
