@@ -63,8 +63,8 @@
     <limit
       lower="0.0"
       upper="0.858"
-      effort="1"
-      velocity="1" />
+      effort="2845"
+      velocity="0.3" />
   </joint>
 
   <link name="lift_link">
@@ -147,7 +147,7 @@
       <axis xyz="0 0 1"/>
       <limit
         effort="10"
-        velocity="6.283185" />
+        velocity="45" />
     </joint>
 
     <link name="${prefix}_drive_link">
@@ -190,8 +190,8 @@
       <child link="${prefix}_drive_link"/>
       <axis xyz="0 1 0"/>
       <limit
-        effort="4"
-        velocity="18.691589" />
+        effort="6"
+        velocity="41" />
     </joint>
   </xacro:macro> <!-- swerve_module -->
 
