@@ -99,7 +99,7 @@ def generate_launch_description():
             'robot_model',
             default_value='wxai',
             choices=(
-                'wxai'
+                'wxai', 'rivet'
             ),
         )
     )
