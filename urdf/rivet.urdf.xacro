@@ -57,6 +57,16 @@
     <child link="base_link"/>
   </joint>
 
+  <link name="imu_link"/>
+
+  <joint name="imu_joint" type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+  </joint>
+
   <joint name="lift" type="prismatic">
     <origin
       xyz="0.165 0.0 0.181"

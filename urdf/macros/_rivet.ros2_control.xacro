@@ -35,7 +35,9 @@
         </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
       </hardware>
 
-      <!-- Order matters: lift, fl_pivot, fl_drive, fr_pivot, fr_drive, b_pivot, b_drive -->
+      <!-- Order matters for every element below: the hardware accesses them by index. -->
+
+      <!-- Joints: lift, fl_pivot, fl_drive, fr_pivot, fr_drive, b_pivot, b_drive -->
       <joint name="lift">
         <command_interface name="velocity"/>
         <xacro:rivet_state_interface name="position"/>
@@ -45,6 +47,51 @@
       <xacro:rivet_swerve_module_ros2_control prefix="fl"/>
       <xacro:rivet_swerve_module_ros2_control prefix="fr"/>
       <xacro:rivet_swerve_module_ros2_control prefix="b"/>
+
+      <!-- Sensors: imu, battery -->
+
+      <!-- IMU (imu_sensor_broadcaster), in imu_link frame: orientation (yaw only),
+           angular_velocity (rad/s), linear_acceleration (m/s^2, z includes gravity) -->
+      <sensor name="imu">
+        <xacro:rivet_state_interface name="orientation.x"/>
+        <xacro:rivet_state_interface name="orientation.y"/>
+        <xacro:rivet_state_interface name="orientation.z"/>
+        <state_interface name="orientation.w">
+          <param name="initial_value">1.0</param>
+        </state_interface>
+        <xacro:rivet_state_interface name="angular_velocity.x"/>
+        <xacro:rivet_state_interface name="angular_velocity.y"/>
+        <xacro:rivet_state_interface name="angular_velocity.z"/>
+        <xacro:rivet_state_interface name="linear_acceleration.x"/>
+        <xacro:rivet_state_interface name="linear_acceleration.y"/>
+        <xacro:rivet_state_interface name="linear_acceleration.z"/>
+      </sensor>
+
+      <!-- Battery (battery_state_broadcaster): voltage (V), current (A, positive = discharging),
+           percentage (0-100), temperature (deg C), power_supply_status (sensor_msgs/BatteryState) -->
+      <sensor name="battery">
+        <xacro:rivet_state_interface name="battery_voltage"/>
+        <xacro:rivet_state_interface name="battery_current"/>
+        <xacro:rivet_state_interface name="battery_percentage"/>
+        <xacro:rivet_state_interface name="battery_temperature"/>
+        <xacro:rivet_state_interface name="battery_power_supply_status"/>
+      </sensor>
+
+      <!-- GPIOs: base -->
+
+      <!-- Base velocity command (base frame) and odometry: position_* in world frame (m, rad),
+           velocity_* in base frame (m/s, rad/s) -->
+      <gpio name="base">
+        <command_interface name="velocity_x"/>
+        <command_interface name="velocity_y"/>
+        <command_interface name="velocity_yaw"/>
+        <xacro:rivet_state_interface name="position_x"/>
+        <xacro:rivet_state_interface name="position_y"/>
+        <xacro:rivet_state_interface name="position_yaw"/>
+        <xacro:rivet_state_interface name="velocity_x"/>
+        <xacro:rivet_state_interface name="velocity_y"/>
+        <xacro:rivet_state_interface name="velocity_yaw"/>
+      </gpio>
 
     </ros2_control>
 
