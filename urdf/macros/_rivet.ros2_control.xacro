@@ -25,16 +25,13 @@
     <ros2_control name="TrossenBaseHardwareInterface" type="system">
 
       <hardware>
-        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
-          <plugin>mock_components/GenericSystem</plugin>
-          <!-- Integrate joint velocity commands into position so the lift moves -->
-          <param name="calculate_dynamics">true</param>
-        </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
+        <plugin>trossen_base_hardware/TrossenBaseHardwareInterface</plugin>
+        <param name="wheel_radius">0.0535</param>  <!-- m -->
 
-        <xacro:if value="${ros2_control_hardware_type == 'real'}">
-          <plugin>trossen_base_hardware/TrossenBaseHardwareInterface</plugin>
-          <param name="wheel_radius">0.0535</param>  <!-- m -->
-        </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
+        <!-- 'mock_components': no driver, commands looped back into states -->
+        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
+          <param name="mock">true</param>
+        </xacro:if>
       </hardware>
 
       <!-- Order matters for every element below: the hardware accesses them by index. -->
