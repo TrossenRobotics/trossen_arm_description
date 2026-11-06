@@ -27,6 +27,8 @@
       <hardware>
         <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
           <plugin>mock_components/GenericSystem</plugin>
+          <!-- Integrate joint velocity commands into position so the lift moves -->
+          <param name="calculate_dynamics">true</param>
         </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
 
         <xacro:if value="${ros2_control_hardware_type == 'real'}">
