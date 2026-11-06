@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="rivet" xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:arg name="ros2_control_hardware_type" default="real"/>
+
   <xacro:property name="robot_model"
     value="rivet"
     scope="global"/>
 
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_rivet.ros2_control.xacro" />
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
   <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/zed_camera.urdf.xacro" />
 
+  <xacro:rivet_ros2_control ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/rivet"/>
 
   <!-- TODO(abhismirai42): update inertial property for rivet links -->

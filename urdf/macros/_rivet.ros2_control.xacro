@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Helper for state interface -->
+  <xacro:macro name="rivet_state_interface" params="name">
+    <state_interface name="${name}">
+      <param name="initial_value">0.0</param>
+    </state_interface>
+  </xacro:macro>
+
+  <!-- Helper for swerve module -->
+  <xacro:macro name="rivet_swerve_module_ros2_control" params="prefix">
+    <joint name="${prefix}_pivot">
+      <xacro:rivet_state_interface name="position"/>
+    </joint>
+    <joint name="${prefix}_drive">
+      <xacro:rivet_state_interface name="position"/>
+      <xacro:rivet_state_interface name="velocity"/>
+    </joint>
+  </xacro:macro>
+
+
+  <xacro:macro name="rivet_ros2_control" params="ros2_control_hardware_type">
+
+    <ros2_control name="TrossenBaseHardwareInterface" type="system">
+
+      <hardware>
+        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
+          <plugin>mock_components/GenericSystem</plugin>
+        </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
+
+        <xacro:if value="${ros2_control_hardware_type == 'real'}">
+          <plugin>trossen_base_hardware/TrossenBaseHardwareInterface</plugin>
+          <param name="wheel_radius">0.0535</param>  <!-- m -->
+        </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
+      </hardware>
+
+      <!-- Order matters: lift, fl_pivot, fl_drive, fr_pivot, fr_drive, b_pivot, b_drive -->
+      <joint name="lift">
+        <command_interface name="velocity"/>
+        <xacro:rivet_state_interface name="position"/>
+        <xacro:rivet_state_interface name="velocity"/>
+      </joint>
+
+      <xacro:rivet_swerve_module_ros2_control prefix="fl"/>
+      <xacro:rivet_swerve_module_ros2_control prefix="fr"/>
+      <xacro:rivet_swerve_module_ros2_control prefix="b"/>
+
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>
