@@ -113,6 +113,17 @@
     </collision>
   </link>
 
+  <!-- TODO(@schromya): Update when have precise z location -->
+  <link name="lidar_link"/>
+
+  <joint name="lidar_joint" type="fixed">
+    <origin
+      xyz="0.255 0 0"
+      rpy="0 0 ${pi/2}" />
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+  </joint>
+
   <xacro:zed_camera name="cam_high" model="zedxm" parent="lift_link">
     <origin
       xyz="0.0906 0 0.3267"
