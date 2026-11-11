@@ -61,7 +61,7 @@
 
   <joint name="imu_joint" type="fixed">
     <origin
-      xyz="-0.015 -0.055 0.021"
+      xyz="-0.0551 0.0151  0.0365"
       rpy="0 0 0" />
     <parent link="base_link"/>
     <child link="imu_link"/>
@@ -113,12 +113,11 @@
     </collision>
   </link>
 
-  <!-- TODO(@schromya): Update when have precise z location -->
   <link name="lidar_link"/>
 
   <joint name="lidar_joint" type="fixed">
     <origin
-      xyz="0.255 0 0.075"
+      xyz="0.2549 0 0.0896"
       rpy="0 0 ${pi/2}" />
     <parent link="base_link"/>
     <child link="lidar_link"/>
