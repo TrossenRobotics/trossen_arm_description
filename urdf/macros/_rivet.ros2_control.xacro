@@ -27,6 +27,7 @@
       <hardware>
         <plugin>trossen_base_hardware/TrossenBaseHardwareInterface</plugin>
         <param name="wheel_radius">0.0535</param>  <!-- m -->
+        <param name="lidar_topic">lidar/points</param>  <!-- sensor_msgs/PointCloud2, base_link frame -->
 
         <!-- 'mock_components': no driver, commands looped back into states -->
         <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
