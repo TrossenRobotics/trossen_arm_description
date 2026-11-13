@@ -20,7 +20,8 @@
   </xacro:macro>
 
 
-  <xacro:macro name="rivet_ros2_control" params="ros2_control_hardware_type">
+  <xacro:macro name="rivet_ros2_control"
+    params="ros2_control_hardware_type lift_min_position lift_max_position">
 
     <ros2_control name="TrossenBaseHardwareInterface" type="system">
 
@@ -32,6 +33,9 @@
         <!-- 'mock_components': no driver, commands looped back into states -->
         <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
           <param name="mock">true</param>
+          <!-- Mock lift position limits (m), from the lift joint <limit> -->
+          <param name="lift_min_position">${lift_min_position}</param>
+          <param name="lift_max_position">${lift_max_position}</param>
         </xacro:if>
       </hardware>
 

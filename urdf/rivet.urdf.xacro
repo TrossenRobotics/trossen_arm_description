@@ -11,7 +11,13 @@
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
   <xacro:include filename="$(find trossen_arm_description)/urdf/peripherals/zed_camera.urdf.xacro" />
 
-  <xacro:rivet_ros2_control ros2_control_hardware_type="$(arg ros2_control_hardware_type)"/>
+  <!-- Lift joint position limits (m), used by the joint <limit> and the mock humble hardware -->
+  <xacro:property name="lift_lower" value="0.0"/>
+  <xacro:property name="lift_upper" value="0.865"/>
+
+  <xacro:rivet_ros2_control
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"
+    lift_min_position="${lift_lower}" lift_max_position="${lift_upper}"/>
   <xacro:property name="mesh_directory" value="package://trossen_arm_description/meshes/rivet"/>
 
   <!-- TODO(abhismirai42): update inertial property for rivet links -->
@@ -75,8 +81,8 @@
     <child link="lift_link"/>
     <axis xyz="0 0 1"/>
     <limit
-      lower="0.0"
-      upper="0.865"
+      lower="${lift_lower}"
+      upper="${lift_upper}"
       effort="2845"
       velocity="0.3" />
   </joint>
