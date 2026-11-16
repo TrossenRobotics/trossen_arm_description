@@ -2,6 +2,7 @@
 <robot name="rivet" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:arg name="ros2_control_hardware_type" default="real"/>
+  <xacro:arg name="include_arms" default="true"/>
 
   <xacro:property name="robot_model"
     value="rivet"
@@ -243,7 +244,6 @@
     <child link="follower_right_base_link"/>
   </joint>
 
-  <xacro:wxpro prefix="follower_right_"/>
 
   <joint name="follower_left_mount_joint" type="fixed">
     <origin
@@ -253,6 +253,14 @@
     <child link="follower_left_base_link"/>
   </joint>
 
-  <xacro:wxpro prefix="follower_left_"/>
+  <xacro:if value="$(arg include_arms)">
+    <xacro:wxpro prefix="follower_right_"/>
+    <xacro:wxpro prefix="follower_left_"/>
+  </xacro:if> <!-- include_arms -->
+
+  <xacro:unless value="$(arg include_arms)">
+    <link name="follower_right_base_link"/>
+    <link name="follower_left_base_link"/>
+  </xacro:unless> <!-- include_arms -->
 
 </robot>

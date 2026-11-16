@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot name="wxpro" xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:arg name="variant"                         default="follower"/>    <!-- 'base', 'leader', 'follower' -->
   <xacro:arg name="prefix"                          default=""/>
   <xacro:arg name="use_world_frame"                 default="false"/>       <!-- 'true', 'false' -->
+  <xacro:arg name="ros2_control_hardware_type"      default="real"/>        <!-- 'real', 'mock_components' -->
+  <xacro:arg name="ip_address"                      default="192.168.1.2"/>
   <xacro:arg name="base_link_frame"                 default="$(arg prefix)base_link"/>
 
   <xacro:if value="$(arg use_world_frame)">
@@ -16,8 +19,15 @@
   </xacro:if> <!-- use_world_frame -->
 
   <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.urdf.xacro" />
+  <xacro:include filename="$(find trossen_arm_description)/urdf/macros/_wxpro.ros2_control.xacro" />
 
   <xacro:wxpro
     prefix="$(arg prefix)"/>
+
+  <xacro:wxpro_ros2_control
+    prefix="$(arg prefix)"
+    variant="$(arg variant)"
+    ros2_control_hardware_type="$(arg ros2_control_hardware_type)"
+    ip_address="$(arg ip_address)"/>
 
 </robot>

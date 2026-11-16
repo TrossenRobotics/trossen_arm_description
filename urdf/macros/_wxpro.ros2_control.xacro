@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="wxpro_ros2_control_joint" params="name">
+    <joint name="${name}">
+      <command_interface name="position" />
+      <command_interface name="velocity" />
+      <command_interface name="external_effort" />
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="effort">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+    </joint>
+  </xacro:macro>
+
+  <xacro:macro name="wxpro_ros2_control" params="prefix ros2_control_hardware_type ip_address variant">
+
+    <!-- Prefixed so multiple arms can share one controller manager -->
+    <ros2_control name="${prefix}TrossenArmHardwareInterface" type="system">
+
+      <hardware>
+        <xacro:if value="${ros2_control_hardware_type == 'mock_components'}">
+          <plugin>mock_components/GenericSystem</plugin>
+        </xacro:if>  <!-- ros2_control_hardware_type == 'mock_components' -->
+
+        <xacro:if value="${ros2_control_hardware_type == 'real'}">
+          <plugin>trossen_arm_hardware/TrossenArmHardwareInterface</plugin>
+          <param name="robot_model">4</param>             <!-- 4: pro -->
+          <param name="end_effector">${variant}</param>   <!-- 'base', 'leader', 'follower' -->
+          <param name="ip_address">${ip_address}</param>
+        </xacro:if>  <!-- ros2_control_hardware_type == 'real' -->
+      </hardware>
+
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_0"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_1"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_2"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_3"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_4"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}joint_5"/>
+      <xacro:wxpro_ros2_control_joint name="${prefix}left_carriage_joint"/>
+
+    </ros2_control>
+
+  </xacro:macro>
+
+</robot>
